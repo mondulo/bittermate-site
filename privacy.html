@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bonus Track — Política de privacidad</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Mono:wght@300;400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#0d0d0b;--bg2:#141410;
+  --cream:#f0ece2;--cream-muted:#a8a290;
+  --sage:#7a9e7e;--sage-light:#9dbfa1;--sage-dim:#3d5c40;
+  --line:rgba(240,236,226,0.08);--line-med:rgba(240,236,226,0.15);
+}
+html{scroll-behavior:smooth}
+body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--cream);overflow-x:hidden}
+
+nav{display:flex;align-items:center;justify-content:space-between;padding:1.25rem 3rem;border-bottom:1px solid var(--line);background:rgba(13,13,11,0.92);position:sticky;top:0;z-index:50}
+.nav-logo{font-family:'Playfair Display',serif;font-size:1.2rem;color:var(--cream);text-decoration:none}
+.nav-logo span{color:var(--sage)}
+.lang-toggle{display:flex;border:1px solid var(--line-med);overflow:hidden}
+.lang-btn{font-family:'DM Mono',monospace;font-size:0.6rem;letter-spacing:0.1em;padding:0.35rem 0.65rem;background:none;border:none;color:var(--cream-muted);cursor:pointer;transition:background 0.2s,color 0.2s}
+.lang-btn.active{background:var(--sage-dim);color:var(--sage-light)}
+
+.page{max-width:680px;margin:0 auto;padding:5rem 3rem 6rem}
+
+.page-label{font-family:'DM Mono',monospace;font-size:0.62rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--sage-dim);margin-bottom:1.5rem;display:flex;align-items:center;gap:0.75rem}
+.page-label::before{content:'';width:1.25rem;height:1px;background:var(--sage-dim);display:inline-block}
+
+h1{font-family:'Playfair Display',serif;font-size:clamp(2rem,5vw,3.2rem);font-weight:700;line-height:1;letter-spacing:-0.02em;color:var(--cream);margin-bottom:0.75rem}
+.updated{font-family:'DM Mono',monospace;font-size:0.62rem;letter-spacing:0.1em;color:var(--sage-dim);margin-bottom:3rem}
+
+.policy-body{display:flex;flex-direction:column;gap:2.5rem}
+
+.policy-section h2{font-family:'Playfair Display',serif;font-size:1.1rem;font-weight:700;color:var(--cream);margin-bottom:0.75rem}
+.policy-section p{font-size:0.88rem;color:var(--cream-muted);line-height:1.9;font-weight:300}
+.policy-section p+p{margin-top:0.75rem}
+.policy-section strong{color:var(--cream);font-weight:400}
+.policy-section a{color:var(--sage);text-decoration:none}
+.policy-section a:hover{color:var(--sage-light)}
+
+hr.div{border:none;border-top:1px solid var(--line)}
+footer{padding:1.75rem 3rem;border-top:1px solid var(--line);display:flex;justify-content:space-between;align-items:center;background:var(--bg)}
+footer p{font-family:'DM Mono',monospace;font-size:0.62rem;letter-spacing:0.09em;color:rgba(168,162,144,0.35)}
+.back-link{font-family:'DM Mono',monospace;font-size:0.62rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--sage-dim);text-decoration:none;transition:color 0.2s}
+.back-link:hover{color:var(--sage)}
+.footer-contact{font-family:'DM Mono',monospace;font-size:0.62rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--sage-dim);background:none;border:1px solid var(--sage-dim);padding:0.4rem 1rem;cursor:pointer;transition:color 0.2s,border-color 0.2s}
+.footer-contact:hover{color:var(--sage);border-color:var(--sage)}
+
+@media(max-width:600px){
+  nav{padding:1rem 1.5rem}
+  .page{padding:3rem 1.5rem 4rem}
+  footer{padding:1.5rem;flex-wrap:wrap;gap:1rem}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo">Bitter<span>Mate</span></a>
+  <div class="lang-toggle">
+    <button class="lang-btn active" id="btn-es" onclick="setLang('es')">ES</button>
+    <button class="lang-btn" id="btn-en" onclick="setLang('en')">EN</button>
+  </div>
+</nav>
+
+<div class="page">
+  <div class="page-label" data-t="page-label">BitterMate · Bonus Track</div>
+  <h1 data-t="page-title">Política de<br>privacidad</h1>
+  <p class="updated" data-t="updated">Última actualización: mayo 2026</p>
+
+  <div class="policy-body">
+
+    <div class="policy-section">
+      <h2 data-t="s1-title">Resumen</h2>
+      <p data-t="s1-body">Bonus Track <strong>no recopila ningún dato personal tuyo</strong>. La app funciona completamente de forma local en tu dispositivo. No hay servidores propios, no hay cuentas de usuario, no hay telemetría, no hay publicidad.</p>
+    </div>
+
+    <div class="policy-section">
+      <h2 data-t="s2-title">Datos que la app almacena</h2>
+      <p data-t="s2-body">Bonus Track guarda en tu dispositivo los archivos de música que vos importás, la metadata que editás (título, artista, álbum, portada, etc.) y las preferencias de la app. Todo esto vive en el almacenamiento local de tu iPhone y <strong>nunca sale de tu dispositivo</strong>.</p>
+    </div>
+
+    <div class="policy-section">
+      <h2 data-t="s3-title">Búsqueda de portadas</h2>
+      <p data-t="s3-body">Cuando usás la función de búsqueda de portadas, la app hace consultas a servicios externos (iTunes) usando el nombre del artista y álbum que ingresaste. Esas consultas no incluyen ningún identificador personal tuyo.</p>
+    </div>
+
+    <div class="policy-section">
+      <h2 data-t="s4-title">Servicios de terceros</h2>
+      <p data-t="s4-body">Bonus Track no usa ningún SDK de analíticas, publicidad ni rastreo. No se integra con redes sociales ni servicios de login de terceros. No hay Firebase, Crashlytics, Amplitude, ni similares.</p>
+    </div>
+
+    <div class="policy-section">
+      <h2 data-t="s5-title">Permisos del sistema</h2>
+      <p data-t="s5-body">La app solicita acceso a tu biblioteca de archivos para que puedas importar MP3. Este permiso se usa exclusivamente para esa función y no comparte esos archivos con nadie.</p>
+    </div>
+
+    <div class="policy-section">
+      <h2 data-t="s6-title">Contacto</h2>
+      <p data-t="s6-body">Si tenés preguntas sobre esta política, usá el botón de contacto en el pie de página.</p>
+    </div>
+
+  </div>
+</div>
+
+<footer>
+  <p data-t="footer">© 2026 BitterMate</p>
+  <button class="footer-contact" data-t="footer-contact" onclick="sendMail()">Contacto</button>
+  <a href="index.html" class="back-link" data-t="back">← Volver</a>
+</footer>
+
+<script>
+const copy = {
+  es:{
+    'page-label':'BitterMate · Bonus Track',
+    'page-title':'Política de<br>privacidad',
+    'updated':'Última actualización: mayo 2026',
+    's1-title':'Resumen',
+    's1-body':'Bonus Track <strong>no recopila ningún dato personal tuyo</strong>. La app funciona completamente de forma local en tu dispositivo. No hay servidores propios, no hay cuentas de usuario, no hay telemetría, no hay publicidad.',
+    's2-title':'Datos que la app almacena',
+    's2-body':'Bonus Track guarda en tu dispositivo los archivos de música que vos importás, la metadata que editás (título, artista, álbum, portada, etc.) y las preferencias de la app. Todo esto vive en el almacenamiento local de tu iPhone y <strong>nunca sale de tu dispositivo</strong>.',
+    's3-title':'Búsqueda de portadas',
+    's3-body':'Cuando usás la función de búsqueda de portadas, la app hace consultas a servicios externos (iTunes) usando el nombre del artista y álbum que ingresaste. Esas consultas no incluyen ningún identificador personal tuyo.',
+    's4-title':'Servicios de terceros',
+    's4-body':'Bonus Track no usa ningún SDK de analíticas, publicidad ni rastreo. No se integra con redes sociales ni servicios de login de terceros. No hay Firebase, Crashlytics, Amplitude, ni similares.',
+    's5-title':'Permisos del sistema',
+    's5-body':'La app solicita acceso a tu biblioteca de archivos para que puedas importar MP3. Este permiso se usa exclusivamente para esa función y no comparte esos archivos con nadie.',
+    's6-title':'Contacto',
+    's6-body':'Si tenés preguntas sobre esta política, usá el botón de contacto en el pie de página.',
+    'footer':'© 2026 BitterMate',
+    'back':'← Volver',
+    'footer-contact':'Contacto'
+  },
+  en:{
+    'page-label':'BitterMate · Bonus Track',
+    'page-title':'Privacy<br>Policy',
+    'updated':'Last updated: May 2026',
+    's1-title':'Summary',
+    's1-body':'Bonus Track <strong>does not collect any personal data</strong>. The app works entirely locally on your device. No servers, no user accounts, no telemetry, no ads.',
+    's2-title':'Data stored by the app',
+    's2-body':'Bonus Track stores on your device the music files you import, the metadata you edit (title, artist, album, artwork, etc.) and app preferences. All of this lives in your iPhone\'s local storage and <strong>never leaves your device</strong>.',
+    's3-title':'Cover art search',
+    's3-body':'When you use the cover art search feature, the app queries external services (iTunes) using the artist and album name you entered. Those queries do not include any personal identifier.',
+    's4-title':'Third-party services',
+    's4-body':'Bonus Track does not use any analytics, advertising or tracking SDKs. It does not integrate with social networks or third-party login services. No Firebase, Crashlytics, Amplitude, or similar.',
+    's5-title':'System permissions',
+    's5-body':'The app requests access to your file library so you can import MP3s. This permission is used exclusively for that purpose and your files are never shared with anyone.',
+    's6-title':'Contact',
+    's6-body':'If you have questions about this policy, use the contact button in the page footer.',
+    'footer':'© 2026 BitterMate',
+    'back':'← Back',
+    'footer-contact':'Contact'
+  }
+};
+
+let currentLang = 'es';
+
+function setLang(lang) {
+  currentLang = lang;
+  document.querySelectorAll('[data-t]').forEach(el => {
+    const key = el.getAttribute('data-t');
+    if (copy[lang][key] !== undefined) el.innerHTML = copy[lang][key];
+  });
+  document.getElementById('btn-es').classList.toggle('active', lang === 'es');
+  document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+}
+
+function sendMail() {
+  const subject = currentLang === 'es' ? 'Sugerencias' : 'Suggestions';
+  window.location.href = 'mailto:dardos_despoblado_8r@icloud.com?subject=' + encodeURIComponent(subject);
+}
+</script>
+</body>
+</html>
