@@ -428,7 +428,7 @@ footer p{font-family:'DM Mono',monospace;font-size:0.62rem;letter-spacing:0.09em
 <footer>
   <p data-t="footer">© 2026 BitterMate</p>
   <div style="display:flex;gap:1.5rem;align-items:center">
-    <a href="privacy.html" class="footer-privacy" data-t="footer-privacy">Privacidad</a>
+    <a href="privacy.html" class="footer-privacy" data-t="footer-privacy" id="privacy-link">Privacidad</a>
     <button class="footer-contact" data-t="footer-contact" onclick="sendMail()">Contacto</button>
   </div>
   <p class="ios-tag">iOS only</p>
@@ -574,6 +574,8 @@ function setLang(lang) {
   });
   document.getElementById('btn-es').classList.toggle('active', lang === 'es');
   document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+  const pl = document.getElementById('privacy-link');
+  if (pl) pl.href = 'privacy.html' + (lang === 'en' ? '?lang=en' : '');
 }
 
 function sendMail() {
@@ -642,6 +644,13 @@ function closeLightbox(e) {
   document.body.style.overflow = '';
 }
 document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLightbox(); });
+
+// Auto-set language from URL param
+(function() {
+  const params = new URLSearchParams(window.location.search);
+  const lang = params.get('lang');
+  if (lang === 'en') setLang('en');
+})();
 </script>
 
 <!-- Lightbox -->

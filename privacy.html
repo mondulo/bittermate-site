@@ -166,12 +166,22 @@ function setLang(lang) {
   });
   document.getElementById('btn-es').classList.toggle('active', lang === 'es');
   document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+  // Keep back link lang-aware
+  const bl = document.querySelector('.back-link');
+  if (bl) bl.href = 'index.html' + (lang === 'en' ? '?lang=en' : '');
 }
 
 function sendMail() {
   const subject = currentLang === 'es' ? 'Sugerencias' : 'Suggestions';
   window.location.href = 'mailto:dardos_despoblado_8r@icloud.com?subject=' + encodeURIComponent(subject);
 }
+
+// Auto-set language from URL param
+(function() {
+  const params = new URLSearchParams(window.location.search);
+  const lang = params.get('lang');
+  if (lang === 'en') setLang('en');
+})();
 </script>
 </body>
 </html>
