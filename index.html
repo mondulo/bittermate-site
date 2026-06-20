@@ -428,6 +428,7 @@ footer p{font-family:'DM Mono',monospace;font-size:0.62rem;letter-spacing:0.09em
 <footer>
   <p data-t="footer">© 2026 BitterMate</p>
   <div style="display:flex;gap:1.5rem;align-items:center">
+    <a href="support.html" class="footer-privacy" data-t="footer-support" id="support-link">Soporte</a>
     <a href="privacy.html" class="footer-privacy" data-t="footer-privacy" id="privacy-link">Privacidad</a>
     <button class="footer-contact" data-t="footer-contact" onclick="sendMail()">Contacto</button>
   </div>
@@ -454,6 +455,7 @@ const copy = {
     'footer':'© 2026 BitterMate',
     'footer-contact':'Contacto',
     'footer-privacy':'Privacidad',
+    'footer-support':'Soporte',
     'feat-label':'Bonus Track · Features',
     'feat-title':'Todo lo que incluye',
     'fg1':'Reproducción','fg2':'Biblioteca','fg3':'Playlists','fg4':'Apariencia','fg5':'Estadísticas y logros','fg6':'Sin trampa y sin cartón',
@@ -514,6 +516,7 @@ const copy = {
     'footer':'© 2026 BitterMate',
     'footer-contact':'Contact',
     'footer-privacy':'Privacy',
+    'footer-support':'Support',
     'feat-label':'Bonus Track · Features',
     'feat-title':'Everything that&#39;s included',
     'fg1':'Playback','fg2':'Library','fg3':'Playlists','fg4':'Appearance','fg5':'Stats & Achievements','fg6':'No tricks, no traps',
@@ -576,6 +579,8 @@ function setLang(lang) {
   document.getElementById('btn-en').classList.toggle('active', lang === 'en');
   const pl = document.getElementById('privacy-link');
   if (pl) pl.href = 'privacy.html' + (lang === 'en' ? '?lang=en' : '');
+  const sl = document.getElementById('support-link');
+  if (sl) sl.href = 'support.html' + (lang === 'en' ? '?lang=en' : '');
 }
 
 function sendMail() {

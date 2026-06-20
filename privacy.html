@@ -108,7 +108,10 @@ footer p{font-family:'DM Mono',monospace;font-size:0.62rem;letter-spacing:0.09em
 
 <footer>
   <p data-t="footer">© 2026 BitterMate</p>
-  <button class="footer-contact" data-t="footer-contact" onclick="sendMail()">Contacto</button>
+  <div style="display:flex;gap:1.5rem;align-items:center">
+    <a href="support.html" class="back-link" data-t="footer-support" id="support-link">Soporte</a>
+    <button class="footer-contact" data-t="footer-contact" onclick="sendMail()">Contacto</button>
+  </div>
   <a href="index.html" class="back-link" data-t="back">← Volver</a>
 </footer>
 
@@ -132,7 +135,8 @@ const copy = {
     's6-body':'Si tenés preguntas sobre esta política, usá el botón de contacto en el pie de página.',
     'footer':'© 2026 BitterMate',
     'back':'← Volver',
-    'footer-contact':'Contacto'
+    'footer-contact':'Contacto',
+    'footer-support':'Soporte'
   },
   en:{
     'page-label':'BitterMate · Bonus Track',
@@ -152,7 +156,8 @@ const copy = {
     's6-body':'If you have questions about this policy, use the contact button in the page footer.',
     'footer':'© 2026 BitterMate',
     'back':'← Back',
-    'footer-contact':'Contact'
+    'footer-contact':'Contact',
+    'footer-support':'Support'
   }
 };
 
@@ -169,6 +174,8 @@ function setLang(lang) {
   // Keep back link lang-aware
   const bl = document.querySelector('.back-link');
   if (bl) bl.href = 'index.html' + (lang === 'en' ? '?lang=en' : '');
+  const sl = document.getElementById('support-link');
+  if (sl) sl.href = 'support.html' + (lang === 'en' ? '?lang=en' : '');
 }
 
 function sendMail() {
