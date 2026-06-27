@@ -1,1 +1,192 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Blog — BitterMate</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Mono:wght@300;400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#0d0d0b;--bg2:#141410;
+  --cream:#f0ece2;--cream-muted:#a8a290;
+  --sage:#7a9e7e;--sage-light:#9dbfa1;--sage-dim:#3d5c40;
+  --line:rgba(240,236,226,0.08);--line-med:rgba(240,236,226,0.15);
+}
+html{scroll-behavior:smooth}
+body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--cream);overflow-x:hidden}
+
+nav{display:flex;align-items:center;justify-content:space-between;padding:1.25rem 3rem;border-bottom:1px solid var(--line);background:rgba(13,13,11,0.92);position:sticky;top:0;z-index:50}
+.nav-logo{font-family:'Playfair Display',serif;font-size:1.2rem;color:var(--cream);text-decoration:none}
+.nav-logo span{color:var(--sage)}
+.nav-right{display:flex;align-items:center;gap:1.5rem}
+.nav-home{font-family:'DM Mono',monospace;font-size:0.6rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--sage-dim);text-decoration:none;transition:color 0.2s}
+.nav-home:hover{color:var(--sage)}
+.lang-toggle{display:flex;border:1px solid var(--line-med);overflow:hidden}
+.lang-btn{font-family:'DM Mono',monospace;font-size:0.6rem;letter-spacing:0.1em;padding:0.35rem 0.65rem;background:none;border:none;color:var(--cream-muted);cursor:pointer;transition:background 0.2s,color 0.2s}
+.lang-btn.active{background:var(--sage-dim);color:var(--sage-light)}
+
+.page-hero{padding:5rem 3rem 3rem;max-width:900px;margin:0 auto}
+.page-label{font-family:'DM Mono',monospace;font-size:0.62rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--sage-dim);margin-bottom:1.5rem;display:flex;align-items:center;gap:0.75rem}
+.page-label::before{content:'';width:1.25rem;height:1px;background:var(--sage-dim);display:inline-block}
+h1{font-family:'Playfair Display',serif;font-size:clamp(2.5rem,6vw,4.5rem);font-weight:700;line-height:0.95;letter-spacing:-0.025em;color:var(--cream)}
+h1 em{font-style:italic;color:var(--sage-light)}
+
+.posts{max-width:900px;margin:0 auto;padding:0 3rem 6rem;display:flex;flex-direction:column;gap:0}
+
+.post-row{display:grid;grid-template-columns:120px 1fr;gap:2rem;padding:2rem 0;border-top:1px solid var(--line);text-decoration:none;transition:background 0.15s}
+.post-row:last-child{border-bottom:1px solid var(--line)}
+.post-row:hover .post-title{color:var(--sage-light)}
+
+.post-date{font-family:'DM Mono',monospace;font-size:0.6rem;letter-spacing:0.12em;color:var(--sage-dim);line-height:1.6;padding-top:0.2rem}
+.post-meta{display:flex;flex-direction:column;gap:0.4rem}
+.post-title{font-family:'Playfair Display',serif;font-size:1.4rem;font-weight:700;color:var(--cream);line-height:1.2;transition:color 0.15s}
+.post-excerpt{font-size:0.82rem;color:var(--cream-muted);line-height:1.7;font-weight:300;margin-top:0.25rem}
+.post-tag{font-family:'DM Mono',monospace;font-size:0.52rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--sage-dim);margin-top:0.5rem}
+
+.empty{padding:4rem 3rem;text-align:center;font-family:'DM Mono',monospace;font-size:0.7rem;letter-spacing:0.1em;color:var(--sage-dim)}
+
+hr.div{border:none;border-top:1px solid var(--line)}
+footer{padding:1.75rem 3rem;border-top:1px solid var(--line);display:flex;justify-content:space-between;align-items:center;background:var(--bg)}
+footer p{font-family:'DM Mono',monospace;font-size:0.62rem;letter-spacing:0.09em;color:rgba(168,162,144,0.35)}
+.footer-contact{font-family:'DM Mono',monospace;font-size:0.62rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--sage-dim);background:none;border:1px solid var(--sage-dim);padding:0.4rem 1rem;cursor:pointer;transition:color 0.2s,border-color 0.2s}
+.footer-contact:hover{color:var(--sage);border-color:var(--sage)}
+
+@media(max-width:600px){
+  nav{padding:1rem 1.5rem}
+  .page-hero{padding:3rem 1.5rem 2rem}
+  .posts{padding:0 1.5rem 4rem}
+  .post-row{grid-template-columns:1fr;gap:0.5rem}
+  footer{padding:1.5rem;flex-wrap:wrap;gap:1rem}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="../index.html" class="nav-logo">Bitter<span>Mate</span></a>
+  <div class="nav-right">
+    <a href="../index.html" class="nav-home" data-t="nav-home">← App</a>
+    <div class="lang-toggle">
+      <button class="lang-btn active" id="btn-es" onclick="setLang('es')">ES</button>
+      <button class="lang-btn" id="btn-en" onclick="setLang('en')">EN</button>
+    </div>
+  </div>
+</nav>
+
+<div class="page-hero">
+  <div class="page-label" data-t="page-label">BitterMate · Blog</div>
+  <h1 data-t="page-title">Blog</h1>
+</div>
+
+<div class="posts" id="posts-list">
+  <!-- posts are rendered by JS from the POSTS array below -->
+</div>
+
+<footer>
+  <p data-t="footer">© 2026 BitterMate</p>
+  <button class="footer-contact" data-t="footer-contact" onclick="sendMail()">Contacto</button>
+</footer>
+
+<script>
+// ── POSTS ──────────────────────────────────────────────────────────────
+// To add a post: add an entry to this array.
+// url-es and url-en are paths relative to this index.html.
+const POSTS = [
+  {
+    year: '2026',
+    month: '06',
+    slug: 'primer-post',
+    'title-es': 'Bonus Track',
+    'title-en': 'Bonus Track',
+    'excerpt-es': 'Por qué decidí construir un reproductor de MP3 para iPhone.',
+    'excerpt-en': 'Why I decided to build an MP3 player for iPhone.',
+    'tag-es': 'General',
+    'tag-en': 'General',
+    'url-es': '2026/06/lanzamiento-es.html',
+    'url-en': '2026/06/lanzamiento-en.html',
+  },
+  // { year: '2026', month: '07', slug: 'otro-post', ... },
+];
+// ───────────────────────────────────────────────────────────────────────
+
+const copy = {
+  es:{
+    'page-label':'BitterMate · Blog',
+    'page-title':'Blog',
+    'nav-home':'← App',
+    'footer':'© 2026 BitterMate',
+    'footer-contact':'Contacto',
+    'by':'por Leonardo',
+  },
+  en:{
+    'page-label':'BitterMate · Blog',
+    'page-title':'Blog',
+    'nav-home':'← App',
+    'footer':'© 2026 BitterMate',
+    'footer-contact':'Contact',
+    'by':'by Leonardo',
+  }
+};
+
+let currentLang = 'es';
+
+function formatDate(year, month, lang) {
+  const months_es = ['','Enero','Febrero','Marzo','Abril','Mayo','Junio','Julio','Agosto','Septiembre','Octubre','Noviembre','Diciembre'];
+  const months_en = ['','January','February','March','April','May','June','July','August','September','October','November','December'];
+  const m = parseInt(month, 10);
+  return lang === 'es'
+    ? months_es[m] + ' ' + year
+    : months_en[m] + ' ' + year;
+}
+
+function renderPosts(lang) {
+  const container = document.getElementById('posts-list');
+  if (!POSTS.length) {
+    container.innerHTML = '<p class="empty">—</p>';
+    return;
+  }
+  container.innerHTML = POSTS.map(p => `
+    <a class="post-row" href="${p['url-' + lang]}">
+      <div class="post-date">${formatDate(p.year, p.month, lang)}<br>${copy[lang]['by']}</div>
+      <div class="post-meta">
+        <div class="post-title">${p['title-' + lang]}</div>
+        <div class="post-excerpt">${p['excerpt-' + lang]}</div>
+        <div class="post-tag">${p['tag-' + lang]}</div>
+      </div>
+    </a>
+  `).join('');
+}
+
+function setLang(lang) {
+  currentLang = lang;
+  document.querySelectorAll('[data-t]').forEach(el => {
+    const key = el.getAttribute('data-t');
+    if (copy[lang][key] !== undefined) el.innerHTML = copy[lang][key];
+  });
+  document.getElementById('btn-es').classList.toggle('active', lang === 'es');
+  document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+  renderPosts(lang);
+}
+
+function sendMail() {
+  const subject = currentLang === 'es' ? 'Sugerencias' : 'Suggestions';
+  window.location.href = 'mailto:dardos_despoblado_8r@icloud.com?subject=' + encodeURIComponent(subject);
+}
+
+// Init
+(function() {
+  const params = new URLSearchParams(window.location.search);
+  const lang = params.get('lang');
+  if (lang === 'en') {
+    currentLang = 'en';
+    document.getElementById('btn-es').classList.remove('active');
+    document.getElementById('btn-en').classList.add('active');
+  }
+  renderPosts(currentLang);
+})();
+</script>
+</body>
+</html>
 
