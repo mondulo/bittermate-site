@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bonus Track 1.1 — BitterMate</title>
+<link rel="canonical" href="lanzamiento-1-1-en.html">
+<link rel="alternate" hreflang="es" href="lanzamiento-1-1-es.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Mono:wght@300;400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#0d0d0b;--bg2:#141410;
+  --cream:#f0ece2;--cream-muted:#a8a290;
+  --sage:#7a9e7e;--sage-light:#9dbfa1;--sage-dim:#3d5c40;
+  --line:rgba(240,236,226,0.08);--line-med:rgba(240,236,226,0.15);
+}
+html{scroll-behavior:smooth}
+body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--cream);overflow-x:hidden}
+
+nav{display:flex;align-items:center;justify-content:space-between;padding:1.25rem 3rem;border-bottom:1px solid var(--line);background:rgba(13,13,11,0.92);position:sticky;top:0;z-index:50}
+.nav-logo{font-family:'Playfair Display',serif;font-size:1.2rem;color:var(--cream);text-decoration:none}
+.nav-logo span{color:var(--sage)}
+.nav-right{display:flex;align-items:center;gap:1.5rem}
+.nav-blog{font-family:'DM Mono',monospace;font-size:0.6rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--sage-dim);text-decoration:none;transition:color 0.2s}
+.nav-blog:hover{color:var(--sage)}
+.lang-toggle{display:flex;border:1px solid var(--line-med);overflow:hidden}
+.lang-btn{font-family:'DM Mono',monospace;font-size:0.6rem;letter-spacing:0.1em;padding:0.35rem 0.65rem;background:none;border:none;color:var(--cream-muted);cursor:pointer;transition:background 0.2s,color 0.2s}
+.lang-btn.active{background:var(--sage-dim);color:var(--sage-light)}
+
+.article-hero{padding:5rem 3rem 3rem;max-width:720px;margin:0 auto}
+.article-label{font-family:'DM Mono',monospace;font-size:0.62rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--sage-dim);margin-bottom:1.5rem;display:flex;align-items:center;gap:0.75rem}
+.article-label::before{content:'';width:1.25rem;height:1px;background:var(--sage-dim);display:inline-block}
+.article-title{font-family:'Playfair Display',serif;font-size:clamp(2rem,5vw,3.5rem);font-weight:700;line-height:1;letter-spacing:-0.025em;color:var(--cream);margin-bottom:1.25rem}
+.article-meta{font-family:'DM Mono',monospace;font-size:0.6rem;letter-spacing:0.12em;color:var(--sage-dim);display:flex;gap:1.5rem;flex-wrap:wrap}
+
+.article-image{max-width:720px;margin:0 auto;padding:0 3rem;display:flex;flex-direction:column;align-items:center}
+.article-image img{width:min(400px,100%);display:block;border:1px solid var(--line)}
+.article-image figcaption{font-family:'DM Mono',monospace;font-size:0.55rem;letter-spacing:0.1em;color:var(--sage-dim);margin-top:0.6rem;text-align:center}
+@media(max-width:600px){.article-image{padding:0 1.5rem}}
+
+.article-body{max-width:720px;margin:3rem auto 6rem;padding:0 3rem;display:flex;flex-direction:column;gap:1.75rem}
+.article-body p{font-size:0.95rem;color:var(--cream-muted);line-height:1.9;font-weight:300}
+.article-body p strong{color:var(--cream);font-weight:500}
+.article-body h2{font-family:'Playfair Display',serif;font-size:1.4rem;font-weight:700;color:var(--cream);margin-top:0.5rem}
+.article-body h3{font-family:'DM Mono',monospace;font-size:0.72rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--sage);margin-top:0.25rem}
+.article-body ul{list-style:none;display:flex;flex-direction:column;gap:0.6rem;padding-left:0}
+.article-body ul li{font-size:0.9rem;color:var(--cream-muted);line-height:1.7;font-weight:300;padding-left:1.25rem;position:relative}
+.article-body ul li::before{content:'—';position:absolute;left:0;color:var(--sage-dim)}
+.article-body blockquote{border-left:2px solid var(--sage-dim);padding:0.75rem 1.25rem;background:var(--bg2)}
+.article-body blockquote p{font-style:italic;font-size:0.9rem}
+hr.article-div{border:none;border-top:1px solid var(--line)}
+
+footer{padding:1.75rem 3rem;border-top:1px solid var(--line);display:flex;justify-content:space-between;align-items:center;background:var(--bg)}
+footer p{font-family:'DM Mono',monospace;font-size:0.62rem;letter-spacing:0.09em;color:rgba(168,162,144,0.35)}
+.footer-contact{font-family:'DM Mono',monospace;font-size:0.62rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--sage-dim);background:none;border:1px solid var(--sage-dim);padding:0.4rem 1rem;cursor:pointer;transition:color 0.2s,border-color 0.2s}
+.footer-contact:hover{color:var(--sage);border-color:var(--sage)}
+
+@media(max-width:600px){
+  nav{padding:1rem 1.5rem}
+  .article-hero,.article-body{padding-left:1.5rem;padding-right:1.5rem}
+  .article-hero{padding-top:3rem}
+  footer{padding:1.5rem;flex-wrap:wrap;gap:1rem}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="../../../index.html" class="nav-logo">Bitter<span>Mate</span></a>
+  <div class="nav-right">
+    <a href="../../index.html" class="nav-blog">← Blog</a>
+    <div class="lang-toggle">
+      <button class="lang-btn" id="btn-es">ES</button>
+      <button class="lang-btn active" id="btn-en">EN</button>
+    </div>
+  </div>
+</nav>
+
+<div class="article-hero">
+  <div class="article-label">Blog · August 2026</div>
+  <h1 class="article-title">Bonus Track 1.1</h1>
+  <div class="article-meta">
+    <span>Leonardo</span>
+    <span>August 2026</span>
+    <span>Changelog</span>
+  </div>
+</div>
+
+<figure class="article-image">
+  <img src="release_1_1.jpg" alt="Bonus Track 1.1">
+</figure>
+
+<div class="article-body">
+
+  <blockquote>
+    <p>Intros are like the fat on the asado. What matters is the meat.</p>
+  </blockquote>
+
+  <h2>Changelog — version 1.1 (2026-08-31)</h2>
+
+  <h3>New features</h3>
+  <ul>
+    <li>Immediate metadata and cover art search for small imports (under 100 songs)</li>
+    <li>The miniplayer bar that opens Now Playing is now more prominent</li>
+    <li>Alternative view showing the album cover at double size</li>
+    <li>The queue now shows a song count</li>
+    <li>Option to hide play count</li>
+    <li>The optional volume limit now goes up to 75% (previously 60%)</li>
+    <li>Redesigned "About" panel with new user badges and an updated music quote</li>
+    <li>Higher information density in the Statistics panel</li>
+    <li>Usability improvements in the Library panel</li>
+    <li>More light and dark themes. New vibrant themes with bold colors — no more pastels</li>
+    <li>Additional Now Playing style: XL, with a giant cover and buttons on top</li>
+    <li>Alphabet index bar in the Artists view</li>
+    <li>(i) button to edit the metadata of the currently playing song from Now Playing</li>
+    <li>Options to show or hide individual buttons in Now Playing</li>
+    <li>More typefaces: Avenir Next, Helvetica Neue, Georgia, Futura, Gill Sans, American Typewriter, and more</li>
+    <li>Alternative tile view for playlists</li>
+    <li>Option to prioritize the queue by highest-rated songs</li>
+    <li>Sort playlists by title, artist, album, rating, or manually</li>
+    <li>Option to import songs with a default rating</li>
+    <li>General design consistency improvements across panels, text, options, translations, theme collections, behavior, and readability (Statistics, Appearance, Library)</li>
+  </ul>
+
+  <h3>Bug fixes</h3>
+  <ul>
+    <li>Fixed: The Library panel didn't close after importing a backup</li>
+    <li>Fixed: Tapping a previously assigned playlist in the Add to Playlist panel didn't remove the assignment</li>
+    <li>Fixed: In the queue, some songs could be skipped and dropped out of rotation after being reordered</li>
+    <li>Fixed: Switching to gapless mode mid-song would stop playback after a few tracks</li>
+    <li>Fixed: The context menu option in playlists "Remove from this playlist" now replaces the old "Delete song," which used to delete the track from the library</li>
+    <li>Fixed: When importing music from a playlist, the import indicator was a spinner instead of a progress bar</li>
+    <li>Fixed: A bug where playing a playlist with shuffle on would play from the selected song but ignore the rest of the list</li>
+    <li>Fixed: Repeat-one (1) would play the track once and then pause instead of repeating it</li>
+    <li>Fixed: While searching for metadata and cover art, the "Searching" text would wrap to more than one line and make the panel flicker</li>
+    <li>Fixed: The miniplayer's Next button lit up orange when pressed while "Miniplayer uses theme colors" was off</li>
+    <li>Fixed: "Valoración" was renamed to "Calificación" (Rating) in the Spanish interface</li>
+    <li>Fixed: "Skipped" appeared twice in Statistics</li>
+    <li>Fixed: The prompt offering to import a backup wasn't showing after finishing a music import</li>
+    <li>Fixed: On the lock screen and Dynamic Island, the second word of the artist name appeared in lowercase when "capitalize first word only" was enabled in appearance preferences</li>
+  </ul>
+
+  <p>Enjoy!<br>— L.D.</p>
+
+</div>
+
+<footer>
+  <p>© 2026 BitterMate</p>
+  <button class="footer-contact" onclick="sendMail()">Contact</button>
+</footer>
+
+<script>
+document.getElementById('btn-es').addEventListener('click', () => {
+  window.location.href = 'lanzamiento-1-1-es.html';
+});
+document.getElementById('btn-en').addEventListener('click', () => {
+  window.location.href = 'lanzamiento-1-1-en.html';
+});
+function sendMail() {
+  window.location.href = 'mailto:dardos_despoblado_8r@icloud.com?subject=' + encodeURIComponent('Suggestions');
+}
+</script>
+</body>
+</html>
