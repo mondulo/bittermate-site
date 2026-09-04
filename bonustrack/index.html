@@ -19,7 +19,7 @@ html{scroll-behavior:smooth}
 body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--cream);overflow-x:hidden}
 
 nav{display:flex;align-items:center;justify-content:space-between;padding:1.25rem 3rem;border-bottom:1px solid var(--line);background:rgba(13,13,11,0.92);position:sticky;top:0;z-index:50}
-.nav-logo{font-family:'Playfair Display',serif;font-size:1.2rem;color:var(--cream)}
+.nav-logo{font-family:'Playfair Display',serif;font-size:1.2rem;color:var(--cream);text-decoration:none}
 .nav-logo span{color:var(--sage)}
 .lang-toggle{display:flex;border:1px solid var(--line-med);overflow:hidden}
 .nav-right{display:flex;align-items:center;gap:1.5rem}
@@ -129,7 +129,7 @@ footer p{font-family:'DM Mono',monospace;font-size:0.62rem;letter-spacing:0.09em
 <body>
 
 <nav>
-  <div class="nav-logo">Bitter<span>Mate</span></div>
+  <a href="https://bittermate.app" class="nav-logo">Bitter<span>Mate</span></a>
   <div class="nav-right">
     <a href="/blog/index.html" class="nav-blog" id="nav-blog-link" data-t="nav-blog">Blog</a>
     <div class="lang-toggle">
