@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Folia — Blog — BitterMate</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Mono:wght@300;400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#0d0d0b;--bg2:#141410;
+  --cream:#f0ece2;--cream-muted:#a8a290;
+  --sage:#7a9e7e;--sage-light:#9dbfa1;--sage-dim:#3d5c40;
+  --line:rgba(240,236,226,0.08);--line-med:rgba(240,236,226,0.15);
+}
+html{scroll-behavior:smooth}
+body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--cream);overflow-x:hidden}
+
+nav{display:flex;align-items:center;justify-content:space-between;padding:1.25rem 3rem;border-bottom:1px solid var(--line);background:rgba(13,13,11,0.92);position:sticky;top:0;z-index:50}
+.nav-logo{font-family:'Playfair Display',serif;font-size:1.2rem;color:var(--cream);text-decoration:none}
+.nav-logo span{color:var(--sage)}
+.nav-right{display:flex;align-items:center;gap:1.5rem}
+.nav-back{font-family:'DM Mono',monospace;font-size:0.6rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--sage-dim);text-decoration:none;transition:color 0.2s}
+.nav-back:hover{color:var(--sage)}
+.lang-toggle{display:flex;border:1px solid var(--line-med);overflow:hidden}
+.lang-btn{font-family:'DM Mono',monospace;font-size:0.6rem;letter-spacing:0.1em;padding:0.35rem 0.65rem;text-decoration:none;color:var(--cream-muted);transition:background 0.2s,color 0.2s;display:block}
+.lang-btn.active{background:var(--sage-dim);color:var(--sage-light)}
+
+article{max-width:640px;margin:0 auto;padding:5rem 3rem 2rem}
+.post-meta{font-family:'DM Mono',monospace;font-size:0.62rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--sage-dim);margin-bottom:1.5rem;display:flex;align-items:center;gap:0.75rem}
+.post-meta::before{content:'';width:1.25rem;height:1px;background:var(--sage-dim);display:inline-block}
+h1{font-family:'Playfair Display',serif;font-size:clamp(2.5rem,7vw,4rem);font-weight:700;line-height:0.98;letter-spacing:-0.02em;color:var(--cream);margin-bottom:2.5rem}
+
+.launch-visual{display:flex;align-items:flex-end;gap:2rem;margin-bottom:2.75rem}
+.launch-visual-icon{flex-shrink:0}
+.launch-icon{display:block;width:104px;height:104px;border-radius:23px;box-shadow:0 10px 28px rgba(0,0,0,0.45)}
+.launch-visual-cover{display:flex;flex-direction:column;align-items:flex-start}
+.launch-cover{display:block;width:196px;height:auto;border-radius:3px;box-shadow:0 16px 36px rgba(0,0,0,0.55)}
+.launch-caption{font-family:'DM Mono',monospace;font-size:0.64rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--sage-dim);margin-top:0.85rem}
+
+.post-body{font-size:0.95rem;color:var(--cream-muted);line-height:1.9;font-weight:300}
+.post-body p{margin-bottom:1.4rem}
+.post-body strong{color:var(--cream);font-weight:500}
+.post-body ul{margin:0 0 1.4rem 0;padding-left:1.3rem;display:flex;flex-direction:column;gap:0.6rem}
+.post-body li{list-style:none;position:relative}
+.post-body li::before{content:'—';position:absolute;left:-1.3rem;color:var(--sage-dim)}
+.signoff{font-family:'DM Mono',monospace;font-size:0.7rem;letter-spacing:0.08em;color:var(--sage-dim);margin-top:2rem}
+
+.post-footer{max-width:640px;margin:2rem auto 0;padding:2rem 3rem 4rem;border-top:1px solid var(--line)}
+.back-to-blog{font-family:'DM Mono',monospace;font-size:0.62rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--sage-dim);text-decoration:none;transition:color 0.2s}
+.back-to-blog:hover{color:var(--sage)}
+
+footer{padding:1.75rem 3rem;border-top:1px solid var(--line);display:flex;justify-content:space-between;align-items:center;background:var(--bg)}
+footer p{font-family:'DM Mono',monospace;font-size:0.62rem;letter-spacing:0.09em;color:rgba(168,162,144,0.35)}
+.footer-contact{font-family:'DM Mono',monospace;font-size:0.62rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--sage-dim);background:none;border:1px solid var(--sage-dim);padding:0.4rem 1rem;cursor:pointer;transition:color 0.2s,border-color 0.2s}
+.footer-contact:hover{color:var(--sage);border-color:var(--sage)}
+
+@media(max-width:600px){
+  nav{padding:1rem 1.5rem}
+  article{padding:3rem 1.5rem 1.5rem}
+  .post-footer{padding:1.5rem}
+  footer{padding:1.5rem;flex-wrap:wrap;gap:1rem}
+  .launch-visual{gap:1.25rem}
+  .launch-icon{width:80px;height:80px;border-radius:18px}
+  .launch-cover{width:150px}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="/index.html" class="nav-logo">Bitter<span>Mate</span></a>
+  <div class="nav-right">
+    <a href="/blog/index.html" class="nav-back">← Blog</a>
+    <div class="lang-toggle">
+      <a href="folia-1-0-es.html" class="lang-btn">ES</a>
+      <a href="folia-1-0-en.html" class="lang-btn active">EN</a>
+    </div>
+  </div>
+</nav>
+
+<article>
+  <div class="post-meta">September 2026 · by Leonardo</div>
+  <h1>Folia</h1>
+
+  <div class="launch-visual">
+    <div class="launch-visual-icon">
+      <img src="folia-icon.png" alt="Folia app icon" class="launch-icon">
+    </div>
+    <div class="launch-visual-cover">
+      <img src="folia-1-0-heller.png" alt="Folia 1.0 cover art" class="launch-cover">
+      <p class="launch-caption">Version 1.0 "Heller"</p>
+    </div>
+  </div>
+
+  <div class="post-body">
+    <p>During the COVID-19 pandemic, I tried, for what must have been the umpteenth time, to use Notion. Maybe I had finally seen its value, or maybe I simply had more time to spend with it; in any case, I adopted it as a hammer with which to hit every nail.</p>
+
+    <p>Over the years, I made Notion the home for all my projects and interests. One of them was a database for my books. It worked, but it had its limitations: little customization, and a rather cumbersome way of keeping track of the books I came across in bookstores, the ones I wanted to buy, and, above all, what happened while I was reading them.</p>
+
+    <p>This year, I decided to make my own app: <strong>Folia</strong>.</p>
+
+    <p>Folia is a reading journal, not just a tracker.</p>
+
+    <p>It lets me keep a library of all my books —paper, ebooks, and audiobooks— organized on shelves, and capture new books in bookstores simply by scanning their barcodes. But it also lets me record the reading itself: when I started and finished a book, how much time I spent reading it, where I was, what I was listening to, how I was feeling, what other books I was reading, and what was happening around me.</p>
+
+    <p>I can save notes, quotes, and photos of pages, link books together, keep a history of rereads, and come back years later to see not only what I read, but <strong>what it was like to read it</strong>.</p>
+
+    <p>Folia also includes:</p>
+
+    <ul>
+      <li><strong>A customizable library</strong>, with shelves organized by reading status, spine or cover views, and sorting by title, author, color, genre, length, and recent activity.</li>
+      <li><strong>Book capture</strong>, using barcodes or photos taken in a bookstore so I can decide what to do with them later.</li>
+      <li><strong>A wishlist</strong>, with favorites pinned to the top and the ability to move books directly into the library.</li>
+      <li><strong>A reading queue</strong>, to keep track of the books I want to read next.</li>
+      <li><strong>Reading challenges</strong>, with or without a deadline.</li>
+      <li><strong>A reading calendar</strong>, to keep track of my reading activity.</li>
+      <li><strong>Visual customization</strong>, with spines, covers, textures, typefaces, and patterns inspired by Byzantine, Sicilian, Roman, Japanese, and other architectural and artistic traditions.</li>
+      <li><strong>Moods and tags</strong>, to organize books not only by bibliographic information, but also by feelings and associations.</li>
+      <li><strong>Unlockable achievements</strong>.</li>
+      <li><strong>Book sharing</strong>, with other Folia users or as images using iOS's standard share sheet.</li>
+      <li><strong>Complete backup, export, and restore</strong>, including progress settings and audiobook-specific data.</li>
+      <li><strong>Duplicate detection</strong>.</li>
+      <li><strong>A bilingual interface</strong>, in English and Spanish, with automatic detection of the system language.</li>
+      <li>And a design with touches of <strong>paper, ink, wood, and physical objects</strong>, because I wanted something that felt a little more real.</li>
+    </ul>
+
+    <p>It's not perfect, and it doesn't have everything I want. In fact, I already know what I'd like to add to it. But it's a decent 1.0.</p>
+
+    <p>And after so many years of using tools built for something else, I finally have a library that works the way I want it to.</p>
+
+    <p class="signoff">— L.D.</p>
+  </div>
+</article>
+
+<div class="post-footer">
+  <a href="/blog/index.html" class="back-to-blog">← Back to blog</a>
+</div>
+
+<footer>
+  <p>© 2026 BitterMate</p>
+  <button class="footer-contact" onclick="sendMail()">Contact</button>
+</footer>
+
+<script>
+function sendMail() {
+  window.location.href = 'mailto:dardos_despoblado_8r@icloud.com?subject=' + encodeURIComponent('Suggestions');
+}
+</script>
+</body>
+</html>
