@@ -1,0 +1,696 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Folia — Tu biblioteca con memoria</title>
+<meta name="description" content="Folia es tu biblioteca y tu diario de lectura en un solo lugar. Registrá qué leíste, cómo te sentías y dónde estabas — y diseñá cada lomo a tu gusto.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Newsreader:ital,wght@0,300;0,400;0,500;1,400&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#F7F1E4;
+    --paper-deep:#EEE3CC;
+    --paper-edge:#E4D6B8;
+    --ink:#2A2019;
+    --ink-mid:#6B5B4A;
+    --ink-faint:#A79781;
+    --brown:#8B5A32;
+    --brown-deep:#6B4423;
+    --rule:#DED0B3;
+    --cream-text:#FBF6EA;
+    --maxw:1120px;
+  }
+
+  *{box-sizing:border-box; margin:0; padding:0;}
+
+  html{scroll-behavior:smooth;}
+
+  body{
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'Newsreader', serif;
+    font-weight:400;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+
+  ::selection{background:var(--brown); color:var(--cream-text);}
+
+  a{color:inherit; text-decoration:none;}
+
+  img,svg{display:block; max-width:100%;}
+
+  .wrap{
+    max-width:var(--maxw);
+    margin:0 auto;
+    padding:0 32px;
+  }
+
+  h1,h2,h3{
+    font-family:'Fraunces', serif;
+    font-weight:400;
+    letter-spacing:-0.01em;
+    color:var(--ink);
+  }
+
+  .eyebrow{
+    font-family:'Newsreader', serif;
+    font-size:12px;
+    font-weight:500;
+    letter-spacing:0.16em;
+    text-transform:uppercase;
+    color:var(--brown);
+  }
+
+  /* ───────────────────────── Paper texture (subtle grain) ── */
+  body::before{
+    content:"";
+    position:fixed; inset:0;
+    pointer-events:none;
+    z-index:2000;
+    opacity:0.035;
+    mix-blend-mode:multiply;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+
+  /* ───────────────────────────────────── Torn paper edge ── */
+  .torn{
+    position:relative;
+    height:14px;
+    width:100%;
+  }
+  .torn svg{width:100%; height:100%; display:block;}
+
+  /* ───────────────────────────────── Nav utility (blog + idioma) ── */
+  .logo-bittermate{
+    font-family:'Fraunces', serif;
+    font-weight:500;
+    font-size:19px;
+  }
+  .logo-bittermate span{color:var(--brown);}
+  .nav-right{display:flex; align-items:center; gap:22px;}
+  .nav-blog{
+    font-family:'Newsreader', serif;
+    font-size:13px;
+    letter-spacing:0.04em;
+    text-transform:uppercase;
+    color:var(--ink-mid);
+    transition:color .2s ease;
+  }
+  .nav-blog:hover{color:var(--brown);}
+  .lang-toggle{
+    display:flex;
+    border:1px solid var(--ink-faint);
+    border-radius:4px;
+    overflow:hidden;
+  }
+  .lang-btn{
+    font-family:'Newsreader', serif;
+    font-size:11px;
+    letter-spacing:0.06em;
+    padding:4px 10px;
+    background:none;
+    border:none;
+    color:var(--ink-mid);
+    cursor:pointer;
+    transition:background .2s ease, color .2s ease;
+  }
+  .lang-btn.active{background:var(--brown); color:var(--cream-text);}
+
+  /* ───────────────────────────────────────────── Header ── */
+  header{
+    position:sticky; top:0; z-index:100;
+    background:rgba(247,241,228,0.86);
+    backdrop-filter:blur(10px) saturate(1.1);
+    border-bottom:1px solid var(--rule);
+  }
+  header .wrap{
+    display:flex; align-items:center; justify-content:space-between;
+    height:76px;
+  }
+  .logo{
+    display:flex; align-items:center; gap:10px;
+    font-family:'Fraunces', serif;
+    font-size:22px;
+    font-weight:500;
+    color:var(--ink);
+  }
+  .logo .mark{
+    width:26px; height:26px;
+    display:block;
+  }
+
+  @media (max-width:760px){
+    .nav-blog{display:none;}
+  }
+
+  /* ─────────────────────────────────────────────── Hero ── */
+  .hero{
+    padding:96px 0 0;
+    position:relative;
+  }
+  .hero .wrap{
+    display:grid;
+    grid-template-columns:1fr;
+    gap:28px;
+    text-align:center;
+  }
+  .hero-eyebrow{
+    display:flex; justify-content:center; align-items:center; gap:10px;
+  }
+  .hero-eyebrow::before,.hero-eyebrow::after{
+    content:"";
+    width:28px; height:1px;
+    background:var(--ink-faint);
+  }
+  h1.headline{
+    font-size:clamp(40px, 7vw, 76px);
+    line-height:1.04;
+    max-width:920px;
+    margin:0 auto;
+  }
+  h1.headline em{
+    font-style:italic;
+    font-weight:400;
+    color:var(--brown);
+  }
+  .sub{
+    font-size:clamp(17px,2.1vw,20px);
+    color:var(--ink-mid);
+    max-width:560px;
+    margin:0 auto;
+    font-weight:300;
+  }
+
+  /* ── App Store button — mismo patrón que en el sitio de Bonus Track,
+  con el contraste invertido porque acá el hero es claro, no oscuro.
+  Dos arreglos acá: (1) el botón se estiraba a todo el ancho porque
+  .hero .wrap es un grid, y los grids por default estiran a sus hijos
+  al ancho completo de la columna aunque el hijo sea inline-flex por
+  dentro — width:fit-content + justify-self:center lo corrige. (2) el
+  ícono ahora es más grande que el botón mismo y sobresale por
+  izquierda/arriba/abajo, con position:absolute, en vez de vivir
+  adentro achicado. Ícono al doble de tamaño (68px→136px) y botón un
+  25% más ancho (padding derecho de 26px a 40px), aparte del lugar
+  extra que el ícono más grande ya exige a la izquierda. ── */
+  .appstore-btn{
+    display:inline-flex; align-items:center;
+    background:var(--ink); color:var(--cream-text);
+    padding:16px 40px 16px 124px; border-radius:16px;
+    text-decoration:none;
+    transition:background .2s ease, transform .15s ease;
+    margin-top:56px;
+    position:relative;
+    width:fit-content;
+    justify-self:center;
+  }
+  .appstore-btn:hover{background:var(--brown-deep); transform:translateY(-2px);}
+  .appstore-icon{
+    width:136px; height:136px; border-radius:30px; overflow:hidden; flex-shrink:0;
+    position:absolute; left:-32px; top:50%; transform:translateY(-50%);
+    box-shadow:0 14px 32px -10px rgba(0,0,0,0.55);
+  }
+  .appstore-icon img{width:100%; height:100%; display:block; object-fit:cover;}
+  .appstore-label{
+    font-family:'Newsreader', serif; font-size:10px; font-weight:400;
+    letter-spacing:0.08em; text-transform:uppercase; color:rgba(251,246,234,0.6);
+    display:block; margin-bottom:2px;
+  }
+  .appstore-name{
+    font-family:'Fraunces', serif; font-size:18px; font-weight:500;
+    color:var(--cream-text); display:block; line-height:1;
+  }
+
+  /* ─────────────────────────────────────────── Sections ── */
+  section{padding:110px 0;}
+  .section-head{
+    max-width:640px;
+    margin:0 0 56px;
+  }
+  .section-head.center{margin:0 auto 56px; text-align:center;}
+  .section-head h2{
+    font-size:clamp(30px,4vw,44px);
+    margin-top:10px;
+    line-height:1.12;
+  }
+  .section-head p{
+    color:var(--ink-mid);
+    font-size:18px;
+    margin-top:16px;
+    font-weight:300;
+  }
+
+  /* ─────────────────────────────────────────── Spine lab ── */
+  .lab{
+    background:var(--ink);
+    color:var(--cream-text);
+    position:relative;
+    overflow:hidden;
+  }
+  .lab .section-head h2, .lab .eyebrow{color:var(--cream-text);}
+  .lab .eyebrow{color:#D9B58C;}
+  .lab .section-head p{color:#C9BBA9;}
+
+  .swatch-grid{
+    display:grid;
+    grid-template-columns:repeat(6,1fr);
+    gap:14px;
+    margin-top:56px;
+  }
+  @media (max-width:760px){ .swatch-grid{grid-template-columns:repeat(3,1fr);} }
+  .swatch{
+    aspect-ratio:3/4;
+    border-radius:8px;
+    position:relative;
+    display:flex; align-items:flex-end;
+    padding:10px;
+    box-shadow:0 16px 30px -14px rgba(0,0,0,0.5);
+    transition:transform .3s ease;
+    overflow:hidden;
+  }
+  .swatch:hover{transform:translateY(-6px) rotate(-1deg);}
+  .swatch span{
+    font-family:'Newsreader', serif;
+    font-size:11.5px;
+    color:rgba(255,255,255,0.92);
+    font-weight:500;
+  }
+  .swatch::after{
+    content:"";
+    position:absolute; inset:0;
+    background:linear-gradient(180deg, transparent 40%, rgba(0,0,0,0.35));
+  }
+
+  /* ─────────────────────────────────────────── Capturas ── */
+  .gallery-section{padding:70px 0 90px;}
+  .gallery-header{
+    font-family:'Newsreader', serif;
+    font-size:12px; font-weight:500; letter-spacing:0.14em; text-transform:uppercase;
+    color:var(--ink-faint);
+    padding-bottom:16px;
+    border-bottom:1px solid var(--rule);
+    margin-bottom:20px;
+  }
+  .gallery-grid{
+    display:grid;
+    grid-template-columns:repeat(3, 1fr);
+    gap:14px;
+  }
+  @media (max-width:700px){
+    .gallery-grid{grid-template-columns:repeat(2, 1fr);}
+  }
+  .gallery-item{
+    background:var(--paper-deep);
+    border:1px solid var(--rule);
+    border-radius:12px;
+    aspect-ratio:9/19.5;
+    overflow:hidden;
+    position:relative;
+    cursor:zoom-in;
+    box-shadow:0 14px 28px -18px rgba(42,32,25,0.35);
+    transition:transform .25s ease;
+  }
+  .gallery-item:hover{transform:translateY(-4px);}
+  .gallery-item img{width:100%; height:100%; object-fit:cover; display:block;}
+
+  /* ── Lightbox ── */
+  .lightbox-overlay{
+    position:fixed; inset:0; background:rgba(20,15,10,0.92); z-index:300;
+    display:flex; align-items:center; justify-content:center;
+    opacity:0; pointer-events:none; transition:opacity .2s ease;
+  }
+  .lightbox-overlay.open{opacity:1; pointer-events:all;}
+  .lightbox-img{max-height:90vh; max-width:min(390px, 90vw); border-radius:16px; box-shadow:0 0 80px rgba(0,0,0,0.6); transform:scale(0.95); transition:transform .2s ease;}
+  .lightbox-overlay.open .lightbox-img{transform:scale(1);}
+  .lightbox-close{
+    position:absolute; top:24px; right:24px;
+    background:none; border:1px solid rgba(251,246,234,0.3); color:var(--cream-text);
+    font-family:'Newsreader', serif; font-size:11px; letter-spacing:0.1em;
+    padding:7px 14px; border-radius:100px; cursor:pointer;
+    transition:border-color .2s ease;
+  }
+  .lightbox-close:hover{border-color:var(--cream-text);}
+
+  /* ───────────────────────────────────── Feature triptych ── */
+  .triptych{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:1px;
+    background:var(--rule);
+    border:1px solid var(--rule);
+    border-radius:16px;
+    overflow:hidden;
+  }
+  @media (max-width:860px){ .triptych{grid-template-columns:1fr;} }
+  .panel{
+    background:var(--paper);
+    padding:44px 34px;
+  }
+  .panel .num{
+    font-family:'Fraunces', serif;
+    font-style:italic;
+    font-size:15px;
+    color:var(--brown);
+    margin-bottom:18px;
+    display:block;
+  }
+  .panel h3{font-size:22px; margin-bottom:12px;}
+  .panel p{color:var(--ink-mid); font-size:15.5px; font-weight:300;}
+
+  /* ─────────────────────────────────────────────── Trust ── */
+  .trust{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:64px;
+    align-items:center;
+  }
+  @media (max-width:860px){ .trust{grid-template-columns:1fr;} }
+  .stamp{
+    display:inline-flex; align-items:center; gap:10px;
+    border:1px solid var(--ink-faint);
+    border-radius:100px;
+    padding:8px 16px 8px 8px;
+    margin-bottom:22px;
+  }
+  .stamp .dot{width:8px; height:8px; border-radius:50%; background:#5B8265;}
+  .stamp span{font-size:13px; color:var(--ink-mid);}
+
+  .qr-card{
+    background:var(--paper-deep);
+    border:1px solid var(--rule);
+    border-radius:16px;
+    padding:28px;
+    display:flex; gap:20px; align-items:center;
+    box-shadow:0 24px 48px -28px rgba(42,32,25,0.3);
+  }
+  .qr-box{
+    width:84px; height:84px;
+    background:var(--ink);
+    border-radius:8px;
+    flex-shrink:0;
+    display:flex; align-items:center; justify-content:center;
+  }
+  .qr-box svg{width:56px; height:56px;}
+
+  /* ──────────────────────────────────────────────── Footer ── */
+  footer{
+    border-top:1px solid var(--rule);
+    padding:44px 0;
+  }
+  footer .wrap{
+    display:flex; justify-content:space-between; align-items:center;
+    flex-wrap:wrap; gap:16px;
+  }
+  footer .logo{font-size:17px;}
+  .foot-links{display:flex; gap:22px; flex-wrap:wrap;}
+  .foot-links a{font-size:14px; color:var(--ink-mid);}
+  .foot-links a:hover{color:var(--brown);}
+  .foot-note{font-size:13px; color:var(--ink-faint);}
+
+  /* ──────────────────────────────────────── Reveal on scroll ── */
+  .reveal{
+    opacity:0;
+    transform:translateY(18px);
+    transition:opacity .7s ease, transform .7s ease;
+  }
+  .reveal.in{opacity:1; transform:translateY(0);}
+
+  @media (prefers-reduced-motion: reduce){
+    .reveal{transition:none !important; animation:none !important; opacity:1 !important; transform:none !important;}
+  }
+
+  :focus-visible{outline:2px solid var(--brown); outline-offset:3px;}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <a href="/index.html" class="logo logo-bittermate">Bitter<span>Mate</span></a>
+    <div class="nav-right">
+      <a href="/blog/index.html" class="nav-blog" id="nav-blog-link" data-t="nav-blog">Blog</a>
+      <div class="lang-toggle">
+        <button class="lang-btn active" id="btn-es" onclick="setLang('es')">ES</button>
+        <button class="lang-btn" id="btn-en" onclick="setLang('en')">EN</button>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- ═══════════════════════════════════════════ HERO ═══ -->
+  <section class="hero">
+    <div class="wrap">
+      <div class="hero-eyebrow">
+        <span class="eyebrow" data-t="hero-eyebrow">Un diario de lectura</span>
+      </div>
+      <h1 class="headline" data-t="hero-headline">Tu biblioteca,<br>con <em>memoria</em>.</h1>
+      <p class="sub" data-t="hero-sub">Folia guarda algo más que títulos y fechas: dónde estabas, cómo te sentías, qué más pasaba en tu vida mientras pasabas esas páginas.</p>
+      <!-- TODO: reemplazar por la URL real de App Store cuando Folia esté publicada -->
+      <a href="https://apps.apple.com/ar/app/folia/idXXXXXXXXXX" class="appstore-btn" target="_blank" rel="noopener">
+        <div class="appstore-icon">
+          <img src="Icon-1024.png" alt="Folia" width="120" height="120">
+        </div>
+        <div>
+          <span class="appstore-label" data-t="btn-label">Descargar en</span>
+          <span class="appstore-name">App Store</span>
+        </div>
+      </a>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════ FUNCIONES ═══ -->
+  <section id="funciones">
+    <div class="wrap">
+      <div class="section-head">
+        <h2 data-t="func-h2">Lo que hace falta<br>para leer sin perder el hilo.</h2>
+      </div>
+      <div class="triptych reveal">
+        <div class="panel">
+          <span class="num" data-t="func-p1-num">Sala</span>
+          <h3 data-t="func-p1-h3">Sala de lectura</h3>
+          <p data-t="func-p1-p">Lo que estás leyendo ahora, tu pila de lecturas pendientes, retos con metas propias y resúmenes mensuales de tu actividad.</p>
+        </div>
+        <div class="panel">
+          <span class="num" data-t="func-p2-num">Captura</span>
+          <h3 data-t="func-p2-h3">Antes de decidir</h3>
+          <p data-t="func-p2-p">Sacá una foto de la tapa en la librería y decidí después. Escaneá el código de barras. Sumalo a tu wishlist sin presión.</p>
+        </div>
+        <div class="panel">
+          <span class="num" data-t="func-p3-num">Estante</span>
+          <h3 data-t="func-p3-h3">Filtros con criterio</h3>
+          <p data-t="func-p3-p">Buscá por ánimo, extensión o etiquetas propias. Armá sagas y colecciones. Calificá con estrellas o con reacciones simples.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="torn" aria-hidden="true">
+    <svg viewBox="0 0 1200 14" preserveAspectRatio="none"><path d="M0,0 L1200,0 L1200,7 L1180,10 L1160,6 L1140,11 L1120,7 L1100,9 L1080,5 L1060,10 L1040,6 L1020,9 L1000,5 L980,11 L960,7 L940,9 L920,5 L900,10 L880,6 L860,9 L840,5 L820,11 L800,7 L780,9 L760,5 L740,10 L720,6 L700,9 L680,5 L660,11 L640,7 L620,9 L600,5 L580,10 L560,6 L540,9 L520,5 L500,11 L480,7 L460,9 L440,5 L420,10 L400,6 L380,9 L360,5 L340,11 L320,7 L300,9 L280,5 L260,10 L240,6 L220,9 L200,5 L180,11 L160,7 L140,9 L120,5 L100,10 L80,6 L60,9 L40,5 L20,11 L0,7 Z" fill="#EEE3CC"/></svg>
+  </div>
+
+  <!-- ══════════════════════════════════════ CAPTURAS ═══ -->
+  <!-- Poné las imágenes en esta misma carpeta con estos nombres exactos
+  y la grilla las toma solas — no hace falta tocar el HTML. Un set en
+  español (…-es.png) y otro en inglés (…-en.png); el toggle de arriba
+  cambia entre los dos sets automáticamente. Agregá o sacá bloques
+  ".gallery-item" si tenés más o menos de 9 capturas. -->
+  <div class="gallery-section" id="capturas">
+    <div class="wrap">
+      <div class="gallery-header" data-t="gallery-header">Capturas</div>
+      <div class="gallery-grid" id="gallery">
+        <div class="gallery-item"><img class="gallery-img" data-src-es="thumb-01-es.png" data-src-en="thumb-01-en.png" src="thumb-01-es.png" alt="Folia screenshot 01"></div>
+        <div class="gallery-item"><img class="gallery-img" data-src-es="thumb-02-es.png" data-src-en="thumb-02-en.png" src="thumb-02-es.png" alt="Folia screenshot 02"></div>
+        <div class="gallery-item"><img class="gallery-img" data-src-es="thumb-03-es.png" data-src-en="thumb-03-en.png" src="thumb-03-es.png" alt="Folia screenshot 03"></div>
+        <div class="gallery-item"><img class="gallery-img" data-src-es="thumb-04-es.png" data-src-en="thumb-04-en.png" src="thumb-04-es.png" alt="Folia screenshot 04"></div>
+        <div class="gallery-item"><img class="gallery-img" data-src-es="thumb-05-es.png" data-src-en="thumb-05-en.png" src="thumb-05-es.png" alt="Folia screenshot 05"></div>
+        <div class="gallery-item"><img class="gallery-img" data-src-es="thumb-06-es.png" data-src-en="thumb-06-en.png" src="thumb-06-es.png" alt="Folia screenshot 06"></div>
+        <div class="gallery-item"><img class="gallery-img" data-src-es="thumb-07-es.png" data-src-en="thumb-07-en.png" src="thumb-07-es.png" alt="Folia screenshot 07"></div>
+        <div class="gallery-item"><img class="gallery-img" data-src-es="thumb-08-es.png" data-src-en="thumb-08-en.png" src="thumb-08-es.png" alt="Folia screenshot 08"></div>
+        <div class="gallery-item"><img class="gallery-img" data-src-es="thumb-09-es.png" data-src-en="thumb-09-en.png" src="thumb-09-es.png" alt="Folia screenshot 09"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════ PRIVACIDAD ═══ -->
+  <section id="privacidad" style="background:var(--paper-deep); padding-top:100px; padding-bottom:110px;">
+    <div class="wrap">
+      <div class="trust reveal">
+        <div>
+          <div class="stamp"><span class="dot"></span><span data-t="trust-stamp">Guardado en tu dispositivo</span></div>
+          <h2 style="font-size:clamp(28px,3.6vw,38px); line-height:1.15;" data-t="trust-h2">Tus datos son tuyos.<br>Punto.</h2>
+          <p style="color:var(--ink-mid); font-size:16.5px; margin-top:16px; font-weight:300; max-width:440px;" data-t="trust-p">Todo lo que anotás vive en tu teléfono. Exportá un backup completo cuando quieras, o compartí un libro con otra persona que use Folia escaneando un código QR — sin depender de ninguna nube, sin suscripciones, anuncios, notificaciones ni otras molestias comunes de la actualidad.</p>
+        </div>
+        <div class="qr-card">
+          <div class="qr-box">
+            <svg viewBox="0 0 100 100" fill="none">
+              <rect x="6" y="6" width="26" height="26" stroke="#F7F1E4" stroke-width="6" fill="none"/>
+              <rect x="68" y="6" width="26" height="26" stroke="#F7F1E4" stroke-width="6" fill="none"/>
+              <rect x="6" y="68" width="26" height="26" stroke="#F7F1E4" stroke-width="6" fill="none"/>
+              <rect x="16" y="16" width="6" height="6" fill="#F7F1E4"/>
+              <rect x="78" y="16" width="6" height="6" fill="#F7F1E4"/>
+              <rect x="16" y="78" width="6" height="6" fill="#F7F1E4"/>
+              <rect x="44" y="6" width="6" height="6" fill="#F7F1E4"/>
+              <rect x="44" y="20" width="6" height="6" fill="#F7F1E4"/>
+              <rect x="58" y="34" width="6" height="6" fill="#F7F1E4"/>
+              <rect x="44" y="44" width="6" height="6" fill="#F7F1E4"/>
+              <rect x="58" y="58" width="6" height="6" fill="#F7F1E4"/>
+              <rect x="44" y="70" width="6" height="6" fill="#F7F1E4"/>
+              <rect x="68" y="70" width="6" height="6" fill="#F7F1E4"/>
+              <rect x="80" y="82" width="6" height="6" fill="#F7F1E4"/>
+              <rect x="34" y="58" width="6" height="6" fill="#F7F1E4"/>
+            </svg>
+          </div>
+          <div>
+            <div style="font-family:'Fraunces',serif; font-size:17px; margin-bottom:4px;" data-t="qr-title">Compartí un libro</div>
+            <div style="color:var(--ink-mid); font-size:14.5px;" data-t="qr-body">Mostrá tu código, la otra persona lo escanea y listo — entra directo a su colección.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <a href="#top" class="logo">Folia</a>
+    <div class="foot-links">
+      <a href="#capturas" data-t="nav-capturas">Capturas</a>
+      <a href="#funciones" data-t="nav-funciones">Funciones</a>
+      <a href="support.html" id="support-link" data-t="foot-support">Soporte</a>
+      <a href="privacy.html" id="privacy-link" data-t="foot-privacy">Privacidad</a>
+    </div>
+    <div class="foot-note" data-t="foot-note">© 2026 Folia — parte de BitterMate</div>
+  </div>
+</footer>
+
+<script>
+  // ── i18n ──────────────────────────────────────────────────────
+  const copy = {
+    es:{
+      'nav-blog':'Blog',
+      'nav-capturas':'Capturas',
+      'nav-funciones':'Funciones',
+      'nav-privacidad':'Privacidad',
+      'hero-eyebrow':'Un diario de lectura',
+      'hero-headline':'Tu biblioteca,<br>con <em>memoria</em>.',
+      'hero-sub':'Folia guarda algo más que títulos y fechas: dónde estabas, cómo te sentías, qué más pasaba en tu vida mientras pasabas esas páginas.',
+      'btn-label':'Descargar en',
+      'gallery-header':'Capturas',
+      'func-h2':'Lo que hace falta<br>para leer sin perder el hilo.',
+      'func-p1-num':'Sala','func-p1-h3':'Sala de lectura',
+      'func-p1-p':'Lo que estás leyendo ahora, tu pila de lecturas pendientes, retos con metas propias y resúmenes mensuales de tu actividad.',
+      'func-p2-num':'Captura','func-p2-h3':'Antes de decidir',
+      'func-p2-p':'Sacá una foto de la tapa en la librería y decidí después. Escaneá el código de barras. Sumalo a tu wishlist sin presión.',
+      'func-p3-num':'Estante','func-p3-h3':'Filtros con criterio',
+      'func-p3-p':'Buscá por ánimo, extensión o etiquetas propias. Armá sagas y colecciones. Calificá con estrellas o con reacciones simples.',
+      'trust-stamp':'Guardado en tu dispositivo',
+      'trust-h2':'Tus datos son tuyos.<br>Punto.',
+      'trust-p':'Todo lo que anotás vive en tu teléfono. Exportá un backup completo cuando quieras, o compartí un libro con otra persona que use Folia escaneando un código QR — sin depender de ninguna nube, sin suscripciones, anuncios, notificaciones ni otras molestias comunes de la actualidad.',
+      'qr-title':'Compartí un libro',
+      'qr-body':'Mostrá tu código, la otra persona lo escanea y listo — entra directo a su colección.',
+      'foot-support':'Soporte',
+      'foot-privacy':'Privacidad',
+      'foot-note':'© 2026 Folia — parte de BitterMate',
+    },
+    en:{
+      'nav-blog':'Blog',
+      'nav-capturas':'Screenshots',
+      'nav-funciones':'Features',
+      'nav-privacidad':'Privacy',
+      'hero-eyebrow':'A reading journal',
+      'hero-headline':'Your library,<br>with <em>memory</em>.',
+      'hero-sub':'Folia keeps more than titles and dates: where you were, how you felt, what else was going on in your life while you turned those pages.',
+      'btn-label':'Download on the',
+      'gallery-header':'Screenshots',
+      'func-h2':'What it takes<br>to read without losing the thread.',
+      'func-p1-num':'Room','func-p1-h3':'Reading room',
+      'func-p1-p':'What you\'re reading right now, your reading queue, challenges with goals you set, and monthly summaries of your activity.',
+      'func-p2-num':'Capture','func-p2-h3':'Before you decide',
+      'func-p2-p':'Snap a photo of the cover at the bookstore and decide later. Scan the barcode. Add it to your wishlist, no pressure.',
+      'func-p3-num':'Shelf','func-p3-h3':'Filters that make sense',
+      'func-p3-p':'Search by mood, length, or your own tags. Build sagas and collections. Rate with stars or simple reactions.',
+      'trust-stamp':'Stored on your device',
+      'trust-h2':'Your data is yours.<br>Period.',
+      'trust-p':'Everything you write lives on your phone. Export a full backup whenever you want, or share a book with another Folia user by scanning a QR code — no cloud required, no subscriptions, ads, notifications, or the usual modern-day nuisances.',
+      'qr-title':'Share a book',
+      'qr-body':'Show your code, the other person scans it, done — it goes straight into their collection.',
+      'foot-support':'Support',
+      'foot-privacy':'Privacy',
+      'foot-note':'© 2026 Folia — part of BitterMate',
+    }
+  };
+
+  let currentLang = 'es';
+
+  function setLang(lang) {
+    currentLang = lang;
+    document.querySelectorAll('[data-t]').forEach(el => {
+      const key = el.getAttribute('data-t');
+      if (copy[lang][key] !== undefined) el.innerHTML = copy[lang][key];
+    });
+    document.querySelectorAll('.gallery-img').forEach(img => {
+      const src = img.getAttribute('data-src-' + lang);
+      if (src) img.src = src + '?v=' + Date.now();
+    });
+    document.getElementById('btn-es').classList.toggle('active', lang === 'es');
+    document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+    const bl = document.getElementById('nav-blog-link');
+    if (bl) bl.href = '/blog/index.html' + (lang === 'en' ? '?lang=en' : '');
+    const sl = document.getElementById('support-link');
+    if (sl) sl.href = 'support.html' + (lang === 'en' ? '?lang=en' : '');
+    const pl = document.getElementById('privacy-link');
+    if (pl) pl.href = 'privacy.html' + (lang === 'en' ? '?lang=en' : '');
+  }
+
+  (function() {
+    const params = new URLSearchParams(window.location.search);
+    const lang = params.get('lang');
+    if (lang === 'en') setLang('en');
+  })();
+</script>
+
+<script>
+  // ── Reveal on scroll ──────────────────────────────────────────
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('in'); });
+  }, {threshold:0.15});
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+  // ── Galería / lightbox ──────────────────────────────────────────
+  document.addEventListener('DOMContentLoaded', () => {
+    document.querySelectorAll('.gallery-item').forEach(item => {
+      item.addEventListener('click', () => {
+        const img = item.querySelector('img');
+        if (img) openLightbox(img.src);
+      });
+    });
+  });
+  function openLightbox(src) {
+    const lb = document.getElementById('lightbox');
+    const img = document.getElementById('lightbox-img');
+    img.src = src;
+    lb.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeLightbox(e) {
+    if (e && e.target === document.getElementById('lightbox-img')) return;
+    document.getElementById('lightbox').classList.remove('open');
+    document.body.style.overflow = '';
+  }
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLightbox(); });
+</script>
+
+<!-- Lightbox -->
+<div class="lightbox-overlay" id="lightbox" onclick="closeLightbox(event)">
+  <button class="lightbox-close" onclick="closeLightbox()">ESC</button>
+  <img class="lightbox-img" id="lightbox-img" src="" alt="">
+</div>
+
+</body>
+</html>
