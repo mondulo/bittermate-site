@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bonus Track — Soporte</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Mono:wght@300;400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#0d0d0b;--bg2:#141410;
+  --cream:#f0ece2;--cream-muted:#a8a290;
+  --sage:#7a9e7e;--sage-light:#9dbfa1;--sage-dim:#3d5c40;
+  --line:rgba(240,236,226,0.08);--line-med:rgba(240,236,226,0.15);
+}
+html{scroll-behavior:smooth}
+body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--cream);overflow-x:hidden}
+
+nav{display:flex;align-items:center;justify-content:space-between;padding:1.25rem 3rem;border-bottom:1px solid var(--line);background:rgba(13,13,11,0.92);position:sticky;top:0;z-index:50}
+.nav-logo{font-family:'Playfair Display',serif;font-size:1.2rem;color:var(--cream);text-decoration:none}
+.nav-logo span{color:var(--sage)}
+.lang-toggle{display:flex;border:1px solid var(--line-med);overflow:hidden}
+.lang-btn{font-family:'DM Mono',monospace;font-size:0.6rem;letter-spacing:0.1em;padding:0.35rem 0.65rem;background:none;border:none;color:var(--cream-muted);cursor:pointer;transition:background 0.2s,color 0.2s}
+.lang-btn.active{background:var(--sage-dim);color:var(--sage-light)}
+
+.page{max-width:720px;margin:0 auto;padding:5rem 3rem 6rem}
+
+.page-label{font-family:'DM Mono',monospace;font-size:0.62rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--sage-dim);margin-bottom:1.5rem;display:flex;align-items:center;gap:0.75rem}
+.page-label::before{content:'';width:1.25rem;height:1px;background:var(--sage-dim);display:inline-block}
+
+h1{font-family:'Playfair Display',serif;font-size:clamp(2rem,5vw,3.2rem);font-weight:700;line-height:1;letter-spacing:-0.02em;color:var(--cream);margin-bottom:0.75rem}
+.intro{font-size:0.95rem;color:var(--cream-muted);line-height:1.8;font-weight:300;margin-bottom:3rem;max-width:600px}
+
+.policy-body{display:flex;flex-direction:column;gap:2.5rem}
+
+.policy-section h2{font-family:'Playfair Display',serif;font-size:1.15rem;font-weight:700;color:var(--cream);margin-bottom:0.85rem}
+.policy-section p{font-size:0.88rem;color:var(--cream-muted);line-height:1.9;font-weight:300}
+.policy-section p+p{margin-top:0.75rem}
+.policy-section strong{color:var(--cream);font-weight:400}
+.policy-section a{color:var(--sage);text-decoration:none}
+.policy-section a:hover{color:var(--sage-light)}
+.policy-section ol{list-style:none;counter-reset:step;padding-left:0;margin-top:0.5rem}
+.policy-section ol li{counter-increment:step;font-size:0.88rem;color:var(--cream-muted);line-height:1.9;font-weight:300;padding-left:2.25rem;position:relative;margin-bottom:0.4rem}
+.policy-section ol li::before{content:counter(step);position:absolute;left:0;top:0.1rem;font-family:'DM Mono',monospace;font-size:0.65rem;letter-spacing:0.1em;color:var(--sage-dim);width:1.5rem;text-align:right}
+
+hr.div{border:none;border-top:1px solid var(--line)}
+footer{padding:1.75rem 3rem;border-top:1px solid var(--line);display:flex;justify-content:space-between;align-items:center;background:var(--bg);gap:1rem;flex-wrap:wrap}
+footer p{font-family:'DM Mono',monospace;font-size:0.62rem;letter-spacing:0.09em;color:rgba(168,162,144,0.35)}
+.back-link{font-family:'DM Mono',monospace;font-size:0.62rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--sage-dim);text-decoration:none;transition:color 0.2s}
+.back-link:hover{color:var(--sage)}
+.footer-contact{font-family:'DM Mono',monospace;font-size:0.62rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--sage-dim);background:none;border:1px solid var(--sage-dim);padding:0.4rem 1rem;cursor:pointer;transition:color 0.2s,border-color 0.2s}
+.footer-contact:hover{color:var(--sage);border-color:var(--sage)}
+
+@media(max-width:600px){
+  nav{padding:1rem 1.5rem}
+  .page{padding:3rem 1.5rem 4rem}
+  footer{padding:1.5rem}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo">Bitter<span>Mate</span></a>
+  <div class="lang-toggle">
+    <button class="lang-btn active" id="btn-es" onclick="setLang('es')">ES</button>
+    <button class="lang-btn" id="btn-en" onclick="setLang('en')">EN</button>
+  </div>
+</nav>
+
+<div class="page">
+  <div class="page-label" data-t="page-label">BitterMate · Bonus Track</div>
+  <h1 data-t="page-title">Soporte</h1>
+  <p class="intro" data-t="intro">Guía rápida para empezar a usar Bonus Track. Si después de leer esto sigue habiendo algo que no funciona o tenés una sugerencia, escribime con el botón de contacto al pie.</p>
+
+  <div class="policy-body">
+
+    <div class="policy-section">
+      <h2 data-t="s1-title">Cómo importar música</h2>
+      <p data-t="s1-body">Bonus Track reproduce los archivos de audio que tengas en la app Archivos del iPhone (locales o en iCloud Drive). Soporta MP3, AAC, M4A, FLAC, WAV y AIFF.</p>
+      <ol>
+        <li data-t="s1-step1">Abrí la app y tocá "Importar música" en la pantalla de biblioteca vacía, o bien usá el botón de descarga (↓) en la barra superior de la pestaña Biblioteca.</li>
+        <li data-t="s1-step2">Elegí los archivos o carpetas desde el explorador de Archivos. Podés seleccionar varios a la vez.</li>
+        <li data-t="s1-step3">Esperá a que termine la importación. La metadata (título, artista, álbum, portada) se lee automáticamente de cada archivo.</li>
+      </ol>
+    </div>
+
+    <div class="policy-section">
+      <h2 data-t="s2-title">Exportar e importar un backup</h2>
+      <p data-t="s2-body">Bonus Track guarda un backup completo de tus listas, listas inteligentes, calificaciones, historial de reproducción, apariencia y preferencias. <strong>El backup no incluye los archivos de música</strong>, esos hay que reimportarlos por separado.</p>
+      <p data-t="s2-export"><strong>Exportar:</strong> abrí el menú principal (☰) → Biblioteca → "Exportar backup". Vas a poder guardar el archivo .json donde quieras (Archivos, iCloud Drive, etc.).</p>
+      <p data-t="s2-import"><strong>Importar:</strong> abrí el menú principal (☰) → Biblioteca → "Importar backup". Elegí el .json y vas a ver una pantalla donde podés seleccionar qué partes restaurar (listas, listas inteligentes, metadatos, preferencias).</p>
+    </div>
+
+    <div class="policy-section">
+      <h2 data-t="s3-title">Restaurar la app en otro dispositivo</h2>
+      <p data-t="s3-body">Si cambiaste de iPhone o reinstalaste la app, el orden es importante:</p>
+      <ol>
+        <li data-t="s3-step1">Instalá Bonus Track en el dispositivo nuevo.</li>
+        <li data-t="s3-step2">Importá primero los archivos de música desde Archivos.</li>
+        <li data-t="s3-step3">Después importá el backup. La app va a asociar las listas y datos a las canciones por título y artista.</li>
+      </ol>
+      <p data-t="s3-note">Si importás el backup antes de tener la música, las listas van a quedar vacías porque no hay canciones con las cuales asociar.</p>
+    </div>
+
+    <div class="policy-section">
+      <h2 data-t="s4-title">Listas inteligentes</h2>
+      <p data-t="s4-body">Las listas inteligentes se actualizan solas según los criterios que definís. Podés combinar varios: calificación, género, año, veces reproducida, salteadas, sin escuchar, duración, antigüedad, pertenencia a otra lista, y más.</p>
+      <p data-t="s4-create">Para crear una: pestaña Inteligentes → botón +. Tocá los criterios que querés activar, configurá cada uno y elegí si deben cumplirse <strong>todos</strong> o <strong>al menos uno</strong>. Podés limitar la cantidad máxima de canciones y elegir el orden.</p>
+      <p data-t="s4-edit">Para editar una lista existente: tocá la lista en la pestaña Inteligentes → ícono de ajustes (◊) arriba a la derecha.</p>
+    </div>
+
+    <div class="policy-section">
+      <h2 data-t="s5-title">Edición de metadata y portadas</h2>
+      <p data-t="s5-body">Podés editar título, artista, álbum, género y año de cada canción. Mantené presionada una canción en Biblioteca o en una lista, y elegí "Editar". Los cambios se guardan en la base de datos interna de Bonus Track y se incluyen en el backup, pero <strong>no modifican el archivo original</strong>.</p>
+      <p data-t="s5-cover">Para buscar portadas: en la pantalla de edición tocá los botones de búsqueda al lado de cada campo. La búsqueda consulta iTunes con el artista y álbum.</p>
+    </div>
+
+    <div class="policy-section">
+      <h2 data-t="s6-title">Privacidad</h2>
+      <p data-t="s6-body">Bonus Track no recolecta datos personales, no usa publicidad, no tiene cuentas de usuario y no envía telemetría. Toda tu información vive solo en tu iPhone. Más detalles en la <a href="privacy.html">política de privacidad</a>.</p>
+    </div>
+
+  </div>
+</div>
+
+<footer>
+  <p data-t="footer">© 2026 BitterMate</p>
+  <button class="footer-contact" data-t="footer-contact" onclick="sendMail()">Contacto</button>
+  <a href="index.html" class="back-link" data-t="back">← Volver</a>
+</footer>
+
+<script>
+const copy = {
+  es:{
+    'page-label':'BitterMate · Bonus Track',
+    'page-title':'Soporte',
+    'intro':'Guía rápida para empezar a usar Bonus Track. Si después de leer esto sigue habiendo algo que no funciona o tenés una sugerencia, escribime con el botón de contacto al pie.',
+    's1-title':'Cómo importar música',
+    's1-body':'Bonus Track reproduce los archivos de audio que tengas en la app Archivos del iPhone (locales o en iCloud Drive). Soporta MP3, AAC, M4A, FLAC, WAV y AIFF.',
+    's1-step1':'Abrí la app y tocá "Importar música" en la pantalla de biblioteca vacía, o bien usá el botón de descarga (↓) en la barra superior de la pestaña Biblioteca.',
+    's1-step2':'Elegí los archivos o carpetas desde el explorador de Archivos. Podés seleccionar varios a la vez.',
+    's1-step3':'Esperá a que termine la importación. La metadata (título, artista, álbum, portada) se lee automáticamente de cada archivo.',
+    's2-title':'Exportar e importar un backup',
+    's2-body':'Bonus Track guarda un backup completo de tus listas, listas inteligentes, calificaciones, historial de reproducción, apariencia y preferencias. <strong>El backup no incluye los archivos de música</strong>, esos hay que reimportarlos por separado.',
+    's2-export':'<strong>Exportar:</strong> abrí el menú principal (☰) → Biblioteca → "Exportar backup". Vas a poder guardar el archivo .json donde quieras (Archivos, iCloud Drive, etc.).',
+    's2-import':'<strong>Importar:</strong> abrí el menú principal (☰) → Biblioteca → "Importar backup". Elegí el .json y vas a ver una pantalla donde podés seleccionar qué partes restaurar (listas, listas inteligentes, metadatos, preferencias).',
+    's3-title':'Restaurar la app en otro dispositivo',
+    's3-body':'Si cambiaste de iPhone o reinstalaste la app, el orden es importante:',
+    's3-step1':'Instalá Bonus Track en el dispositivo nuevo.',
+    's3-step2':'Importá primero los archivos de música desde Archivos.',
+    's3-step3':'Después importá el backup. La app va a asociar las listas y datos a las canciones por título y artista.',
+    's3-note':'Si importás el backup antes de tener la música, las listas van a quedar vacías porque no hay canciones con las cuales asociar.',
+    's4-title':'Listas inteligentes',
+    's4-body':'Las listas inteligentes se actualizan solas según los criterios que definís. Podés combinar varios: calificación, género, año, veces reproducida, salteadas, sin escuchar, duración, antigüedad, pertenencia a otra lista, y más.',
+    's4-create':'Para crear una: pestaña Inteligentes → botón +. Tocá los criterios que querés activar, configurá cada uno y elegí si deben cumplirse <strong>todos</strong> o <strong>al menos uno</strong>. Podés limitar la cantidad máxima de canciones y elegir el orden.',
+    's4-edit':'Para editar una lista existente: tocá la lista en la pestaña Inteligentes → ícono de ajustes (◊) arriba a la derecha.',
+    's5-title':'Edición de metadata y portadas',
+    's5-body':'Podés editar título, artista, álbum, género y año de cada canción. Mantené presionada una canción en Biblioteca o en una lista, y elegí "Editar". Los cambios se guardan en la base de datos interna de Bonus Track y se incluyen en el backup, pero <strong>no modifican el archivo original</strong>.',
+    's5-cover':'Para buscar portadas: en la pantalla de edición tocá los botones de búsqueda al lado de cada campo. La búsqueda consulta iTunes con el artista y álbum.',
+    's6-title':'Privacidad',
+    's6-body':'Bonus Track no recolecta datos personales, no usa publicidad, no tiene cuentas de usuario y no envía telemetría. Toda tu información vive solo en tu iPhone. Más detalles en la <a href="privacy.html">política de privacidad</a>.',
+    'footer':'© 2026 BitterMate',
+    'back':'← Volver',
+    'footer-contact':'Contacto'
+  },
+  en:{
+    'page-label':'BitterMate · Bonus Track',
+    'page-title':'Support',
+    'intro':'A quick guide to get started with Bonus Track. If something still isn\'t working after reading this, or you have a suggestion, get in touch using the contact button at the bottom.',
+    's1-title':'How to import music',
+    's1-body':'Bonus Track plays the audio files you have in the Files app (local or in iCloud Drive). It supports MP3, AAC, M4A, FLAC, WAV and AIFF.',
+    's1-step1':'Open the app and tap "Import music" on the empty library screen, or use the download button (↓) in the top bar of the Library tab.',
+    's1-step2':'Pick files or folders from the Files browser. You can select multiple at once.',
+    's1-step3':'Wait for the import to finish. Metadata (title, artist, album, artwork) is read automatically from each file.',
+    's2-title':'Exporting and importing a backup',
+    's2-body':'Bonus Track keeps a full backup of your playlists, smart playlists, ratings, play history, appearance and preferences. <strong>The backup does not include the music files</strong>, those need to be re-imported separately.',
+    's2-export':'<strong>Export:</strong> open the main menu (☰) → Library → "Export backup". You can save the .json file wherever you want (Files, iCloud Drive, etc.).',
+    's2-import':'<strong>Import:</strong> open the main menu (☰) → Library → "Import backup". Pick the .json and you\'ll see a screen where you can choose which parts to restore (playlists, smart playlists, metadata, preferences).',
+    's3-title':'Restoring on another device',
+    's3-body':'If you switched iPhone or reinstalled the app, the order matters:',
+    's3-step1':'Install Bonus Track on the new device.',
+    's3-step2':'Import the music files from Files first.',
+    's3-step3':'Then import the backup. The app will link playlists and data to your songs by title and artist.',
+    's3-note':'If you import the backup before having the music, playlists will end up empty because there are no songs to link to.',
+    's4-title':'Smart playlists',
+    's4-body':'Smart playlists update on their own based on the criteria you set. You can combine several: rating, genre, year, play count, skips, never played, duration, age, membership in another playlist, and more.',
+    's4-create':'To create one: Smart tab → + button. Tap the criteria you want to enable, configure each one, and choose whether <strong>all</strong> or <strong>at least one</strong> must match. You can cap the maximum number of songs and choose the sort order.',
+    's4-edit':'To edit an existing playlist: tap the list in the Smart tab → settings icon (◊) at the top right.',
+    's5-title':'Metadata and artwork editing',
+    's5-body':'You can edit title, artist, album, genre and year of each song. Long-press a song in Library or a playlist and choose "Edit". Changes are saved in Bonus Track\'s internal database and included in the backup, but <strong>they don\'t modify the original file</strong>.',
+    's5-cover':'To search for artwork: on the edit screen, tap the search buttons next to each field. The search queries iTunes with the artist and album.',
+    's6-title':'Privacy',
+    's6-body':'Bonus Track does not collect personal data, does not use ads, has no user accounts and does not send telemetry. All your info lives only on your iPhone. More details in the <a href="privacy.html?lang=en">privacy policy</a>.',
+    'footer':'© 2026 BitterMate',
+    'back':'← Back',
+    'footer-contact':'Contact'
+  }
+};
+
+let currentLang = 'es';
+
+function setLang(lang) {
+  currentLang = lang;
+  document.querySelectorAll('[data-t]').forEach(el => {
+    const key = el.getAttribute('data-t');
+    if (copy[lang][key] !== undefined) el.innerHTML = copy[lang][key];
+  });
+  document.getElementById('btn-es').classList.toggle('active', lang === 'es');
+  document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+  const bl = document.querySelector('.back-link');
+  if (bl) bl.href = 'index.html' + (lang === 'en' ? '?lang=en' : '');
+}
+
+function sendMail() {
+  const subject = currentLang === 'es' ? 'Soporte Bonus Track' : 'Bonus Track support';
+  window.location.href = 'mailto:dardos_despoblado_8r@icloud.com?subject=' + encodeURIComponent(subject);
+}
+
+(function() {
+  const params = new URLSearchParams(window.location.search);
+  const lang = params.get('lang');
+  if (lang === 'en') setLang('en');
+})();
+</script>
+</body>
+</html>
