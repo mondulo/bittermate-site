@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bonus Track 1.2 — BitterMate</title>
+<link rel="canonical" href="lanzamiento-1-2-es.html">
+<link rel="alternate" hreflang="en" href="lanzamiento-1-2-en.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Mono:wght@300;400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#0d0d0b;--bg2:#141410;
+  --cream:#f0ece2;--cream-muted:#a8a290;
+  --sage:#7a9e7e;--sage-light:#9dbfa1;--sage-dim:#3d5c40;
+  --line:rgba(240,236,226,0.08);--line-med:rgba(240,236,226,0.15);
+}
+html{scroll-behavior:smooth}
+body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--cream);overflow-x:hidden}
+
+nav{display:flex;align-items:center;justify-content:space-between;padding:1.25rem 3rem;border-bottom:1px solid var(--line);background:rgba(13,13,11,0.92);position:sticky;top:0;z-index:50}
+.nav-logo{font-family:'Playfair Display',serif;font-size:1.2rem;color:var(--cream);text-decoration:none}
+.nav-logo span{color:var(--sage)}
+.nav-right{display:flex;align-items:center;gap:1.5rem}
+.nav-blog{font-family:'DM Mono',monospace;font-size:0.6rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--sage-dim);text-decoration:none;transition:color 0.2s}
+.nav-blog:hover{color:var(--sage)}
+.lang-toggle{display:flex;border:1px solid var(--line-med);overflow:hidden}
+.lang-btn{font-family:'DM Mono',monospace;font-size:0.6rem;letter-spacing:0.1em;padding:0.35rem 0.65rem;background:none;border:none;color:var(--cream-muted);cursor:pointer;transition:background 0.2s,color 0.2s}
+.lang-btn.active{background:var(--sage-dim);color:var(--sage-light)}
+
+.article-hero{padding:5rem 3rem 3rem;max-width:720px;margin:0 auto}
+.article-label{font-family:'DM Mono',monospace;font-size:0.62rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--sage-dim);margin-bottom:1.5rem;display:flex;align-items:center;gap:0.75rem}
+.article-label::before{content:'';width:1.25rem;height:1px;background:var(--sage-dim);display:inline-block}
+.article-title{font-family:'Playfair Display',serif;font-size:clamp(2rem,5vw,3.5rem);font-weight:700;line-height:1;letter-spacing:-0.025em;color:var(--cream);margin-bottom:1.25rem}
+.article-meta{font-family:'DM Mono',monospace;font-size:0.6rem;letter-spacing:0.12em;color:var(--sage-dim);display:flex;gap:1.5rem;flex-wrap:wrap}
+
+.article-image{max-width:720px;margin:0 auto;padding:0 3rem;display:flex;flex-direction:column;align-items:center}
+.article-image img{width:min(400px,100%);display:block;border:1px solid var(--line)}
+.article-image figcaption{font-family:'DM Mono',monospace;font-size:0.55rem;letter-spacing:0.1em;color:var(--sage-dim);margin-top:0.6rem;text-align:center}
+@media(max-width:600px){.article-image{padding:0 1.5rem}}
+
+.article-body{max-width:720px;margin:3rem auto 6rem;padding:0 3rem;display:flex;flex-direction:column;gap:1.75rem}
+.article-body p{font-size:0.95rem;color:var(--cream-muted);line-height:1.9;font-weight:300}
+.article-body p strong{color:var(--cream);font-weight:500}
+.article-body h2{font-family:'Playfair Display',serif;font-size:1.4rem;font-weight:700;color:var(--cream);margin-top:0.5rem}
+.article-body h3{font-family:'DM Mono',monospace;font-size:0.72rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--sage);margin-top:0.25rem}
+.article-body ul{list-style:none;display:flex;flex-direction:column;gap:0.6rem;padding-left:0}
+.article-body ul li{font-size:0.9rem;color:var(--cream-muted);line-height:1.7;font-weight:300;padding-left:1.25rem;position:relative}
+.article-body ul li::before{content:'—';position:absolute;left:0;color:var(--sage-dim)}
+.article-body blockquote{border-left:2px solid var(--sage-dim);padding:0.75rem 1.25rem;background:var(--bg2)}
+.article-body blockquote p{font-style:italic;font-size:0.9rem}
+hr.article-div{border:none;border-top:1px solid var(--line)}
+
+footer{padding:1.75rem 3rem;border-top:1px solid var(--line);display:flex;justify-content:space-between;align-items:center;background:var(--bg)}
+footer p{font-family:'DM Mono',monospace;font-size:0.62rem;letter-spacing:0.09em;color:rgba(168,162,144,0.35)}
+.footer-contact{font-family:'DM Mono',monospace;font-size:0.62rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--sage-dim);background:none;border:1px solid var(--sage-dim);padding:0.4rem 1rem;cursor:pointer;transition:color 0.2s,border-color 0.2s}
+.footer-contact:hover{color:var(--sage);border-color:var(--sage)}
+
+@media(max-width:600px){
+  nav{padding:1rem 1.5rem}
+  .article-hero,.article-body{padding-left:1.5rem;padding-right:1.5rem}
+  .article-hero{padding-top:3rem}
+  footer{padding:1.5rem;flex-wrap:wrap;gap:1rem}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="../../../index.html" class="nav-logo">Bitter<span>Mate</span></a>
+  <div class="nav-right">
+    <a href="../../index.html" class="nav-blog">← Blog</a>
+    <div class="lang-toggle">
+      <button class="lang-btn active" id="btn-es">ES</button>
+      <button class="lang-btn" id="btn-en">EN</button>
+    </div>
+  </div>
+</nav>
+
+<div class="article-hero">
+  <div class="article-label">Blog · Septiembre 2026</div>
+  <h1 class="article-title">Bonus Track 1.2</h1>
+  <div class="article-meta">
+    <span>Leonardo</span>
+    <span>Septiembre 2026</span>
+    <span>Changelog</span>
+  </div>
+</div>
+
+<figure class="article-image">
+  <img src="release_1_2.png" alt="Bonus Track 1.2">
+</figure>
+
+<div class="article-body">
+
+  <blockquote>
+    <p>Las introducciones son como la grasa del asado. Lo que importa es la carne.</p>
+  </blockquote>
+
+  <h2>Changelog — versión 1.2 (2026-09-19)</h2>
+
+  <h3>Nuevas funciones</h3>
+  <ul>
+    <li>Soporte para iPad</li>
+    <li>Sleep Timer rediseñado</li>
+    <li>Catálogo de temas rediseñado</li>
+    <li>Creador de temas personalizados</li>
+    <li>Detección de canciones duplicadas</li>
+    <li>Completar la portada del álbum de una canción usando otra del mismo artista</li>
+    <li>Manteniendo apretado el artista o canción en Now Playing muestra el artista o el álbum en Biblioteca</li>
+    <li>Detención suave: el botón de Play/pausa, si hay pausa, la música baja de volumen suavemente</li>
+    <li>Miniplayer
+      <ul>
+        <li>Pasar de canción deslizando el dedo</li>
+        <li>Estilos para la línea divisora</li>
+        <li>Estilo nano para los minimalistas empedernidos</li>
+      </ul>
+    </li>
+    <li>La línea de progreso de playback es un degradado</li>
+    <li>La cola de reproducción calcula la duración de audio</li>
+    <li>Listas inteligentes: se añadió en el criterio de listas una opción para filtrar canciones que no pertenecen a ninguna lista. Particularmente útil para evaluar música que no está en ninguna lista</li>
+    <li>Agregar a la cola de reproducción desde listas y al seleccionar múltiples canciones desde la biblioteca</li>
+    <li>Preferencias para ocultar la barra inferior de botones de Now Playing (timer, repetir, aleatorio y cola)</li>
+    <li>Now Playing XL permite ver solamente la tapa del álbum sin ningún control encima. Usalo como wallpaper vivo en un soporte</li>
+    <li>Nueva cita en “Acerca de” y carrusel para ver las citas de canciones de las versiones anteriores de Bonus Track</li>
+    <li>Cuenta de canciones al importar</li>
+    <li>Al completar metadata y portadas se muestra un pequeño banner con el estado de la operación</li>
+  </ul>
+
+  <h3>Corrección de errores</h3>
+  <ul>
+    <li>Las listas de “Agregar a lista” se ordenan según último uso para facilitar el añadido a listas frecuentes</li>
+    <li>El ícono de reproducción que aparece sobre la playlist activa era diferente según la vista y además no coincidía con el tamaño que tenía en las listas smart. Ahora todo tiene el mismo tamaño y aspecto; también se mejoró la sombra para añadir contraste</li>
+    <li>Mejoras de usabilidad en los paneles Apariencia y Estadísticas</li>
+    <li>Mejoras de estabilidad y usabilidad en las barras de herramientas — se rehicieron vistas y controles que no respondían rápidamente</li>
+    <li>En la cola de reproducción en iPhone, cuando el panel estaba a la mitad, la línea del contador de tiempo tenía un fondo blanco en vez de mantener el material de fondo</li>
+    <li>En la cola de reproducción siempre se mostraba una animación de barras de sonido en movimiento aunque la música estuviera pausada</li>
+    <li>Al hacer scrubbing para adelantar la canción a un punto específico, el indicador saltaba al punto inicial y después se acomodaba al punto final; ahora se desliza predeciblemente</li>
+    <li>En la vista de lista no respetaba el tamaño correcto de los íconos al cambiar la preferencia de portadas grandes</li>
+    <li>Se cambió el menú espantoso que aparecía al seleccionar múltiples canciones por una versión mejorada con íconos más grandes. Y menos espantosos</li>
+  </ul>
+
+  <p>¡Que lo disfrutes!  ;-D<br>— L.D.</p>
+
+</div>
+
+<footer>
+  <p>© 2026 BitterMate</p>
+  <button class="footer-contact" onclick="sendMail()">Contacto</button>
+</footer>
+
+<script>
+document.getElementById('btn-es').addEventListener('click', () => {
+  window.location.href = 'lanzamiento-1-2-es.html';
+});
+document.getElementById('btn-en').addEventListener('click', () => {
+  window.location.href = 'lanzamiento-1-2-en.html';
+});
+function sendMail() {
+  window.location.href = 'mailto:dardos_despoblado_8r@icloud.com?subject=' + encodeURIComponent('Sugerencias');
+}
+</script>
+</body>
+</html>
