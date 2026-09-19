@@ -68,6 +68,14 @@ nav{display:flex;align-items:center;justify-content:space-between;padding:1.25re
 .app-more:hover{color:var(--sage)}
 .app-more::after{content:' →';}
 
+.app-coming-soon{
+  display:inline-flex;align-items:center;
+  border:1px solid var(--line-med);color:var(--cream-muted);
+  padding:0.65rem 1.25rem;border-radius:10px;
+  font-family:'DM Mono',monospace;font-size:0.72rem;letter-spacing:0.03em;
+  margin-bottom:0.9rem;
+}
+
 .app-card--folia .app-icon{background:linear-gradient(160deg,var(--folia-brown),#6B4423)}
 
 footer{padding:1.75rem 3rem;border-top:1px solid var(--line);display:flex;justify-content:space-between;align-items:center;background:var(--bg)}
@@ -123,14 +131,7 @@ footer p{font-family:'DM Mono',monospace;font-size:0.62rem;letter-spacing:0.09em
     </div>
     <div class="app-name">Folia</div>
     <p class="app-tagline" data-t="folia-tagline">Tu biblioteca y tu diario de lectura en un solo lugar. Registrá qué leíste, cómo te sentías y dónde estabas.</p>
-    <!-- TODO: reemplazar por la URL real de App Store cuando Folia esté publicada -->
-    <a href="https://apps.apple.com/ar/app/folia/idXXXXXXXXXX" class="app-store-mini" target="_blank" rel="noopener">
-      <svg viewBox="0 0 24 24" fill="#0d0d0b"><path d="M18.7 12.6c0-2.9 2.4-4.3 2.5-4.4-1.4-2-3.5-2.3-4.2-2.3-1.8-.2-3.5 1.1-4.4 1.1-.9 0-2.3-1-3.8-1-1.9 0-3.7 1.1-4.7 2.9-2 3.5-.5 8.7 1.4 11.6 1 1.4 2.1 3 3.6 2.9 1.4-.1 2-1 3.8-1 1.8 0 2.3 1 3.8.9 1.6 0 2.6-1.4 3.6-2.9 1.1-1.6 1.6-3.2 1.6-3.3-.1 0-3.1-1.2-3.2-4.5zM15.8 3.9c.8-1 1.4-2.4 1.2-3.9-1.2.1-2.7.8-3.5 1.8-.8.9-1.5 2.4-1.3 3.7 1.4.2 2.8-.6 3.6-1.6z"/></svg>
-      <span class="app-store-mini-text">
-        <span class="app-store-mini-label" data-t="btn-label">Descargar en</span>
-        <span class="app-store-mini-name">App Store</span>
-      </span>
-    </a>
+    <div class="app-coming-soon" data-t="folia-coming-soon">Próximamente (cuando Apple lo decida)</div>
     <a href="/folia/index.html" class="app-more" data-t="know-more">Conocer más</a>
   </div>
 
@@ -146,6 +147,7 @@ const copy = {
   es:{
     'bt-tagline':'Tu biblioteca musical personal. Importá tus MP3, armá listas inteligentes y buscá portadas.',
     'folia-tagline':'Tu biblioteca y tu diario de lectura en un solo lugar. Registrá qué leíste, cómo te sentías y dónde estabas.',
+    'folia-coming-soon':'Próximamente (cuando Apple lo decida)',
     'btn-label':'Descargar en',
     'know-more':'Conocer más',
     'nav-blog':'Blog',
@@ -155,6 +157,7 @@ const copy = {
   en:{
     'bt-tagline':'Your personal music library. Import your MP3s, build smart playlists and find cover art.',
     'folia-tagline':'Your library and reading journal in one place. Track what you read, how you felt and where you were.',
+    'folia-coming-soon':'Coming soon (whenever Apple decides)',
     'btn-label':'Download on the',
     'know-more':'Learn more',
     'nav-blog':'Blog',
