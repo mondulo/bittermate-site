@@ -1,0 +1,255 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Vestigio</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Work+Sans:wght@400;500;600&display=swap">
+<style>
+  :root{
+    --l0:#F5EFE3; --l0-ink:#241A22;
+    --l1:#ECDFC2; --l1-ink:#241A22;
+    --l2:#DEC08D; --l2-ink:#241A22;
+    --l3:#C98A50; --l3-ink:#241A22;
+    --l4:#B06A3B; --l4-ink:#241A22;
+    --l5:#8F4F34; --l5-ink:#F5EFE3;
+    --l6:#6B3D3A; --l6-ink:#F5EFE3;
+    --l7:#4A3350; --l7-ink:#F5EFE3;
+    --l8:#211820; --l8-ink:#F5EFE3;
+    --font-display:'Fraunces', Georgia, serif;
+    --font-body:'Work Sans', system-ui, sans-serif;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0; font-family:var(--font-body); background:var(--l0); -webkit-font-smoothing:antialiased;}
+  a{color:inherit; text-decoration:none;}
+  h1,h2{font-family:var(--font-display); margin:0;}
+</style>
+</head>
+<body>
+
+<div style="position:relative; width:100%; min-height:100vh; overflow:hidden; background:var(--l0); color:var(--l0-ink);">
+
+  <nav style="position:sticky; top:0; z-index:50; display:flex; align-items:center; justify-content:space-between; padding:16px clamp(20px,5vw,48px); background:rgba(245,239,227,.88); backdrop-filter:blur(6px); border-bottom:1px solid rgba(36,26,34,.1);">
+    <a href="https://bittermate.app" style="font-family:var(--font-display); font-size:18px; font-weight:600; color:var(--l8);">BitterMate</a>
+    <a href="/blog/index.html" style="font-family:var(--font-body); font-size:13px; letter-spacing:.08em; text-transform:uppercase; color:var(--l8); opacity:.6;">Blog</a>
+  </nav>
+
+  <svg style="position:absolute; inset:0; width:100%; height:100%; pointer-events:none; mix-blend-mode:overlay; opacity:.3" xmlns="http://www.w3.org/2000/svg">
+    <filter id="grain"><feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="2" stitchTiles="stitch" result="n"/><feColorMatrix in="n" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 0.06 0"/></filter>
+    <rect width="100%" height="100%" filter="url(#grain)"/>
+  </svg>
+
+  <!-- HERO -->
+  <header style="position:relative; display:flex; flex-direction:column; align-items:center; text-align:center; gap:22px; padding:clamp(72px,11vw,128px) 24px clamp(64px,9vw,100px); max-width:720px; margin:0 auto;">
+    <img src="vestigio-icon.png" alt="Ícono de Vestigio" style="width:132px; height:132px; border-radius:30px; box-shadow:0 20px 44px rgba(33,24,32,.28);">
+    <h1 style="font-size:clamp(46px,8vw,72px); font-weight:600; letter-spacing:-0.01em;">Vestigio</h1>
+    <p style="margin:0; font-family:var(--font-display); font-size:clamp(18px,2.4vw,22px); font-style:italic; opacity:.7;">Rastro, huella, lugar.</p>
+    <p style="margin:8px 0 4px; max-width:480px; font-size:17px; line-height:1.65; opacity:.82;">
+      Guardá lo que encontrás en la calle — una foto, un ticket, una ubicación — antes de que el tiempo se lo lleve.
+      Vestigio arma con eso un mapa, un mural y un calendario de tus propios rastros.
+    </p>
+    <a href="#" style="display:inline-flex; align-items:center; gap:10px; margin-top:12px; padding:14px 28px; border-radius:999px; background:var(--l8); color:var(--l8-ink); font-size:16px; font-weight:600;">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v11M8 10l4 4 4-4"/><path d="M5 17v2a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-2"/></svg>
+      <span>Descargar en App Store</span>
+    </a>
+    <span style="font-size:13px; opacity:.5;">Próximamente en App Store</span>
+  </header>
+
+  <!-- WAVE hero -> feature 1 -->
+  <div style="background:var(--l0); line-height:0;">
+    <svg viewBox="0 0 1440 100" width="100%" height="72" preserveAspectRatio="none" style="display:block;"><path d="M0,40 C240,90 480,0 720,40 C960,80 1200,0 1440,40 L1440,100 L0,100 Z" fill="var(--l1)"/></svg>
+  </div>
+
+  <!-- FEATURE 1 -->
+  <section style="background:var(--l1); color:var(--l1-ink); padding:clamp(48px,8vw,88px) clamp(24px,6vw,80px);">
+    <div style="max-width:760px; margin:0 auto; display:grid; grid-template-columns:64px 1fr; gap:26px; align-items:start;">
+      <div style="width:56px; height:56px; border-radius:16px; border:1.5px solid currentColor; opacity:.9; display:flex; align-items:center; justify-content:center; flex-shrink:0;">
+        <svg width="27" height="27" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s7-6.2 7-11.5A7 7 0 0 0 5 9.5C5 14.8 12 21 12 21Z"/><circle cx="12" cy="9.5" r="2.3"/></svg>
+      </div>
+      <div>
+        <div style="font-size:13px; letter-spacing:.12em; text-transform:uppercase; opacity:.55; margin-bottom:6px;">01</div>
+        <h2 style="font-size:clamp(22px,3vw,28px); font-weight:600; margin-bottom:10px;">Geolocalización integrada</h2>
+        <p style="margin:0; font-size:16px; line-height:1.65; max-width:58ch; opacity:.85;">Asignación de ubicaciones a las notas y exploración a través de un mapa interactivo.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- WAVE 1 -> 2 -->
+  <div style="background:var(--l1); line-height:0;">
+    <svg viewBox="0 0 1440 100" width="100%" height="72" preserveAspectRatio="none" style="display:block;"><path d="M0,40 C240,90 480,0 720,40 C960,80 1200,0 1440,40 L1440,100 L0,100 Z" fill="var(--l2)"/></svg>
+  </div>
+
+  <!-- FEATURE 2 -->
+  <section style="background:var(--l2); color:var(--l2-ink); padding:clamp(48px,8vw,88px) clamp(24px,6vw,80px);">
+    <div style="max-width:760px; margin:0 auto; display:grid; grid-template-columns:64px 1fr; gap:26px; align-items:start;">
+      <div style="width:56px; height:56px; border-radius:16px; border:1.5px solid currentColor; opacity:.9; display:flex; align-items:center; justify-content:center; flex-shrink:0;">
+        <svg width="27" height="27" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="2.6"/><path d="M7 12a5 5 0 0 1 10 0"/><path d="M4 12a8 8 0 0 1 16 0"/></svg>
+      </div>
+      <div>
+        <div style="font-size:13px; letter-spacing:.12em; text-transform:uppercase; opacity:.55; margin-bottom:6px;">02</div>
+        <h2 style="font-size:clamp(22px,3vw,28px); font-weight:600; margin-bottom:10px;">Radar de proximidad</h2>
+        <p style="margin:0; font-size:16px; line-height:1.65; max-width:58ch; opacity:.85;">Filtro inteligente que detecta y muestra las notas guardadas dentro de tu radio de cercanía actual.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- WAVE 2 -> 3 -->
+  <div style="background:var(--l2); line-height:0;">
+    <svg viewBox="0 0 1440 100" width="100%" height="72" preserveAspectRatio="none" style="display:block;"><path d="M0,40 C240,90 480,0 720,40 C960,80 1200,0 1440,40 L1440,100 L0,100 Z" fill="var(--l3)"/></svg>
+  </div>
+
+  <!-- FEATURE 3 -->
+  <section style="background:var(--l3); color:var(--l3-ink); padding:clamp(48px,8vw,88px) clamp(24px,6vw,80px);">
+    <div style="max-width:760px; margin:0 auto; display:grid; grid-template-columns:64px 1fr; gap:26px; align-items:start;">
+      <div style="width:56px; height:56px; border-radius:16px; border:1.5px solid currentColor; opacity:.9; display:flex; align-items:center; justify-content:center; flex-shrink:0;">
+        <svg width="27" height="27" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3h12M6 21h12M7 3c0 5 5 6 5 9s-5 4-5 9M17 3c0 5-5 6-5 9s5 4 5 9"/></svg>
+      </div>
+      <div>
+        <div style="font-size:13px; letter-spacing:.12em; text-transform:uppercase; opacity:.6; margin-bottom:6px;">03</div>
+        <h2 style="font-size:clamp(22px,3vw,28px); font-weight:600; margin-bottom:10px;">Caducidad de contenido</h2>
+        <p style="margin:0; font-size:16px; line-height:1.65; max-width:58ch; opacity:.88;">Sistema para asignarle fecha de vencimiento a apuntes temporales (tickets, recordatorios efímeros) con una vista especial para filtrar lo que está por expirar.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- WAVE 3 -> 4 -->
+  <div style="background:var(--l3); line-height:0;">
+    <svg viewBox="0 0 1440 100" width="100%" height="72" preserveAspectRatio="none" style="display:block;"><path d="M0,40 C240,90 480,0 720,40 C960,80 1200,0 1440,40 L1440,100 L0,100 Z" fill="var(--l4)"/></svg>
+  </div>
+
+  <!-- FEATURE 4 -->
+  <section style="background:var(--l4); color:var(--l4-ink); padding:clamp(48px,8vw,88px) clamp(24px,6vw,80px);">
+    <div style="max-width:760px; margin:0 auto; display:grid; grid-template-columns:64px 1fr; gap:26px; align-items:start;">
+      <div style="width:56px; height:56px; border-radius:16px; border:1.5px solid currentColor; opacity:.9; display:flex; align-items:center; justify-content:center; flex-shrink:0;">
+        <svg width="27" height="27" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="10" height="10" rx="2"/><rect x="10" y="10" width="10" height="10" rx="2"/></svg>
+      </div>
+      <div>
+        <div style="font-size:13px; letter-spacing:.12em; text-transform:uppercase; opacity:.6; margin-bottom:6px;">04</div>
+        <h2 style="font-size:clamp(22px,3vw,28px); font-weight:600; margin-bottom:10px;">Múltiples lienzos de exploración</h2>
+        <p style="margin:0 0 14px; font-size:16px; line-height:1.65; max-width:58ch; opacity:.9;">Alternancia fluida entre las vistas de Mapa, Tablero, Mural y Calendario.</p>
+        <div style="display:flex; flex-wrap:wrap; gap:8px;">
+          <span style="font-size:13px; padding:5px 12px; border-radius:999px; background:rgba(255,255,255,.28);">Mapa</span>
+          <span style="font-size:13px; padding:5px 12px; border-radius:999px; background:rgba(255,255,255,.28);">Tablero</span>
+          <span style="font-size:13px; padding:5px 12px; border-radius:999px; background:rgba(255,255,255,.28);">Mural</span>
+          <span style="font-size:13px; padding:5px 12px; border-radius:999px; background:rgba(255,255,255,.28);">Calendario</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WAVE 4 -> 5 -->
+  <div style="background:var(--l4); line-height:0;">
+    <svg viewBox="0 0 1440 100" width="100%" height="72" preserveAspectRatio="none" style="display:block;"><path d="M0,40 C240,90 480,0 720,40 C960,80 1200,0 1440,40 L1440,100 L0,100 Z" fill="var(--l5)"/></svg>
+  </div>
+
+  <!-- FEATURE 5 -->
+  <section style="background:var(--l5); color:var(--l5-ink); padding:clamp(48px,8vw,88px) clamp(24px,6vw,80px);">
+    <div style="max-width:760px; margin:0 auto; display:grid; grid-template-columns:64px 1fr; gap:26px; align-items:start;">
+      <div style="width:56px; height:56px; border-radius:16px; border:1.5px solid currentColor; opacity:.9; display:flex; align-items:center; justify-content:center; flex-shrink:0;">
+        <svg width="27" height="27" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 15V4M8 8l4-4 4 4"/><path d="M5 13v6a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-6"/></svg>
+      </div>
+      <div>
+        <div style="font-size:13px; letter-spacing:.12em; text-transform:uppercase; opacity:.65; margin-bottom:6px;">05</div>
+        <h2 style="font-size:clamp(22px,3vw,28px); font-weight:600; margin-bottom:10px;">Captura universal</h2>
+        <p style="margin:0; font-size:16px; line-height:1.65; max-width:58ch; opacity:.9;">Guardado rápido de enlaces, fotos y textos desde Safari, la galería o cualquier app nativa mediante el menú "Compartir" de iOS.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- WAVE 5 -> 6 -->
+  <div style="background:var(--l5); line-height:0;">
+    <svg viewBox="0 0 1440 100" width="100%" height="72" preserveAspectRatio="none" style="display:block;"><path d="M0,40 C240,90 480,0 720,40 C960,80 1200,0 1440,40 L1440,100 L0,100 Z" fill="var(--l6)"/></svg>
+  </div>
+
+  <!-- FEATURE 6 -->
+  <section style="background:var(--l6); color:var(--l6-ink); padding:clamp(48px,8vw,88px) clamp(24px,6vw,80px);">
+    <div style="max-width:760px; margin:0 auto; display:grid; grid-template-columns:64px 1fr; gap:26px; align-items:start;">
+      <div style="width:56px; height:56px; border-radius:16px; border:1.5px solid currentColor; opacity:.9; display:flex; align-items:center; justify-content:center; flex-shrink:0;">
+        <svg width="27" height="27" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8c3-2 6 2 9 0s6-2 9 0"/><path d="M3 13c3-2 6 2 9 0s6-2 9 0"/><path d="M3 18c3-2 6 2 9 0s6-2 9 0"/></svg>
+      </div>
+      <div>
+        <div style="font-size:13px; letter-spacing:.12em; text-transform:uppercase; opacity:.65; margin-bottom:6px;">06</div>
+        <h2 style="font-size:clamp(22px,3vw,28px); font-weight:600; margin-bottom:10px;">Diseño geológico y de materiales</h2>
+        <p style="margin:0; font-size:16px; line-height:1.65; max-width:58ch; opacity:.9;">Interfaz translúcida personalizable con texturas realistas (Corcho, Granito, Madera, Mármol) y control tipográfico.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- WAVE 6 -> 7 -->
+  <div style="background:var(--l6); line-height:0;">
+    <svg viewBox="0 0 1440 100" width="100%" height="72" preserveAspectRatio="none" style="display:block;"><path d="M0,40 C240,90 480,0 720,40 C960,80 1200,0 1440,40 L1440,100 L0,100 Z" fill="var(--l7)"/></svg>
+  </div>
+
+  <!-- FEATURE 7 -->
+  <section style="background:var(--l7); color:var(--l7-ink); padding:clamp(48px,8vw,88px) clamp(24px,6vw,80px);">
+    <div style="max-width:760px; margin:0 auto; display:grid; grid-template-columns:64px 1fr; gap:26px; align-items:start;">
+      <div style="width:56px; height:56px; border-radius:16px; border:1.5px solid currentColor; opacity:.9; display:flex; align-items:center; justify-content:center; flex-shrink:0;">
+        <svg width="27" height="27" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12 12 3h6a2 2 0 0 1 2 2v6l-9 9a2 2 0 0 1-2.8 0L3 14.8a2 2 0 0 1 0-2.8Z"/><circle cx="15.5" cy="7.5" r="1.1" fill="currentColor" stroke="none"/></svg>
+      </div>
+      <div>
+        <div style="font-size:13px; letter-spacing:.12em; text-transform:uppercase; opacity:.65; margin-bottom:6px;">07</div>
+        <h2 style="font-size:clamp(22px,3vw,28px); font-weight:600; margin-bottom:10px;">Organización multimedia</h2>
+        <p style="margin:0 0 14px; font-size:16px; line-height:1.65; max-width:58ch; opacity:.9;">Clasificación estructural a través de etiquetas, colores de pines, notas de voz y fotografías.</p>
+        <div style="display:flex; flex-wrap:wrap; gap:8px;">
+          <span style="font-size:13px; padding:5px 12px; border-radius:999px; background:rgba(255,255,255,.16);">Etiquetas</span>
+          <span style="font-size:13px; padding:5px 12px; border-radius:999px; background:rgba(255,255,255,.16);">Colores de pin</span>
+          <span style="font-size:13px; padding:5px 12px; border-radius:999px; background:rgba(255,255,255,.16);">Notas de voz</span>
+          <span style="font-size:13px; padding:5px 12px; border-radius:999px; background:rgba(255,255,255,.16);">Fotografías</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WAVE 7 -> 8 -->
+  <div style="background:var(--l7); line-height:0;">
+    <svg viewBox="0 0 1440 100" width="100%" height="72" preserveAspectRatio="none" style="display:block;"><path d="M0,40 C240,90 480,0 720,40 C960,80 1200,0 1440,40 L1440,100 L0,100 Z" fill="var(--l8)"/></svg>
+  </div>
+
+  <!-- FEATURE 8 -->
+  <section style="background:var(--l8); color:var(--l8-ink); padding:clamp(48px,8vw,88px) clamp(24px,6vw,80px);">
+    <div style="max-width:760px; margin:0 auto; display:grid; grid-template-columns:64px 1fr; gap:26px; align-items:start;">
+      <div style="width:56px; height:56px; border-radius:16px; border:1.5px solid currentColor; opacity:.9; display:flex; align-items:center; justify-content:center; flex-shrink:0;">
+        <svg width="27" height="27" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v6c0 5-3.5 7.5-7 9-3.5-1.5-7-4-7-9V6l7-3Z"/><path d="M9.5 12l1.8 1.8L14.8 10"/></svg>
+      </div>
+      <div>
+        <div style="font-size:13px; letter-spacing:.12em; text-transform:uppercase; opacity:.65; margin-bottom:6px;">08</div>
+        <h2 style="font-size:clamp(22px,3vw,28px); font-weight:600; margin-bottom:10px;">Privacidad Local-First</h2>
+        <p style="margin:0; font-size:16px; line-height:1.65; max-width:58ch; opacity:.9;">Almacenamiento 100% offline en el dispositivo vía SwiftData, sin requerir cuentas de usuario ni inicios de sesión, y con soporte nativo para importar o exportar copias de seguridad.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- GALLERY -->
+  <section style="background:var(--l8); color:var(--l8-ink); padding:clamp(48px,8vw,88px) clamp(24px,6vw,80px);">
+    <div style="max-width:900px; margin:0 auto;">
+      <div style="font-size:12px; letter-spacing:.2em; text-transform:uppercase; opacity:.5; margin-bottom:20px; display:flex; align-items:center; gap:10px;">
+        <span style="width:20px; height:1px; background:currentColor; display:inline-block; opacity:.6;"></span>
+        Capturas
+      </div>
+      <div style="display:grid; grid-template-columns:repeat(4,1fr); gap:2px; background:rgba(255,255,255,.08); border:1px solid rgba(255,255,255,.08);">
+        <div style="background:rgba(255,255,255,.04); aspect-ratio:9/19.5; overflow:hidden;"><img src="screenshot-1.png" alt="Captura 1 de Vestigio" style="width:100%; height:100%; object-fit:cover; display:block;"></div>
+        <div style="background:rgba(255,255,255,.04); aspect-ratio:9/19.5; overflow:hidden;"><img src="screenshot-2.png" alt="Captura 2 de Vestigio" style="width:100%; height:100%; object-fit:cover; display:block;"></div>
+        <div style="background:rgba(255,255,255,.04); aspect-ratio:9/19.5; overflow:hidden;"><img src="screenshot-3.png" alt="Captura 3 de Vestigio" style="width:100%; height:100%; object-fit:cover; display:block;"></div>
+        <div style="background:rgba(255,255,255,.04); aspect-ratio:9/19.5; overflow:hidden;"><img src="screenshot-4.png" alt="Captura 4 de Vestigio" style="width:100%; height:100%; object-fit:cover; display:block;"></div>
+        <div style="background:rgba(255,255,255,.04); aspect-ratio:9/19.5; overflow:hidden;"><img src="screenshot-5.png" alt="Captura 5 de Vestigio" style="width:100%; height:100%; object-fit:cover; display:block;"></div>
+        <div style="background:rgba(255,255,255,.04); aspect-ratio:9/19.5; overflow:hidden;"><img src="screenshot-6.png" alt="Captura 6 de Vestigio" style="width:100%; height:100%; object-fit:cover; display:block;"></div>
+        <div style="background:rgba(255,255,255,.04); aspect-ratio:9/19.5; overflow:hidden;"><img src="screenshot-7.png" alt="Captura 7 de Vestigio" style="width:100%; height:100%; object-fit:cover; display:block;"></div>
+        <div style="background:rgba(255,255,255,.04); aspect-ratio:9/19.5; overflow:hidden;"><img src="screenshot-8.png" alt="Captura 8 de Vestigio" style="width:100%; height:100%; object-fit:cover; display:block;"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer style="background:var(--l8); color:var(--l8-ink); padding:36px 24px 48px; text-align:center;">
+    <div style="height:1px; max-width:760px; margin:0 auto 32px; background:rgba(255,255,255,.15);"></div>
+    <div style="font-family:var(--font-display); font-size:20px; font-weight:600; margin-bottom:8px;">Vestigio</div>
+    <div style="font-size:13px; opacity:.55; margin-bottom:18px;">Capas, tiempo, memoria.</div>
+    <div style="display:flex; gap:20px; justify-content:center; flex-wrap:wrap;">
+      <a href="support.html" style="font-size:13px; opacity:.6;">Soporte</a>
+      <a href="privacy.html" style="font-size:13px; opacity:.6;">Privacidad</a>
+    </div>
+  </footer>
+
+</div>
+</body>
+</html>
