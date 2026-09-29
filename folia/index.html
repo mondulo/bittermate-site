@@ -315,6 +315,8 @@
   }
   .gallery-item:hover{transform:translateY(-4px);}
   .gallery-item img{width:100%; height:100%; object-fit:cover; display:block;}
+  .gallery-item-ipad{aspect-ratio:4/3;}
+  .gallery-grid + .gallery-header{margin-top:56px;}
 
   /* ── Lightbox ── */
   .lightbox-overlay{
@@ -501,7 +503,16 @@
   ".gallery-item" si tenés más o menos de 9 capturas. -->
   <div class="gallery-section" id="capturas">
     <div class="wrap">
-      <div class="gallery-header" data-t="gallery-header">Capturas</div>
+      <div class="gallery-header" data-t="gallery-header-ipad">Capturas — iPad</div>
+      <div class="gallery-grid" id="gallery-ipad">
+        <div class="gallery-item gallery-item-ipad"><img class="gallery-img" data-src-es="screenshot-1-es.png" data-src-en="screenshot-1-en.png" src="screenshot-1-es.png" alt="Folia iPad screenshot 1"></div>
+        <div class="gallery-item gallery-item-ipad"><img class="gallery-img" data-src-es="screenshot-2-es.png" data-src-en="screenshot-2-en.png" src="screenshot-2-es.png" alt="Folia iPad screenshot 2"></div>
+        <div class="gallery-item gallery-item-ipad"><img class="gallery-img" data-src-es="screenshot-3-es.png" data-src-en="screenshot-3-en.png" src="screenshot-3-es.png" alt="Folia iPad screenshot 3"></div>
+        <div class="gallery-item gallery-item-ipad"><img class="gallery-img" data-src-es="screenshot-4-es.png" data-src-en="screenshot-4-en.png" src="screenshot-4-es.png" alt="Folia iPad screenshot 4"></div>
+        <div class="gallery-item gallery-item-ipad"><img class="gallery-img" data-src-es="screenshot-5-es.png" data-src-en="screenshot-5-en.png" src="screenshot-5-es.png" alt="Folia iPad screenshot 5"></div>
+      </div>
+
+      <div class="gallery-header" data-t="gallery-header">Capturas — iPhone</div>
       <div class="gallery-grid" id="gallery">
         <div class="gallery-item"><img class="gallery-img" data-src-es="thumb-01-es.png" data-src-en="thumb-01-en.png" src="thumb-01-es.png" alt="Folia screenshot 01"></div>
         <div class="gallery-item"><img class="gallery-img" data-src-es="thumb-02-es.png" data-src-en="thumb-02-en.png" src="thumb-02-es.png" alt="Folia screenshot 02"></div>
@@ -581,7 +592,8 @@
       'hero-headline':'Tu biblioteca,<br>con <em>memoria</em>.',
       'hero-sub':'Folia guarda algo más que títulos y fechas: dónde estabas, cómo te sentías, qué más pasaba en tu vida mientras pasabas esas páginas.',
       'btn-label':'Descargar en',
-      'gallery-header':'Capturas',
+      'gallery-header-ipad':'Capturas — iPad',
+      'gallery-header':'Capturas — iPhone',
       'func-h2':'Lo que hace falta<br>para leer sin perder el hilo.',
       'func-p1-num':'Sala','func-p1-h3':'Sala de lectura',
       'func-p1-p':'Lo que estás leyendo ahora, tu pila de lecturas pendientes, retos con metas propias y resúmenes mensuales de tu actividad.',
@@ -607,7 +619,8 @@
       'hero-headline':'Your library,<br>with <em>memory</em>.',
       'hero-sub':'Folia keeps more than titles and dates: where you were, how you felt, what else was going on in your life while you turned those pages.',
       'btn-label':'Download on the',
-      'gallery-header':'Screenshots',
+      'gallery-header-ipad':'Screenshots — iPad',
+      'gallery-header':'Screenshots — iPhone',
       'func-h2':'What it takes<br>to read without losing the thread.',
       'func-p1-num':'Room','func-p1-h3':'Reading room',
       'func-p1-p':'What you\'re reading right now, your reading queue, challenges with goals you set, and monthly summaries of your activity.',
