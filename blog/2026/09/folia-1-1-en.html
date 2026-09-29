@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Folia 1.1 — Blog — BitterMate</title>
+<link rel="canonical" href="folia-1-1-en.html">
+<link rel="alternate" hreflang="es" href="folia-1-1-es.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Mono:wght@300;400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#0d0d0b;--bg2:#141410;
+  --cream:#f0ece2;--cream-muted:#a8a290;
+  --sage:#7a9e7e;--sage-light:#9dbfa1;--sage-dim:#3d5c40;
+  --line:rgba(240,236,226,0.08);--line-med:rgba(240,236,226,0.15);
+}
+html{scroll-behavior:smooth}
+body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--cream);overflow-x:hidden}
+
+nav{display:flex;align-items:center;justify-content:space-between;padding:1.25rem 3rem;border-bottom:1px solid var(--line);background:rgba(13,13,11,0.92);position:sticky;top:0;z-index:50}
+.nav-logo{font-family:'Playfair Display',serif;font-size:1.2rem;color:var(--cream);text-decoration:none}
+.nav-logo span{color:var(--sage)}
+.nav-right{display:flex;align-items:center;gap:1.5rem}
+.nav-back{font-family:'DM Mono',monospace;font-size:0.6rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--sage-dim);text-decoration:none;transition:color 0.2s}
+.nav-back:hover{color:var(--sage)}
+.lang-toggle{display:flex;border:1px solid var(--line-med);overflow:hidden}
+.lang-btn{font-family:'DM Mono',monospace;font-size:0.6rem;letter-spacing:0.1em;padding:0.35rem 0.65rem;text-decoration:none;color:var(--cream-muted);transition:background 0.2s,color 0.2s;display:block}
+.lang-btn.active{background:var(--sage-dim);color:var(--sage-light)}
+
+article{max-width:640px;margin:0 auto;padding:5rem 3rem 2rem}
+.post-meta{font-family:'DM Mono',monospace;font-size:0.62rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--sage-dim);margin-bottom:1.5rem;display:flex;align-items:center;gap:0.75rem}
+.post-meta::before{content:'';width:1.25rem;height:1px;background:var(--sage-dim);display:inline-block}
+h1{font-family:'Playfair Display',serif;font-size:clamp(2.5rem,7vw,4rem);font-weight:700;line-height:0.98;letter-spacing:-0.02em;color:var(--cream);margin-bottom:2.5rem}
+
+.launch-visual{display:flex;align-items:flex-end;gap:2rem;margin-bottom:2.75rem}
+.launch-visual-icon{flex-shrink:0}
+.launch-icon{display:block;width:104px;height:104px;border-radius:23px;box-shadow:0 10px 28px rgba(0,0,0,0.45)}
+.launch-visual-cover{display:flex;flex-direction:column;align-items:flex-start}
+.launch-cover{display:block;width:196px;height:auto;border-radius:3px;box-shadow:0 16px 36px rgba(0,0,0,0.55)}
+.launch-caption{font-family:'DM Mono',monospace;font-size:0.64rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--sage-dim);margin-top:0.85rem}
+
+.post-body{font-size:0.95rem;color:var(--cream-muted);line-height:1.9;font-weight:300}
+.post-body p{margin-bottom:1.4rem}
+.post-body strong{color:var(--cream);font-weight:500}
+.post-body h2{font-family:'Playfair Display',serif;font-size:1.4rem;font-weight:700;color:var(--cream);margin-top:0.5rem;margin-bottom:0.6rem}
+.post-body h3{font-family:'DM Mono',monospace;font-size:0.72rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--sage);margin-top:0.25rem;margin-bottom:0.6rem}
+.post-body ul{margin:0 0 1.4rem 0;padding-left:1.3rem;display:flex;flex-direction:column;gap:0.6rem}
+.post-body li{list-style:none;position:relative}
+.post-body li::before{content:'—';position:absolute;left:-1.3rem;color:var(--sage-dim)}
+.post-body blockquote{border-left:2px solid var(--sage-dim);padding:0.75rem 1.25rem;background:var(--bg2);margin-bottom:1.4rem}
+.post-body blockquote p{font-style:italic;font-size:0.95rem;margin-bottom:0}
+.signoff{font-family:'DM Mono',monospace;font-size:0.7rem;letter-spacing:0.08em;color:var(--sage-dim);margin-top:2rem}
+
+.post-footer{max-width:640px;margin:2rem auto 0;padding:2rem 3rem 4rem;border-top:1px solid var(--line)}
+.back-to-blog{font-family:'DM Mono',monospace;font-size:0.62rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--sage-dim);text-decoration:none;transition:color 0.2s}
+.back-to-blog:hover{color:var(--sage)}
+
+footer{padding:1.75rem 3rem;border-top:1px solid var(--line);display:flex;justify-content:space-between;align-items:center;background:var(--bg)}
+footer p{font-family:'DM Mono',monospace;font-size:0.62rem;letter-spacing:0.09em;color:rgba(168,162,144,0.35)}
+.footer-contact{font-family:'DM Mono',monospace;font-size:0.62rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--sage-dim);background:none;border:1px solid var(--sage-dim);padding:0.4rem 1rem;cursor:pointer;transition:color 0.2s,border-color 0.2s}
+.footer-contact:hover{color:var(--sage);border-color:var(--sage)}
+
+@media(max-width:600px){
+  nav{padding:1rem 1.5rem}
+  article{padding:3rem 1.5rem 1.5rem}
+  .post-footer{padding:1.5rem}
+  footer{padding:1.5rem;flex-wrap:wrap;gap:1rem}
+  .launch-visual{gap:1.25rem}
+  .launch-icon{width:80px;height:80px;border-radius:18px}
+  .launch-cover{width:150px}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="/index.html" class="nav-logo">Bitter<span>Mate</span></a>
+  <div class="nav-right">
+    <a href="/blog/index.html" class="nav-back">← Blog</a>
+    <div class="lang-toggle">
+      <a href="folia-1-1-es.html" class="lang-btn">ES</a>
+      <a href="folia-1-1-en.html" class="lang-btn active">EN</a>
+    </div>
+  </div>
+</nav>
+
+<article>
+  <div class="post-meta">September 2026 · by Leonardo</div>
+  <h1>Folia 1.1</h1>
+
+  <div class="launch-visual">
+    <div class="launch-visual-icon">
+      <img src="folia-icon.png" alt="Folia app icon" class="launch-icon">
+    </div>
+    <div class="launch-visual-cover">
+      <img src="folia-1-1-celine.png" alt="Folia 1.1 cover art" class="launch-cover">
+      <p class="launch-caption">Version 1.1 "Céline"</p>
+    </div>
+  </div>
+
+  <div class="post-body">
+    <blockquote>
+      <p>Introductions are like the table of contents. What matters comes after.</p>
+    </blockquote>
+
+    <h2>Changelog — version 1.1 (2026-09-06)</h2>
+
+    <h3>New features</h3>
+    <ul>
+      <li><strong>iPad support</strong>, with shelves, grids, and cards that use the whole screen instead of staying as narrow as on iPhone.</li>
+      <li><strong>Rereading</strong>: "Read again" now lets you pick the date for the reread, and the book's detail page keeps a history of past rereads.</li>
+      <li><strong>Annotate the book from the reading room</strong>: a new field in the progress panel to write something about the book itself, without having to go to the Notebook.</li>
+      <li><strong>Customizable moods and vibes</strong>: moods and vibes are no longer a fixed list — you can create, rename, or delete your own.</li>
+      <li><strong>Mural view</strong>: the whole library together in columns of covers of different sizes, with no shelves.</li>
+      <li><strong>Large-cover view for the Wishlist</strong>, as an alternative to the usual list.</li>
+      <li><strong>Page count</strong> on Wishlist and Capture cards.</li>
+      <li><strong>Selectable typeface and font size</strong> for the Notebook, from Settings.</li>
+      <li><strong>Sort and group the wishlist</strong> by year, genre, or page count.</li>
+      <li><strong>Location of a captured book</strong>, with a small map and the option to open it in Apple Maps, edit it, or remove it.</li>
+      <li><strong>Tag stamps</strong>, built from the same textures used for book spines.</li>
+      <li><strong>Multi-column shelves on iPad</strong>: in the spine view, with enough width the library arranges itself into 2 or 3 parallel shelf columns instead of one stretched-out column. Off by default — turn it on from Settings.</li>
+      <li><strong>Group the Library by genre or tag</strong>, in addition to the usual reading status. For now, spine view only.</li>
+      <li><strong>Recording progress asks a bit more than before</strong>: beyond "Something about the book," it now also asks for the date, what else you were reading, and what music you were listening to — the same fields as a Context entry in the Notebook.</li>
+    </ul>
+
+    <h3>Bug fixes</h3>
+    <ul>
+      <li>Fixed: available tags not yet added to a book couldn't be deleted with a long press.</li>
+      <li>Fixed: a book's reason for being added to the Wishlist was lost when moving it to the Library.</li>
+      <li>Fixed: moving a book from Wishlist to Library left some buttons floating on screen with no purpose.</li>
+      <li>Fixed: in Capture and Wishlist, you couldn't scroll to fill in Genre or Author while the keyboard was open.</li>
+      <li>Fixed: iOS 26's new iPad tab bar covered each screen's own buttons.</li>
+      <li>Fixed: photos taken at a bookstore looked wrong when used as a cover, since they were never cropped.</li>
+      <li>Fixed: a genre typed in Capture could get lost before deciding wishlist or discard.</li>
+      <li>Fixed: a book already moved to the Library could reappear in Capture as if it were a new photo.</li>
+      <li>Fixed: recording progress from "Continue reading" saved nothing to the Diary — place, mood, and notes were lost, unlike the other two ways of recording progress.</li>
+      <li>Fixed: the screen's header peeked out from behind the floating card in Capture or Wishlist.</li>
+      <li>Fixed: square photos in the Library's cover view looked shrunken with a colored margin around them instead of filling the same size as generated covers.</li>
+    </ul>
+
+    <p>Enjoy!<br>— L.D.</p>
+  </div>
+</article>
+
+<div class="post-footer">
+  <a href="/blog/index.html" class="back-to-blog">← Back to blog</a>
+</div>
+
+<footer>
+  <p>© 2026 BitterMate</p>
+  <button class="footer-contact" onclick="sendMail()">Contact</button>
+</footer>
+
+<script>
+function sendMail() {
+  window.location.href = 'mailto:dardos_despoblado_8r@icloud.com?subject=' + encodeURIComponent('Suggestions');
+}
+</script>
+</body>
+</html>
