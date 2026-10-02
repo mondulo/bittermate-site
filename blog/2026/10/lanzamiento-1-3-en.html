@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bonus Track 1.3 — BitterMate</title>
+<link rel="canonical" href="lanzamiento-1-3-en.html">
+<link rel="alternate" hreflang="es" href="lanzamiento-1-3-es.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Mono:wght@300;400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#0d0d0b;--bg2:#141410;
+  --cream:#f0ece2;--cream-muted:#a8a290;
+  --sage:#7a9e7e;--sage-light:#9dbfa1;--sage-dim:#3d5c40;
+  --line:rgba(240,236,226,0.08);--line-med:rgba(240,236,226,0.15);
+}
+html{scroll-behavior:smooth}
+body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--cream);overflow-x:hidden}
+
+nav{display:flex;align-items:center;justify-content:space-between;padding:1.25rem 3rem;border-bottom:1px solid var(--line);background:rgba(13,13,11,0.92);position:sticky;top:0;z-index:50}
+.nav-logo{font-family:'Playfair Display',serif;font-size:1.2rem;color:var(--cream);text-decoration:none}
+.nav-logo span{color:var(--sage)}
+.nav-right{display:flex;align-items:center;gap:1.5rem}
+.nav-blog{font-family:'DM Mono',monospace;font-size:0.6rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--sage-dim);text-decoration:none;transition:color 0.2s}
+.nav-blog:hover{color:var(--sage)}
+.lang-toggle{display:flex;border:1px solid var(--line-med);overflow:hidden}
+.lang-btn{font-family:'DM Mono',monospace;font-size:0.6rem;letter-spacing:0.1em;padding:0.35rem 0.65rem;background:none;border:none;color:var(--cream-muted);cursor:pointer;transition:background 0.2s,color 0.2s}
+.lang-btn.active{background:var(--sage-dim);color:var(--sage-light)}
+
+.article-hero{padding:5rem 3rem 3rem;max-width:720px;margin:0 auto}
+.article-label{font-family:'DM Mono',monospace;font-size:0.62rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--sage-dim);margin-bottom:1.5rem;display:flex;align-items:center;gap:0.75rem}
+.article-label::before{content:'';width:1.25rem;height:1px;background:var(--sage-dim);display:inline-block}
+.article-title{font-family:'Playfair Display',serif;font-size:clamp(2rem,5vw,3.5rem);font-weight:700;line-height:1;letter-spacing:-0.025em;color:var(--cream);margin-bottom:1.25rem}
+.article-meta{font-family:'DM Mono',monospace;font-size:0.6rem;letter-spacing:0.12em;color:var(--sage-dim);display:flex;gap:1.5rem;flex-wrap:wrap}
+
+.article-image{max-width:720px;margin:0 auto;padding:0 3rem;display:flex;flex-direction:column;align-items:center}
+.article-image img{width:min(400px,100%);display:block;border:1px solid var(--line)}
+.article-image figcaption{font-family:'DM Mono',monospace;font-size:0.55rem;letter-spacing:0.1em;color:var(--sage-dim);margin-top:0.6rem;text-align:center}
+@media(max-width:600px){.article-image{padding:0 1.5rem}}
+
+.article-body{max-width:720px;margin:3rem auto 6rem;padding:0 3rem;display:flex;flex-direction:column;gap:1.75rem}
+.article-body p{font-size:0.95rem;color:var(--cream-muted);line-height:1.9;font-weight:300}
+.article-body p strong{color:var(--cream);font-weight:500}
+.article-body h2{font-family:'Playfair Display',serif;font-size:1.4rem;font-weight:700;color:var(--cream);margin-top:0.5rem}
+.article-body h3{font-family:'DM Mono',monospace;font-size:0.72rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--sage);margin-top:0.25rem}
+.article-body ul{list-style:none;display:flex;flex-direction:column;gap:0.6rem;padding-left:0}
+.article-body ul li{font-size:0.9rem;color:var(--cream-muted);line-height:1.7;font-weight:300;padding-left:1.25rem;position:relative}
+.article-body ul li::before{content:'—';position:absolute;left:0;color:var(--sage-dim)}
+.article-body ul li strong{color:var(--cream);font-weight:500}
+.article-body ul ul{margin-top:0.5rem;gap:0.5rem}
+.article-body blockquote{border-left:2px solid var(--sage-dim);padding:0.75rem 1.25rem;background:var(--bg2)}
+.article-body blockquote p{font-style:italic;font-size:0.9rem}
+hr.article-div{border:none;border-top:1px solid var(--line)}
+
+.img-grid{display:grid;gap:0.75rem;margin:0.25rem 0}
+.img-grid img{width:100%;display:block;border:1px solid var(--line)}
+.img-grid-4{grid-template-columns:repeat(4,1fr)}
+.img-grid-2{grid-template-columns:repeat(2,1fr)}
+.img-grid-3{grid-template-columns:repeat(3,1fr)}
+.img-grid figcaption{grid-column:1/-1;font-family:'DM Mono',monospace;font-size:0.55rem;letter-spacing:0.1em;color:var(--sage-dim);margin-top:0.2rem;text-align:center}
+@media(max-width:600px){.img-grid-4{grid-template-columns:repeat(2,1fr)}.img-grid-3{grid-template-columns:repeat(1,1fr)}}
+
+.article-image-inline{margin:0.25rem 0}
+.article-image-inline img{width:100%;display:block;border:1px solid var(--line);cursor:zoom-in;transition:opacity 0.2s}
+.article-image-inline img:hover{opacity:0.85}
+
+.lightbox{display:none;position:fixed;inset:0;background:rgba(13,13,11,0.94);z-index:100;align-items:center;justify-content:center;padding:2rem;cursor:zoom-out}
+.lightbox.active{display:flex}
+.lightbox img{max-width:100%;max-height:100%;object-fit:contain;border:1px solid var(--line-med)}
+
+footer{padding:1.75rem 3rem;border-top:1px solid var(--line);display:flex;justify-content:space-between;align-items:center;background:var(--bg)}
+footer p{font-family:'DM Mono',monospace;font-size:0.62rem;letter-spacing:0.09em;color:rgba(168,162,144,0.35)}
+.footer-contact{font-family:'DM Mono',monospace;font-size:0.62rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--sage-dim);background:none;border:1px solid var(--sage-dim);padding:0.4rem 1rem;cursor:pointer;transition:color 0.2s,border-color 0.2s}
+.footer-contact:hover{color:var(--sage);border-color:var(--sage)}
+
+@media(max-width:600px){
+  nav{padding:1rem 1.5rem}
+  .article-hero,.article-body{padding-left:1.5rem;padding-right:1.5rem}
+  .article-hero{padding-top:3rem}
+  footer{padding:1.5rem;flex-wrap:wrap;gap:1rem}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="../../../index.html" class="nav-logo">Bitter<span>Mate</span></a>
+  <div class="nav-right">
+    <a href="../../index.html" class="nav-blog">← Blog</a>
+    <div class="lang-toggle">
+      <button class="lang-btn" id="btn-es">ES</button>
+      <button class="lang-btn active" id="btn-en">EN</button>
+    </div>
+  </div>
+</nav>
+
+<div class="article-hero">
+  <div class="article-label">Blog · October 2026</div>
+  <h1 class="article-title">Bonus Track 1.3</h1>
+  <div class="article-meta">
+    <span>Leonardo</span>
+    <span>October 2026</span>
+    <span>Changelog</span>
+  </div>
+</div>
+
+<figure class="article-image">
+  <img src="release_1_3.png" alt="Bonus Track 1.3">
+</figure>
+
+<div class="article-body">
+
+  <blockquote>
+    <p>Intros are like the fat on the asado. What matters is the meat.</p>
+  </blockquote>
+
+  <h2>Changelog — version 1.3 (2026-10-02)</h2>
+
+  <h3>Playback</h3>
+  <ul>
+    <li>Press and hold the Miniplayer to switch between its styles</li>
+  </ul>
+
+  <h3>Library</h3>
+  <ul>
+    <li>When selecting multiple songs, added the option to export the files</li>
+  </ul>
+
+  <h3>Playlists</h3>
+  <ul>
+    <li>Preference so that, when "Use theme color" is enabled, the color can be the accent — or its inverse, white or black</li>
+    <li>You can now assign any color (in addition to the fixed suggested ones) and use an emoji as the icon</li>
+  </ul>
+
+  <h3>Appearance</h3>
+  <ul>
+    <li>Theme creator: the color picker now suggests complementary colors based on the one you pick, and generates color palettes</li>
+    <li>Added a live preview to the Miniplayer settings section, and the same for Now Playing; going back to the general preview also reflects what you picked</li>
+    <li>Playback progress bar customization: choose different styles for the progress bar, the time counters and indicator, and even the "listened up to" point</li>
+    <li>Four new alternative icons, for finding joy in life</li>
+  </ul>
+
+  <div class="img-grid img-grid-4">
+    <img src="RetroPlayer.png" alt="RetroPlayer alternative icon">
+    <img src="Headphones.png" alt="Headphones alternative icon">
+    <img src="Vinyls.png" alt="Vinyls alternative icon">
+    <img src="Collection.png" alt="Collection alternative icon">
+  </div>
+
+  <ul>
+    <li>Now Playing: added a button to switch between styles (Standard / XL)</li>
+  </ul>
+
+  <div class="img-grid img-grid-2">
+    <img src="now_playing.png" alt="Now Playing, Standard style">
+    <img src="now_playing_xl.png" alt="Now Playing, XL style">
+  </div>
+
+  <h3>Stats & achievements</h3>
+  <ul>
+    <li>Improved Achievements panel</li>
+    <li>New unlockable achievements
+      <ul>
+        <li><strong>Night Owl</strong> / <strong>Early Bird</strong> — 50 plays between midnight–5AM / 5–8AM</li>
+        <li><strong>30-Day Streak</strong> — 30 consecutive days listening to something</li>
+        <li><strong>Genre Explorer</strong> — 10 different genres with at least one play</li>
+        <li><strong>Die-Hard Fan</strong> — one artist makes up ≥20% of your total plays</li>
+        <li><strong>No Skips</strong> — a very low skip rate (the opposite of "Great Skipper")</li>
+        <li><strong>Perfectionist</strong> — 50 songs rated specifically 5 stars</li>
+        <li>A third tier for the ones that already had two: Legend (10,000 plays), One Year (8,760h listened), Legendary Library (5,000 songs), Critic Legend (500 rated)</li>
+      </ul>
+    </li>
+    <li>Stats:
+      <ul>
+        <li>New:
+          <ul>
+            <li>Listening streak (current and record) — consecutive days with at least one play</li>
+            <li>Rating distribution — how many songs you have at each rating, plus the % unrated</li>
+            <li>This week vs. last week — compares plays from the last 7 days against the previous 7</li>
+          </ul>
+        </li>
+        <li>Charts, to the delight of economists</li>
+      </ul>
+    </li>
+  </ul>
+
+  <h3>iPad</h3>
+  <ul>
+    <li>Vertical rail for playlists that lets you switch between lists without going back to the list picker. Note: on iPad mini in portrait this shrinks the songs column's visibility, so an option was added in Appearance to disable it</li>
+  </ul>
+
+  <figure class="article-image-inline">
+    <img src="iPad_riel.png" alt="Vertical playlist rail on iPad" class="zoomable">
+  </figure>
+
+  <ul>
+    <li>Column view: pick an artist, then an album, and get to the songs inside it</li>
+  </ul>
+
+  <figure class="article-image-inline">
+    <img src="iPad_columnas.png" alt="Column view on iPad" class="zoomable">
+  </figure>
+
+  <h3>Other</h3>
+  <ul>
+    <li>Initial support for iPhone Duo (a few small things are still missing and will be added in future updates)</li>
+    <li>Added a link to bittermate.app in "About"</li>
+    <li>Added a new song quote, this time from Incubus</li>
+    <li>Widgets: a shortcut to open Bonus Track from the Lock Screen, and two ways to see the current song's cover and control playback (small and medium sizes)</li>
+  </ul>
+
+  <div class="img-grid img-grid-3">
+    <img src="widgets_homescreen.jpg" alt="Home Screen widget, small size">
+    <img src="widgets_homescreenlarge.jpg" alt="Home Screen widget, medium size">
+    <img src="widgets_lockscreen.jpg" alt="Lock Screen widget">
+  </div>
+
+  <ul>
+    <li>Here's how they look on an iPhone 17 when the song has no album, with the new icons</li>
+  </ul>
+
+  <div class="img-grid img-grid-2">
+    <img src="widgets_homescreen_noalbumart.png" alt="No-album widget, small size">
+    <img src="widgets_homescreen_noalbumartlarge.png" alt="No-album widget, medium size">
+  </div>
+
+  <hr class="article-div">
+
+  <h3>Fixes & improvements</h3>
+  <ul>
+    <li>Layout improvements for lists on iPhone 15 and similar screen sizes</li>
+    <li>You had to tap the album cover in the Miniplayer twice to open the Now Playing screen — fixed so it's back to a single tap</li>
+    <li>Editing a custom theme no longer requires a long press — buttons were added to edit, duplicate, and delete themes; other shortcomings of the theme creator were fixed</li>
+    <li>Playlist customization: removed an icon that no longer renders on recent iOS versions, and renamed the option to Customize (it used to be "Icon", which didn't capture the full extent of what you could customize)</li>
+    <li>Volume normalization was rebuilt. If you had it on, I recommend going to Library → Volume → Recalculate all</li>
+    <li>Shuffle mode was duplicated in the title and description of the library admin panel</li>
+    <li>Now Playing XL wasn't picking up the theme color correctly, even though the preview showed the right colors</li>
+    <li>The "Add to list", "Edit song" and "Sleep Timer" panels were rebuilt with translucent material</li>
+    <li>Fixed playlist sort menus: the header said "Sort by" instead of just "Sort", and each option repeated "by" again, so it read "Sort by by Name"</li>
+    <li>On iPad in portrait with Now Playing in Standard style, all the content was shifted to the right</li>
+    <li>On first launch, with an empty library, the Library background showed white while Playlists and Smart Playlists already had the theme color, and there was also a stray line under the Library tab</li>
+  </ul>
+
+  <p>Enjoy!  ;-D<br>— L.D.</p>
+
+</div>
+
+<footer>
+  <p>© 2026 BitterMate</p>
+  <button class="footer-contact" onclick="sendMail()">Contact</button>
+</footer>
+
+<div class="lightbox" id="lightbox" onclick="closeLightbox()">
+  <img id="lightbox-img" src="" alt="">
+</div>
+
+<script>
+document.getElementById('btn-es').addEventListener('click', () => {
+  window.location.href = 'lanzamiento-1-3-es.html';
+});
+document.getElementById('btn-en').addEventListener('click', () => {
+  window.location.href = 'lanzamiento-1-3-en.html';
+});
+function sendMail() {
+  window.location.href = 'mailto:dardos_despoblado_8r@icloud.com?subject=' + encodeURIComponent('Suggestions');
+}
+// Lightbox: tapping any .zoomable image opens it full-size over a dark
+// backdrop; tapping the backdrop (or the enlarged image) closes it.
+document.querySelectorAll('.zoomable').forEach((img) => {
+  img.addEventListener('click', () => {
+    const lightboxImg = document.getElementById('lightbox-img');
+    lightboxImg.src = img.src;
+    lightboxImg.alt = img.alt;
+    document.getElementById('lightbox').classList.add('active');
+  });
+});
+function closeLightbox() {
+  document.getElementById('lightbox').classList.remove('active');
+}
+</script>
+</body>
+</html>
