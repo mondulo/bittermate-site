@@ -17,25 +17,36 @@
   body{margin:0; font-family:var(--font-body); background:var(--l0); color:var(--l0-ink); -webkit-font-smoothing:antialiased;}
   a{color:inherit;}
   h1,h2{font-family:var(--font-display); margin:0;}
+  .nav-right{display:flex; align-items:center; gap:20px;}
+  .lang-toggle{display:flex; border:1px solid rgba(36,26,34,.25); border-radius:999px; overflow:hidden;}
+  .lang-btn{font-family:var(--font-body); font-size:12px; font-weight:600; letter-spacing:.1em; padding:6px 12px; background:none; border:none; color:var(--l8); opacity:.6; cursor:pointer; transition:background .2s,color .2s,opacity .2s;}
+  .lang-btn:hover{opacity:1;}
+  .lang-btn.active{background:var(--l8); color:var(--l0); opacity:1;}
 </style>
 </head>
 <body>
 
 <nav style="position:sticky; top:0; z-index:50; display:flex; align-items:center; justify-content:space-between; padding:16px clamp(20px,5vw,48px); background:rgba(245,239,227,.92); backdrop-filter:blur(6px); border-bottom:1px solid rgba(36,26,34,.1);">
   <a href="https://bittermate.app" style="font-family:var(--font-display); font-size:18px; font-weight:600; color:var(--l8); text-decoration:none;">BitterMate</a>
-  <a href="/blog/index.html" style="font-family:var(--font-body); font-size:13px; letter-spacing:.08em; text-transform:uppercase; color:var(--l8); opacity:.6; text-decoration:none;">Blog</a>
+  <div class="nav-right">
+    <a id="nav-blog-link" href="/blog/index.html" style="font-family:var(--font-body); font-size:13px; letter-spacing:.08em; text-transform:uppercase; color:var(--l8); opacity:.6; text-decoration:none;">Blog</a>
+    <div class="lang-toggle" role="group" aria-label="Idioma / Language">
+      <button class="lang-btn active" id="btn-es" onclick="setLang('es')">ES</button>
+      <button class="lang-btn" id="btn-en" onclick="setLang('en')">EN</button>
+    </div>
+  </div>
 </nav>
 
 <header style="max-width:640px; margin:0 auto; padding:clamp(56px,9vw,88px) 24px 24px; text-align:center;">
   <div style="font-size:12px; letter-spacing:.18em; text-transform:uppercase; opacity:.55; margin-bottom:10px;">Vestigio</div>
-  <h1 style="font-size:clamp(32px,5vw,44px); font-weight:600;">Soporte</h1>
+  <h1 style="font-size:clamp(32px,5vw,44px); font-weight:600;" data-t="h1">Soporte</h1>
 </header>
 
 <main style="max-width:640px; margin:0 auto; padding:16px 24px 100px;">
 
   <section style="margin-bottom:36px;">
-    <h2 style="font-size:20px; font-weight:600; margin-bottom:10px;">¿Cómo hago un backup de mis notas?</h2>
-    <p style="margin:0; font-size:16px; line-height:1.7; opacity:.85;">
+    <h2 style="font-size:20px; font-weight:600; margin-bottom:10px;" data-t="q1_t">¿Cómo hago un backup de mis notas?</h2>
+    <p style="margin:0; font-size:16px; line-height:1.7; opacity:.85;" data-t="q1_p">
       Andá a Ajustes dentro de la app y buscá la opción de exportar. Vestigio genera un archivo con todas tus notas,
       fotos, notas de voz y ubicaciones, que podés guardar donde quieras y volver a importar desde el mismo lugar en
       cualquier momento.
@@ -43,8 +54,8 @@
   </section>
 
   <section style="margin-bottom:36px;">
-    <h2 style="font-size:20px; font-weight:600; margin-bottom:10px;">¿Cómo guardo algo desde otra app?</h2>
-    <p style="margin:0; font-size:16px; line-height:1.7; opacity:.85;">
+    <h2 style="font-size:20px; font-weight:600; margin-bottom:10px;" data-t="q2_t">¿Cómo guardo algo desde otra app?</h2>
+    <p style="margin:0; font-size:16px; line-height:1.7; opacity:.85;" data-t="q2_p">
       Desde Safari, la galería de Fotos o cualquier app que tenga el botón "Compartir" de iOS, elegí Vestigio en la
       lista y se crea una nota nueva con esa foto, link o texto. Si Vestigio no aparece en la lista, tocá "Más" dentro
       del menú de compartir y activalo ahí.
@@ -52,16 +63,16 @@
   </section>
 
   <section style="margin-bottom:36px;">
-    <h2 style="font-size:20px; font-weight:600; margin-bottom:10px;">¿Cómo cambio el material del tablero o el tema?</h2>
-    <p style="margin:0; font-size:16px; line-height:1.7; opacity:.85;">
+    <h2 style="font-size:20px; font-weight:600; margin-bottom:10px;" data-t="q3_t">¿Cómo cambio el material del tablero o el tema?</h2>
+    <p style="margin:0; font-size:16px; line-height:1.7; opacity:.85;" data-t="q3_p">
       En Ajustes tenés opciones de apariencia para elegir el material de fondo (Corcho, Granito, Madera, Mármol), la
       tipografía y el tema de color, tanto para modo claro como oscuro.
     </p>
   </section>
 
   <section style="margin-bottom:36px;">
-    <h2 style="font-size:20px; font-weight:600; margin-bottom:10px;">Mis notas no se actualizan después de compartir una foto</h2>
-    <p style="margin:0; font-size:16px; line-height:1.7; opacity:.85;">
+    <h2 style="font-size:20px; font-weight:600; margin-bottom:10px;" data-t="q4_t">Mis notas no se actualizan después de compartir una foto</h2>
+    <p style="margin:0; font-size:16px; line-height:1.7; opacity:.85;" data-t="q4_p">
       Si compartiste algo desde otra app y no ves la nota nueva, volvé a abrir Vestigio desde el ícono para forzar
       que se actualice la lista. Si el problema sigue, escribinos (más abajo) contándonos qué compartiste y desde
       qué app.
@@ -69,11 +80,11 @@
   </section>
 
   <section>
-    <h2 style="font-size:20px; font-weight:600; margin-bottom:10px;">¿Encontraste un problema o tenés una idea?</h2>
-    <p style="margin:0 0 16px; font-size:16px; line-height:1.7; opacity:.85;">
+    <h2 style="font-size:20px; font-weight:600; margin-bottom:10px;" data-t="q5_t">¿Encontraste un problema o tenés una idea?</h2>
+    <p style="margin:0 0 16px; font-size:16px; line-height:1.7; opacity:.85;" data-t="q5_p">
       Escribinos y te respondemos apenas podamos.
     </p>
-    <a href="mailto:ritual-salones.1z@icloud.com" style="display:inline-flex; align-items:center; gap:10px; padding:13px 26px; border-radius:999px; background:var(--l8); color:var(--l8-ink); font-size:15px; font-weight:600; text-decoration:none;">
+    <a href="mailto:ritual-salones.1z@icloud.com" style="display:inline-flex; align-items:center; gap:10px; padding:13px 26px; border-radius:999px; background:var(--l8); color:var(--l8-ink); font-size:15px; font-weight:600; text-decoration:none;" data-t="contact">
       Contacto
     </a>
   </section>
@@ -83,12 +94,79 @@
 <footer style="background:var(--l8); color:var(--l8-ink); padding:36px 24px 48px; text-align:center;">
   <div style="height:1px; max-width:640px; margin:0 auto 32px; background:rgba(255,255,255,.15);"></div>
   <div style="font-family:var(--font-display); font-size:20px; font-weight:600; margin-bottom:8px;">Vestigio</div>
-  <div style="font-size:13px; opacity:.55; margin-bottom:18px;">Capas, tiempo, memoria.</div>
+  <div style="font-size:13px; opacity:.55; margin-bottom:18px;" data-t="foot_tag">Capas, tiempo, memoria.</div>
   <div style="display:flex; gap:20px; justify-content:center; flex-wrap:wrap;">
-    <a href="support.html" style="font-size:13px; opacity:.9; text-decoration:none;">Soporte</a>
-    <a href="privacy.html" style="font-size:13px; opacity:.6; text-decoration:none;">Privacidad</a>
+    <a id="support-link" data-t="support" href="support.html" style="font-size:13px; opacity:.9; text-decoration:none;">Soporte</a>
+    <a id="privacy-link" data-t="privacy" href="privacy.html" style="font-size:13px; opacity:.6; text-decoration:none;">Privacidad</a>
   </div>
 </footer>
 
+
+<script>
+const copy = {
+  "es": {
+    "title": "Soporte — Vestigio",
+    "foot_tag": "Capas, tiempo, memoria.",
+    "support": "Soporte",
+    "privacy": "Privacidad",
+    "h1": "Soporte",
+    "q1_t": "¿Cómo hago un backup de mis notas?",
+    "q1_p": "Andá a Ajustes dentro de la app y buscá la opción de exportar. Vestigio genera un archivo con todas tus notas, fotos, notas de voz y ubicaciones, que podés guardar donde quieras y volver a importar desde el mismo lugar en cualquier momento.",
+    "q2_t": "¿Cómo guardo algo desde otra app?",
+    "q2_p": "Desde Safari, la galería de Fotos o cualquier app que tenga el botón \"Compartir\" de iOS, elegí Vestigio en la lista y se crea una nota nueva con esa foto, link o texto. Si Vestigio no aparece en la lista, tocá \"Más\" dentro del menú de compartir y activalo ahí.",
+    "q3_t": "¿Cómo cambio el material del tablero o el tema?",
+    "q3_p": "En Ajustes tenés opciones de apariencia para elegir el material de fondo (Corcho, Granito, Madera, Mármol), la tipografía y el tema de color, tanto para modo claro como oscuro.",
+    "q4_t": "Mis notas no se actualizan después de compartir una foto",
+    "q4_p": "Si compartiste algo desde otra app y no ves la nota nueva, volvé a abrir Vestigio desde el ícono para forzar que se actualice la lista. Si el problema sigue, escribinos (más abajo) contándonos qué compartiste y desde qué app.",
+    "q5_t": "¿Encontraste un problema o tenés una idea?",
+    "q5_p": "Escribinos y te respondemos apenas podamos.",
+    "contact": "Contacto"
+  },
+  "en": {
+    "title": "Support — Vestigio",
+    "foot_tag": "Layers, time, memory.",
+    "support": "Support",
+    "privacy": "Privacy",
+    "h1": "Support",
+    "q1_t": "How do I back up my notes?",
+    "q1_p": "Go to Settings inside the app and look for the export option. Vestigio creates a file with all your notes, photos, voice notes and locations, which you can save wherever you like and import back from the same place at any time.",
+    "q2_t": "How do I save something from another app?",
+    "q2_p": "From Safari, the Photos library or any app with the iOS “Share” button, pick Vestigio in the list and a new note is created with that photo, link or text. If Vestigio does not appear in the list, tap “More” inside the share menu and turn it on there.",
+    "q3_t": "How do I change the board material or the theme?",
+    "q3_p": "In Settings you will find appearance options to choose the background material (Cork, Granite, Wood, Marble), the typography and the color theme, for both light and dark mode.",
+    "q4_t": "My notes don’t update after sharing a photo",
+    "q4_p": "If you shared something from another app and don’t see the new note, reopen Vestigio from its icon to force the list to refresh. If the problem continues, write to us (below) and tell us what you shared and from which app.",
+    "q5_t": "Found a problem or have an idea?",
+    "q5_p": "Write to us and we’ll get back to you as soon as we can.",
+    "contact": "Contact"
+  }
+};
+
+function setLang(lang) {
+  if (!copy[lang]) lang = 'es';
+  document.documentElement.lang = lang;
+  document.title = copy[lang].title;
+  document.querySelectorAll('[data-t]').forEach(el => {
+    const v = copy[lang][el.getAttribute('data-t')];
+    if (v !== undefined) el.innerHTML = v;
+  });
+  document.getElementById('btn-es').classList.toggle('active', lang === 'es');
+  document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+  const q = lang === 'en' ? '?lang=en' : '';
+  document.getElementById('nav-blog-link').href = '/blog/index.html' + q;
+  document.getElementById('support-link').href = 'support.html' + q;
+  document.getElementById('privacy-link').href = 'privacy.html' + q;
+  try { localStorage.setItem('lang', lang); } catch (e) {}
+}
+
+// Idioma inicial: ?lang= en la URL > elección guardada > idioma del navegador
+(function () {
+  const urlLang = new URLSearchParams(window.location.search).get('lang');
+  let saved = null;
+  try { saved = localStorage.getItem('lang'); } catch (e) {}
+  const browser = (navigator.language || 'es').toLowerCase().startsWith('es') ? 'es' : 'en';
+  setLang(urlLang === 'en' || urlLang === 'es' ? urlLang : (saved || browser));
+})();
+</script>
 </body>
 </html>

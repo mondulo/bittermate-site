@@ -23,6 +23,11 @@
   body{margin:0; font-family:var(--font-body); background:var(--l0); -webkit-font-smoothing:antialiased;}
   a{color:inherit; text-decoration:none;}
   h1,h2{font-family:var(--font-display); margin:0;}
+  .nav-right{display:flex; align-items:center; gap:20px;}
+  .lang-toggle{display:flex; border:1px solid rgba(36,26,34,.25); border-radius:999px; overflow:hidden;}
+  .lang-btn{font-family:var(--font-body); font-size:12px; font-weight:600; letter-spacing:.1em; padding:6px 12px; background:none; border:none; color:var(--l8); opacity:.6; cursor:pointer; transition:background .2s,color .2s,opacity .2s;}
+  .lang-btn:hover{opacity:1;}
+  .lang-btn.active{background:var(--l8); color:var(--l0); opacity:1;}
 </style>
 </head>
 <body>
@@ -31,7 +36,13 @@
 
   <nav style="position:sticky; top:0; z-index:50; display:flex; align-items:center; justify-content:space-between; padding:16px clamp(20px,5vw,48px); background:rgba(245,239,227,.88); backdrop-filter:blur(6px); border-bottom:1px solid rgba(36,26,34,.1);">
     <a href="https://bittermate.app" style="font-family:var(--font-display); font-size:18px; font-weight:600; color:var(--l8);">BitterMate</a>
-    <a href="/blog/index.html" style="font-family:var(--font-body); font-size:13px; letter-spacing:.08em; text-transform:uppercase; color:var(--l8); opacity:.6;">Blog</a>
+    <div class="nav-right">
+      <a id="nav-blog-link" href="/blog/index.html" style="font-family:var(--font-body); font-size:13px; letter-spacing:.08em; text-transform:uppercase; color:var(--l8); opacity:.6;">Blog</a>
+      <div class="lang-toggle" role="group" aria-label="Idioma / Language">
+        <button class="lang-btn active" id="btn-es" onclick="setLang('es')">ES</button>
+        <button class="lang-btn" id="btn-en" onclick="setLang('en')">EN</button>
+      </div>
+    </div>
   </nav>
 
   <svg style="position:absolute; inset:0; width:100%; height:100%; pointer-events:none; mix-blend-mode:overlay; opacity:.3" xmlns="http://www.w3.org/2000/svg">
@@ -41,18 +52,18 @@
 
   <!-- HERO -->
   <header style="position:relative; display:flex; flex-direction:column; align-items:center; text-align:center; gap:22px; padding:clamp(72px,11vw,128px) 24px clamp(64px,9vw,100px); max-width:720px; margin:0 auto;">
-    <img src="vestigio-icon.png" alt="Ícono de Vestigio" style="width:132px; height:132px; border-radius:30px; box-shadow:0 20px 44px rgba(33,24,32,.28);">
+    <img src="vestigio-icon.png" alt="Ícono de Vestigio" data-ta="icon_alt" style="width:132px; height:132px; border-radius:30px; box-shadow:0 20px 44px rgba(33,24,32,.28);">
     <h1 style="font-size:clamp(46px,8vw,72px); font-weight:600; letter-spacing:-0.01em;">Vestigio</h1>
-    <p style="margin:0; font-family:var(--font-display); font-size:clamp(18px,2.4vw,22px); font-style:italic; opacity:.7;">Rastro, huella, lugar.</p>
-    <p style="margin:8px 0 4px; max-width:480px; font-size:17px; line-height:1.65; opacity:.82;">
+    <p style="margin:0; font-family:var(--font-display); font-size:clamp(18px,2.4vw,22px); font-style:italic; opacity:.7;" data-t="tagline">Rastro, huella, lugar.</p>
+    <p style="margin:8px 0 4px; max-width:480px; font-size:17px; line-height:1.65; opacity:.82;" data-t="hero_p">
       Guardá lo que encontrás en la calle — una foto, un ticket, una ubicación — antes de que el tiempo se lo lleve.
       Vestigio arma con eso un mapa, un mural y un calendario de tus propios rastros.
     </p>
     <a href="#" style="display:inline-flex; align-items:center; gap:10px; margin-top:12px; padding:14px 28px; border-radius:999px; background:var(--l8); color:var(--l8-ink); font-size:16px; font-weight:600;">
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v11M8 10l4 4 4-4"/><path d="M5 17v2a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-2"/></svg>
-      <span>Descargar en App Store</span>
+      <span data-t="cta">Descargar en App Store</span>
     </a>
-    <span style="font-size:13px; opacity:.5;">Próximamente en App Store</span>
+    <span style="font-size:13px; opacity:.5;" data-t="soon">Próximamente en App Store</span>
   </header>
 
   <!-- WAVE hero -> feature 1 -->
@@ -68,8 +79,8 @@
       </div>
       <div>
         <div style="font-size:13px; letter-spacing:.12em; text-transform:uppercase; opacity:.55; margin-bottom:6px;">01</div>
-        <h2 style="font-size:clamp(22px,3vw,28px); font-weight:600; margin-bottom:10px;">Geolocalización integrada</h2>
-        <p style="margin:0; font-size:16px; line-height:1.65; max-width:58ch; opacity:.85;">Asignación de ubicaciones a las notas y exploración a través de un mapa interactivo.</p>
+        <h2 style="font-size:clamp(22px,3vw,28px); font-weight:600; margin-bottom:10px;" data-t="f1_t">Geolocalización integrada</h2>
+        <p style="margin:0; font-size:16px; line-height:1.65; max-width:58ch; opacity:.85;" data-t="f1_d">Asignación de ubicaciones a las notas y exploración a través de un mapa interactivo.</p>
       </div>
     </div>
   </section>
@@ -87,8 +98,8 @@
       </div>
       <div>
         <div style="font-size:13px; letter-spacing:.12em; text-transform:uppercase; opacity:.55; margin-bottom:6px;">02</div>
-        <h2 style="font-size:clamp(22px,3vw,28px); font-weight:600; margin-bottom:10px;">Radar de proximidad</h2>
-        <p style="margin:0; font-size:16px; line-height:1.65; max-width:58ch; opacity:.85;">Filtro inteligente que detecta y muestra las notas guardadas dentro de tu radio de cercanía actual.</p>
+        <h2 style="font-size:clamp(22px,3vw,28px); font-weight:600; margin-bottom:10px;" data-t="f2_t">Radar de proximidad</h2>
+        <p style="margin:0; font-size:16px; line-height:1.65; max-width:58ch; opacity:.85;" data-t="f2_d">Filtro inteligente que detecta y muestra las notas guardadas dentro de tu radio de cercanía actual.</p>
       </div>
     </div>
   </section>
@@ -106,8 +117,8 @@
       </div>
       <div>
         <div style="font-size:13px; letter-spacing:.12em; text-transform:uppercase; opacity:.6; margin-bottom:6px;">03</div>
-        <h2 style="font-size:clamp(22px,3vw,28px); font-weight:600; margin-bottom:10px;">Caducidad de contenido</h2>
-        <p style="margin:0; font-size:16px; line-height:1.65; max-width:58ch; opacity:.88;">Sistema para asignarle fecha de vencimiento a apuntes temporales (tickets, recordatorios efímeros) con una vista especial para filtrar lo que está por expirar.</p>
+        <h2 style="font-size:clamp(22px,3vw,28px); font-weight:600; margin-bottom:10px;" data-t="f3_t">Caducidad de contenido</h2>
+        <p style="margin:0; font-size:16px; line-height:1.65; max-width:58ch; opacity:.88;" data-t="f3_d">Sistema para asignarle fecha de vencimiento a apuntes temporales (tickets, recordatorios efímeros) con una vista especial para filtrar lo que está por expirar.</p>
       </div>
     </div>
   </section>
@@ -125,13 +136,13 @@
       </div>
       <div>
         <div style="font-size:13px; letter-spacing:.12em; text-transform:uppercase; opacity:.6; margin-bottom:6px;">04</div>
-        <h2 style="font-size:clamp(22px,3vw,28px); font-weight:600; margin-bottom:10px;">Múltiples lienzos de exploración</h2>
-        <p style="margin:0 0 14px; font-size:16px; line-height:1.65; max-width:58ch; opacity:.9;">Alternancia fluida entre las vistas de Mapa, Tablero, Mural y Calendario.</p>
+        <h2 style="font-size:clamp(22px,3vw,28px); font-weight:600; margin-bottom:10px;" data-t="f4_t">Múltiples lienzos de exploración</h2>
+        <p style="margin:0 0 14px; font-size:16px; line-height:1.65; max-width:58ch; opacity:.9;" data-t="f4_d">Alternancia fluida entre las vistas de Mapa, Tablero, Mural y Calendario.</p>
         <div style="display:flex; flex-wrap:wrap; gap:8px;">
-          <span style="font-size:13px; padding:5px 12px; border-radius:999px; background:rgba(255,255,255,.28);">Mapa</span>
-          <span style="font-size:13px; padding:5px 12px; border-radius:999px; background:rgba(255,255,255,.28);">Tablero</span>
-          <span style="font-size:13px; padding:5px 12px; border-radius:999px; background:rgba(255,255,255,.28);">Mural</span>
-          <span style="font-size:13px; padding:5px 12px; border-radius:999px; background:rgba(255,255,255,.28);">Calendario</span>
+          <span style="font-size:13px; padding:5px 12px; border-radius:999px; background:rgba(255,255,255,.28);" data-t="c_map">Mapa</span>
+          <span style="font-size:13px; padding:5px 12px; border-radius:999px; background:rgba(255,255,255,.28);" data-t="c_board">Tablero</span>
+          <span style="font-size:13px; padding:5px 12px; border-radius:999px; background:rgba(255,255,255,.28);" data-t="c_mural">Mural</span>
+          <span style="font-size:13px; padding:5px 12px; border-radius:999px; background:rgba(255,255,255,.28);" data-t="c_cal">Calendario</span>
         </div>
       </div>
     </div>
@@ -150,8 +161,8 @@
       </div>
       <div>
         <div style="font-size:13px; letter-spacing:.12em; text-transform:uppercase; opacity:.65; margin-bottom:6px;">05</div>
-        <h2 style="font-size:clamp(22px,3vw,28px); font-weight:600; margin-bottom:10px;">Captura universal</h2>
-        <p style="margin:0; font-size:16px; line-height:1.65; max-width:58ch; opacity:.9;">Guardado rápido de enlaces, fotos y textos desde Safari, la galería o cualquier app nativa mediante el menú "Compartir" de iOS.</p>
+        <h2 style="font-size:clamp(22px,3vw,28px); font-weight:600; margin-bottom:10px;" data-t="f5_t">Captura universal</h2>
+        <p style="margin:0; font-size:16px; line-height:1.65; max-width:58ch; opacity:.9;" data-t="f5_d">Guardado rápido de enlaces, fotos y textos desde Safari, la galería o cualquier app nativa mediante el menú "Compartir" de iOS.</p>
       </div>
     </div>
   </section>
@@ -169,8 +180,8 @@
       </div>
       <div>
         <div style="font-size:13px; letter-spacing:.12em; text-transform:uppercase; opacity:.65; margin-bottom:6px;">06</div>
-        <h2 style="font-size:clamp(22px,3vw,28px); font-weight:600; margin-bottom:10px;">Diseño geológico y de materiales</h2>
-        <p style="margin:0; font-size:16px; line-height:1.65; max-width:58ch; opacity:.9;">Interfaz translúcida personalizable con texturas realistas (Corcho, Granito, Madera, Mármol) y control tipográfico.</p>
+        <h2 style="font-size:clamp(22px,3vw,28px); font-weight:600; margin-bottom:10px;" data-t="f6_t">Diseño geológico y de materiales</h2>
+        <p style="margin:0; font-size:16px; line-height:1.65; max-width:58ch; opacity:.9;" data-t="f6_d">Interfaz translúcida personalizable con texturas realistas (Corcho, Granito, Madera, Mármol) y control tipográfico.</p>
       </div>
     </div>
   </section>
@@ -188,13 +199,13 @@
       </div>
       <div>
         <div style="font-size:13px; letter-spacing:.12em; text-transform:uppercase; opacity:.65; margin-bottom:6px;">07</div>
-        <h2 style="font-size:clamp(22px,3vw,28px); font-weight:600; margin-bottom:10px;">Organización multimedia</h2>
-        <p style="margin:0 0 14px; font-size:16px; line-height:1.65; max-width:58ch; opacity:.9;">Clasificación estructural a través de etiquetas, colores de pines, notas de voz y fotografías.</p>
+        <h2 style="font-size:clamp(22px,3vw,28px); font-weight:600; margin-bottom:10px;" data-t="f7_t">Organización multimedia</h2>
+        <p style="margin:0 0 14px; font-size:16px; line-height:1.65; max-width:58ch; opacity:.9;" data-t="f7_d">Clasificación estructural a través de etiquetas, colores de pines, notas de voz y fotografías.</p>
         <div style="display:flex; flex-wrap:wrap; gap:8px;">
-          <span style="font-size:13px; padding:5px 12px; border-radius:999px; background:rgba(255,255,255,.16);">Etiquetas</span>
-          <span style="font-size:13px; padding:5px 12px; border-radius:999px; background:rgba(255,255,255,.16);">Colores de pin</span>
-          <span style="font-size:13px; padding:5px 12px; border-radius:999px; background:rgba(255,255,255,.16);">Notas de voz</span>
-          <span style="font-size:13px; padding:5px 12px; border-radius:999px; background:rgba(255,255,255,.16);">Fotografías</span>
+          <span style="font-size:13px; padding:5px 12px; border-radius:999px; background:rgba(255,255,255,.16);" data-t="c_tags">Etiquetas</span>
+          <span style="font-size:13px; padding:5px 12px; border-radius:999px; background:rgba(255,255,255,.16);" data-t="c_pins">Colores de pin</span>
+          <span style="font-size:13px; padding:5px 12px; border-radius:999px; background:rgba(255,255,255,.16);" data-t="c_voice">Notas de voz</span>
+          <span style="font-size:13px; padding:5px 12px; border-radius:999px; background:rgba(255,255,255,.16);" data-t="c_photos">Fotografías</span>
         </div>
       </div>
     </div>
@@ -213,8 +224,8 @@
       </div>
       <div>
         <div style="font-size:13px; letter-spacing:.12em; text-transform:uppercase; opacity:.65; margin-bottom:6px;">08</div>
-        <h2 style="font-size:clamp(22px,3vw,28px); font-weight:600; margin-bottom:10px;">Privacidad Local-First</h2>
-        <p style="margin:0; font-size:16px; line-height:1.65; max-width:58ch; opacity:.9;">Almacenamiento 100% offline en el dispositivo vía SwiftData, sin requerir cuentas de usuario ni inicios de sesión, y con soporte nativo para importar o exportar copias de seguridad.</p>
+        <h2 style="font-size:clamp(22px,3vw,28px); font-weight:600; margin-bottom:10px;" data-t="f8_t">Privacidad Local-First</h2>
+        <p style="margin:0; font-size:16px; line-height:1.65; max-width:58ch; opacity:.9;" data-t="f8_d">Almacenamiento 100% offline en el dispositivo vía SwiftData, sin requerir cuentas de usuario ni inicios de sesión, y con soporte nativo para importar o exportar copias de seguridad.</p>
       </div>
     </div>
   </section>
@@ -224,17 +235,17 @@
     <div style="max-width:900px; margin:0 auto;">
       <div style="font-size:12px; letter-spacing:.2em; text-transform:uppercase; opacity:.5; margin-bottom:20px; display:flex; align-items:center; gap:10px;">
         <span style="width:20px; height:1px; background:currentColor; display:inline-block; opacity:.6;"></span>
-        Capturas
+        <span data-t="shots">Capturas</span>
       </div>
       <div style="display:grid; grid-template-columns:repeat(4,1fr); gap:2px; background:rgba(255,255,255,.08); border:1px solid rgba(255,255,255,.08);">
-        <div style="background:rgba(255,255,255,.04); aspect-ratio:9/19.5; overflow:hidden;"><img src="screenshot-1.png" alt="Captura 1 de Vestigio" style="width:100%; height:100%; object-fit:cover; display:block;"></div>
-        <div style="background:rgba(255,255,255,.04); aspect-ratio:9/19.5; overflow:hidden;"><img src="screenshot-2.png" alt="Captura 2 de Vestigio" style="width:100%; height:100%; object-fit:cover; display:block;"></div>
-        <div style="background:rgba(255,255,255,.04); aspect-ratio:9/19.5; overflow:hidden;"><img src="screenshot-3.png" alt="Captura 3 de Vestigio" style="width:100%; height:100%; object-fit:cover; display:block;"></div>
-        <div style="background:rgba(255,255,255,.04); aspect-ratio:9/19.5; overflow:hidden;"><img src="screenshot-4.png" alt="Captura 4 de Vestigio" style="width:100%; height:100%; object-fit:cover; display:block;"></div>
-        <div style="background:rgba(255,255,255,.04); aspect-ratio:9/19.5; overflow:hidden;"><img src="screenshot-5.png" alt="Captura 5 de Vestigio" style="width:100%; height:100%; object-fit:cover; display:block;"></div>
-        <div style="background:rgba(255,255,255,.04); aspect-ratio:9/19.5; overflow:hidden;"><img src="screenshot-6.png" alt="Captura 6 de Vestigio" style="width:100%; height:100%; object-fit:cover; display:block;"></div>
-        <div style="background:rgba(255,255,255,.04); aspect-ratio:9/19.5; overflow:hidden;"><img src="screenshot-7.png" alt="Captura 7 de Vestigio" style="width:100%; height:100%; object-fit:cover; display:block;"></div>
-        <div style="background:rgba(255,255,255,.04); aspect-ratio:9/19.5; overflow:hidden;"><img src="screenshot-8.png" alt="Captura 8 de Vestigio" style="width:100%; height:100%; object-fit:cover; display:block;"></div>
+        <div style="background:rgba(255,255,255,.04); aspect-ratio:9/19.5; overflow:hidden;"><img class="gallery-img" src="screenshot-1.png" data-src-es="screenshot-1.png" data-n="1" alt="Captura 1 de Vestigio" style="width:100%; height:100%; object-fit:cover; display:block;"></div>
+        <div style="background:rgba(255,255,255,.04); aspect-ratio:9/19.5; overflow:hidden;"><img class="gallery-img" src="screenshot-2.png" data-src-es="screenshot-2.png" data-n="2" alt="Captura 2 de Vestigio" style="width:100%; height:100%; object-fit:cover; display:block;"></div>
+        <div style="background:rgba(255,255,255,.04); aspect-ratio:9/19.5; overflow:hidden;"><img class="gallery-img" src="screenshot-3.png" data-src-es="screenshot-3.png" data-n="3" alt="Captura 3 de Vestigio" style="width:100%; height:100%; object-fit:cover; display:block;"></div>
+        <div style="background:rgba(255,255,255,.04); aspect-ratio:9/19.5; overflow:hidden;"><img class="gallery-img" src="screenshot-4.png" data-src-es="screenshot-4.png" data-n="4" alt="Captura 4 de Vestigio" style="width:100%; height:100%; object-fit:cover; display:block;"></div>
+        <div style="background:rgba(255,255,255,.04); aspect-ratio:9/19.5; overflow:hidden;"><img class="gallery-img" src="screenshot-5.png" data-src-es="screenshot-5.png" data-n="5" alt="Captura 5 de Vestigio" style="width:100%; height:100%; object-fit:cover; display:block;"></div>
+        <div style="background:rgba(255,255,255,.04); aspect-ratio:9/19.5; overflow:hidden;"><img class="gallery-img" src="screenshot-6.png" data-src-es="screenshot-6.png" data-n="6" alt="Captura 6 de Vestigio" style="width:100%; height:100%; object-fit:cover; display:block;"></div>
+        <div style="background:rgba(255,255,255,.04); aspect-ratio:9/19.5; overflow:hidden;"><img class="gallery-img" src="screenshot-7.png" data-src-es="screenshot-7.png" data-n="7" alt="Captura 7 de Vestigio" style="width:100%; height:100%; object-fit:cover; display:block;"></div>
+        <div style="background:rgba(255,255,255,.04); aspect-ratio:9/19.5; overflow:hidden;"><img class="gallery-img" src="screenshot-8.png" data-src-es="screenshot-8.png" data-n="8" alt="Captura 8 de Vestigio" style="width:100%; height:100%; object-fit:cover; display:block;"></div>
       </div>
     </div>
   </section>
@@ -243,13 +254,116 @@
   <footer style="background:var(--l8); color:var(--l8-ink); padding:36px 24px 48px; text-align:center;">
     <div style="height:1px; max-width:760px; margin:0 auto 32px; background:rgba(255,255,255,.15);"></div>
     <div style="font-family:var(--font-display); font-size:20px; font-weight:600; margin-bottom:8px;">Vestigio</div>
-    <div style="font-size:13px; opacity:.55; margin-bottom:18px;">Capas, tiempo, memoria.</div>
+    <div style="font-size:13px; opacity:.55; margin-bottom:18px;" data-t="foot_tag">Capas, tiempo, memoria.</div>
     <div style="display:flex; gap:20px; justify-content:center; flex-wrap:wrap;">
-      <a href="support.html" style="font-size:13px; opacity:.6;">Soporte</a>
-      <a href="privacy.html" style="font-size:13px; opacity:.6;">Privacidad</a>
+      <a id="support-link" href="support.html" data-t="support" style="font-size:13px; opacity:.6;">Soporte</a>
+      <a id="privacy-link" href="privacy.html" data-t="privacy" style="font-size:13px; opacity:.6;">Privacidad</a>
     </div>
   </footer>
 
 </div>
+
+<script>
+const copy = {
+  es: {
+    title: 'Vestigio',
+    icon_alt: 'Ícono de Vestigio',
+    tagline: 'Rastro, huella, lugar.',
+    hero_p: 'Guardá lo que encontrás en la calle — una foto, un ticket, una ubicación — antes de que el tiempo se lo lleve. Vestigio arma con eso un mapa, un mural y un calendario de tus propios rastros.',
+    cta: 'Descargar en App Store',
+    soon: 'Próximamente en App Store',
+    f1_t: 'Geolocalización integrada',
+    f1_d: 'Asignación de ubicaciones a las notas y exploración a través de un mapa interactivo.',
+    f2_t: 'Radar de proximidad',
+    f2_d: 'Filtro inteligente que detecta y muestra las notas guardadas dentro de tu radio de cercanía actual.',
+    f3_t: 'Caducidad de contenido',
+    f3_d: 'Sistema para asignarle fecha de vencimiento a apuntes temporales (tickets, recordatorios efímeros) con una vista especial para filtrar lo que está por expirar.',
+    f4_t: 'Múltiples lienzos de exploración',
+    f4_d: 'Alternancia fluida entre las vistas de Mapa, Tablero, Mural y Calendario.',
+    f5_t: 'Captura universal',
+    f5_d: 'Guardado rápido de enlaces, fotos y textos desde Safari, la galería o cualquier app nativa mediante el menú “Compartir” de iOS.',
+    f6_t: 'Diseño geológico y de materiales',
+    f6_d: 'Interfaz translúcida personalizable con texturas realistas (Corcho, Granito, Madera, Mármol) y control tipográfico.',
+    f7_t: 'Organización multimedia',
+    f7_d: 'Clasificación estructural a través de etiquetas, colores de pines, notas de voz y fotografías.',
+    f8_t: 'Privacidad Local-First',
+    f8_d: 'Almacenamiento 100% offline en el dispositivo vía SwiftData, sin requerir cuentas de usuario ni inicios de sesión, y con soporte nativo para importar o exportar copias de seguridad.',
+    c_map: 'Mapa', c_board: 'Tablero', c_mural: 'Mural', c_cal: 'Calendario',
+    c_tags: 'Etiquetas', c_pins: 'Colores de pin', c_voice: 'Notas de voz', c_photos: 'Fotografías',
+    shots: 'Capturas',
+    shot_alt: 'Captura {n} de Vestigio',
+    foot_tag: 'Capas, tiempo, memoria.',
+    support: 'Soporte',
+    privacy: 'Privacidad'
+  },
+  en: {
+    title: 'Vestigio',
+    icon_alt: 'Vestigio app icon',
+    tagline: 'Trace, footprint, place.',
+    hero_p: 'Save what you find out in the street — a photo, a ticket, a location — before time carries it away. Vestigio turns it into a map, a mural and a calendar of your own traces.',
+    cta: 'Download on the App Store',
+    soon: 'Coming soon to the App Store',
+    f1_t: 'Built-in geolocation',
+    f1_d: 'Attach locations to your notes and explore them on an interactive map.',
+    f2_t: 'Proximity radar',
+    f2_d: 'A smart filter that finds and shows the notes you saved within your current radius.',
+    f3_t: 'Content expiration',
+    f3_d: 'Give temporary notes (tickets, short-lived reminders) an expiration date, with a dedicated view to filter what is about to expire.',
+    f4_t: 'Multiple canvases to explore',
+    f4_d: 'Switch fluidly between Map, Board, Mural and Calendar views.',
+    f5_t: 'Universal capture',
+    f5_d: 'Quickly save links, photos and text from Safari, your photo library or any native app through the iOS “Share” menu.',
+    f6_t: 'Geological and material design',
+    f6_d: 'A customizable translucent interface with realistic textures (Cork, Granite, Wood, Marble) and typography control.',
+    f7_t: 'Multimedia organization',
+    f7_d: 'Structured sorting through tags, pin colors, voice notes and photos.',
+    f8_t: 'Local-first privacy',
+    f8_d: '100% offline storage on your device via SwiftData, with no accounts or sign-ins required, and native support for importing and exporting backups.',
+    c_map: 'Map', c_board: 'Board', c_mural: 'Mural', c_cal: 'Calendar',
+    c_tags: 'Tags', c_pins: 'Pin colors', c_voice: 'Voice notes', c_photos: 'Photos',
+    shots: 'Screenshots',
+    shot_alt: 'Vestigio screenshot {n}',
+    foot_tag: 'Layers, time, memory.',
+    support: 'Support',
+    privacy: 'Privacy'
+  }
+};
+
+function setLang(lang) {
+  if (!copy[lang]) lang = 'es';
+  document.documentElement.lang = lang;
+  document.title = copy[lang].title;
+  document.querySelectorAll('[data-t]').forEach(el => {
+    const v = copy[lang][el.getAttribute('data-t')];
+    if (v !== undefined) el.textContent = v;
+  });
+  document.querySelectorAll('[data-ta]').forEach(el => {
+    const v = copy[lang][el.getAttribute('data-ta')];
+    if (v !== undefined) el.setAttribute('alt', v);
+  });
+  document.querySelectorAll('.gallery-img').forEach(img => {
+    img.alt = copy[lang].shot_alt.replace('{n}', img.getAttribute('data-n'));
+    // Capturas distintas por idioma (opcional): <img data-src-en="screenshot-1-en.png">
+    const src = img.getAttribute('data-src-' + lang) || img.getAttribute('data-src-es');
+    if (src) img.src = src;
+  });
+  document.getElementById('btn-es').classList.toggle('active', lang === 'es');
+  document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+  const q = lang === 'en' ? '?lang=en' : '';
+  document.getElementById('privacy-link').href = 'privacy.html' + q;
+  document.getElementById('support-link').href = 'support.html' + q;
+  document.getElementById('nav-blog-link').href = '/blog/index.html' + q;
+  try { localStorage.setItem('lang', lang); } catch (e) {}
+}
+
+// Idioma inicial: ?lang= en la URL > elección guardada > idioma del navegador
+(function () {
+  const urlLang = new URLSearchParams(window.location.search).get('lang');
+  let saved = null;
+  try { saved = localStorage.getItem('lang'); } catch (e) {}
+  const browser = (navigator.language || 'es').toLowerCase().startsWith('es') ? 'es' : 'en';
+  setLang(urlLang === 'en' || urlLang === 'es' ? urlLang : (saved || browser));
+})();
+</script>
 </body>
 </html>

@@ -16,26 +16,37 @@
   body{margin:0; font-family:var(--font-body); background:var(--l0); color:var(--l0-ink); -webkit-font-smoothing:antialiased;}
   a{color:inherit;}
   h1,h2{font-family:var(--font-display); margin:0;}
+  .nav-right{display:flex; align-items:center; gap:20px;}
+  .lang-toggle{display:flex; border:1px solid rgba(36,26,34,.25); border-radius:999px; overflow:hidden;}
+  .lang-btn{font-family:var(--font-body); font-size:12px; font-weight:600; letter-spacing:.1em; padding:6px 12px; background:none; border:none; color:var(--l8); opacity:.6; cursor:pointer; transition:background .2s,color .2s,opacity .2s;}
+  .lang-btn:hover{opacity:1;}
+  .lang-btn.active{background:var(--l8); color:var(--l0); opacity:1;}
 </style>
 </head>
 <body>
 
 <nav style="position:sticky; top:0; z-index:50; display:flex; align-items:center; justify-content:space-between; padding:16px clamp(20px,5vw,48px); background:rgba(245,239,227,.92); backdrop-filter:blur(6px); border-bottom:1px solid rgba(36,26,34,.1);">
   <a href="https://bittermate.app" style="font-family:var(--font-display); font-size:18px; font-weight:600; color:var(--l8); text-decoration:none;">BitterMate</a>
-  <a href="/blog/index.html" style="font-family:var(--font-body); font-size:13px; letter-spacing:.08em; text-transform:uppercase; color:var(--l8); opacity:.6; text-decoration:none;">Blog</a>
+  <div class="nav-right">
+    <a id="nav-blog-link" href="/blog/index.html" style="font-family:var(--font-body); font-size:13px; letter-spacing:.08em; text-transform:uppercase; color:var(--l8); opacity:.6; text-decoration:none;">Blog</a>
+    <div class="lang-toggle" role="group" aria-label="Idioma / Language">
+      <button class="lang-btn active" id="btn-es" onclick="setLang('es')">ES</button>
+      <button class="lang-btn" id="btn-en" onclick="setLang('en')">EN</button>
+    </div>
+  </div>
 </nav>
 
 <header style="max-width:640px; margin:0 auto; padding:clamp(56px,9vw,88px) 24px 24px; text-align:center;">
   <div style="font-size:12px; letter-spacing:.18em; text-transform:uppercase; opacity:.55; margin-bottom:10px;">Vestigio</div>
-  <h1 style="font-size:clamp(32px,5vw,44px); font-weight:600;">Privacidad</h1>
-  <p style="margin:14px 0 0; font-size:14px; opacity:.5;">Última actualización: septiembre de 2026</p>
+  <h1 style="font-size:clamp(32px,5vw,44px); font-weight:600;" data-t="h1">Privacidad</h1>
+  <p style="margin:14px 0 0; font-size:14px; opacity:.5;" data-t="updated">Última actualización: septiembre de 2026</p>
 </header>
 
 <main style="max-width:640px; margin:0 auto; padding:16px 24px 100px;">
 
   <section style="margin-bottom:36px;">
-    <h2 style="font-size:20px; font-weight:600; margin-bottom:10px;">Todo se queda en tu dispositivo</h2>
-    <p style="margin:0; font-size:16px; line-height:1.7; opacity:.85;">
+    <h2 style="font-size:20px; font-weight:600; margin-bottom:10px;" data-t="s1_t">Todo se queda en tu dispositivo</h2>
+    <p style="margin:0; font-size:16px; line-height:1.7; opacity:.85;" data-t="s1_p">
       Vestigio guarda tus notas, fotos, notas de voz y ubicaciones exclusivamente en tu iPhone o iPad, usando
       SwiftData. No hay una cuenta que crear, no hay inicio de sesión, y no enviamos tu contenido a ningún
       servidor nuestro ni de terceros. No recolectamos datos de uso ni analíticas.
@@ -43,38 +54,38 @@
   </section>
 
   <section style="margin-bottom:36px;">
-    <h2 style="font-size:20px; font-weight:600; margin-bottom:10px;">Permisos que te pedimos, y para qué</h2>
-    <p style="margin:0 0 12px; font-size:16px; line-height:1.7; opacity:.85;">Cada permiso se usa únicamente para la función que le corresponde, en el momento en que lo necesitás:</p>
+    <h2 style="font-size:20px; font-weight:600; margin-bottom:10px;" data-t="s2_t">Permisos que te pedimos, y para qué</h2>
+    <p style="margin:0 0 12px; font-size:16px; line-height:1.7; opacity:.85;" data-t="s2_p">Cada permiso se usa únicamente para la función que le corresponde, en el momento en que lo necesitás:</p>
     <ul style="margin:0; padding-left:20px; font-size:16px; line-height:1.8; opacity:.85;">
-      <li><strong>Ubicación:</strong> para asignarle una posición a una nota y mostrarla en el mapa, o para el filtro de notas cercanas.</li>
-      <li><strong>Cámara y fotos:</strong> para adjuntar imágenes a tus notas.</li>
-      <li><strong>Micrófono:</strong> para grabar notas de voz.</li>
-      <li><strong>Notificaciones:</strong> para avisarte cuando una nota está por vencer, si usás la caducidad de contenido.</li>
+      <li data-t="s2_l1"><strong>Ubicación:</strong> para asignarle una posición a una nota y mostrarla en el mapa, o para el filtro de notas cercanas.</li>
+      <li data-t="s2_l2"><strong>Cámara y fotos:</strong> para adjuntar imágenes a tus notas.</li>
+      <li data-t="s2_l3"><strong>Micrófono:</strong> para grabar notas de voz.</li>
+      <li data-t="s2_l4"><strong>Notificaciones:</strong> para avisarte cuando una nota está por vencer, si usás la caducidad de contenido.</li>
     </ul>
   </section>
 
   <section style="margin-bottom:36px;">
-    <h2 style="font-size:20px; font-weight:600; margin-bottom:10px;">Copias de seguridad</h2>
-    <p style="margin:0; font-size:16px; line-height:1.7; opacity:.85;">
+    <h2 style="font-size:20px; font-weight:600; margin-bottom:10px;" data-t="s3_t">Copias de seguridad</h2>
+    <p style="margin:0; font-size:16px; line-height:1.7; opacity:.85;" data-t="s3_p">
       Si exportás una copia de seguridad desde Ajustes, ese archivo sale de la app únicamente cuando vos elegís
       dónde guardarlo o con quién compartirlo — Vestigio no lo envía a ningún lado por su cuenta.
     </p>
   </section>
 
   <section style="margin-bottom:36px;">
-    <h2 style="font-size:20px; font-weight:600; margin-bottom:10px;">Menores de edad</h2>
-    <p style="margin:0; font-size:16px; line-height:1.7; opacity:.85;">
+    <h2 style="font-size:20px; font-weight:600; margin-bottom:10px;" data-t="s4_t">Menores de edad</h2>
+    <p style="margin:0; font-size:16px; line-height:1.7; opacity:.85;" data-t="s4_p">
       Vestigio no está dirigida a niños y no recolecta información de ningún usuario, sea cual sea su edad, porque
       no recolecta información en absoluto: todo queda en el dispositivo.
     </p>
   </section>
 
   <section>
-    <h2 style="font-size:20px; font-weight:600; margin-bottom:10px;">Consultas</h2>
-    <p style="margin:0 0 16px; font-size:16px; line-height:1.7; opacity:.85;">
+    <h2 style="font-size:20px; font-weight:600; margin-bottom:10px;" data-t="s5_t">Consultas</h2>
+    <p style="margin:0 0 16px; font-size:16px; line-height:1.7; opacity:.85;" data-t="s5_p">
       Si tenés alguna pregunta sobre esta política, escribinos.
     </p>
-    <a href="mailto:ritual-salones.1z@icloud.com" style="display:inline-flex; align-items:center; gap:10px; padding:13px 26px; border-radius:999px; background:var(--l8); color:var(--l8-ink); font-size:15px; font-weight:600; text-decoration:none;">
+    <a href="mailto:ritual-salones.1z@icloud.com" style="display:inline-flex; align-items:center; gap:10px; padding:13px 26px; border-radius:999px; background:var(--l8); color:var(--l8-ink); font-size:15px; font-weight:600; text-decoration:none;" data-t="contact">
       Contacto
     </a>
   </section>
@@ -84,12 +95,89 @@
 <footer style="background:var(--l8); color:var(--l8-ink); padding:36px 24px 48px; text-align:center;">
   <div style="height:1px; max-width:640px; margin:0 auto 32px; background:rgba(255,255,255,.15);"></div>
   <div style="font-family:var(--font-display); font-size:20px; font-weight:600; margin-bottom:8px;">Vestigio</div>
-  <div style="font-size:13px; opacity:.55; margin-bottom:18px;">Capas, tiempo, memoria.</div>
+  <div style="font-size:13px; opacity:.55; margin-bottom:18px;" data-t="foot_tag">Capas, tiempo, memoria.</div>
   <div style="display:flex; gap:20px; justify-content:center; flex-wrap:wrap;">
-    <a href="support.html" style="font-size:13px; opacity:.6; text-decoration:none;">Soporte</a>
-    <a href="privacy.html" style="font-size:13px; opacity:.9; text-decoration:none;">Privacidad</a>
+    <a id="support-link" data-t="support" href="support.html" style="font-size:13px; opacity:.6; text-decoration:none;">Soporte</a>
+    <a id="privacy-link" data-t="privacy" href="privacy.html" style="font-size:13px; opacity:.9; text-decoration:none;">Privacidad</a>
   </div>
 </footer>
 
+
+<script>
+const copy = {
+  "es": {
+    "title": "Privacidad — Vestigio",
+    "foot_tag": "Capas, tiempo, memoria.",
+    "support": "Soporte",
+    "privacy": "Privacidad",
+    "h1": "Privacidad",
+    "updated": "Última actualización: septiembre de 2026",
+    "s1_t": "Todo se queda en tu dispositivo",
+    "s1_p": "Vestigio guarda tus notas, fotos, notas de voz y ubicaciones exclusivamente en tu iPhone o iPad, usando SwiftData. No hay una cuenta que crear, no hay inicio de sesión, y no enviamos tu contenido a ningún servidor nuestro ni de terceros. No recolectamos datos de uso ni analíticas.",
+    "s2_t": "Permisos que te pedimos, y para qué",
+    "s2_p": "Cada permiso se usa únicamente para la función que le corresponde, en el momento en que lo necesitás:",
+    "s2_l1": "<strong>Ubicación:</strong> para asignarle una posición a una nota y mostrarla en el mapa, o para el filtro de notas cercanas.",
+    "s2_l2": "<strong>Cámara y fotos:</strong> para adjuntar imágenes a tus notas.",
+    "s2_l3": "<strong>Micrófono:</strong> para grabar notas de voz.",
+    "s2_l4": "<strong>Notificaciones:</strong> para avisarte cuando una nota está por vencer, si usás la caducidad de contenido.",
+    "s3_t": "Copias de seguridad",
+    "s3_p": "Si exportás una copia de seguridad desde Ajustes, ese archivo sale de la app únicamente cuando vos elegís dónde guardarlo o con quién compartirlo — Vestigio no lo envía a ningún lado por su cuenta.",
+    "s4_t": "Menores de edad",
+    "s4_p": "Vestigio no está dirigida a niños y no recolecta información de ningún usuario, sea cual sea su edad, porque no recolecta información en absoluto: todo queda en el dispositivo.",
+    "s5_t": "Consultas",
+    "s5_p": "Si tenés alguna pregunta sobre esta política, escribinos.",
+    "contact": "Contacto"
+  },
+  "en": {
+    "title": "Privacy — Vestigio",
+    "foot_tag": "Layers, time, memory.",
+    "support": "Support",
+    "privacy": "Privacy",
+    "h1": "Privacy",
+    "updated": "Last updated: September 2026",
+    "s1_t": "Everything stays on your device",
+    "s1_p": "Vestigio stores your notes, photos, voice notes and locations exclusively on your iPhone or iPad, using SwiftData. There is no account to create, no sign-in, and we do not send your content to any server of ours or of any third party. We do not collect usage data or analytics.",
+    "s2_t": "Permissions we ask for, and why",
+    "s2_p": "Each permission is used only for the feature it belongs to, at the moment you need it:",
+    "s2_l1": "<strong>Location:</strong> to give a note a position and show it on the map, or for the nearby-notes filter.",
+    "s2_l2": "<strong>Camera and photos:</strong> to attach images to your notes.",
+    "s2_l3": "<strong>Microphone:</strong> to record voice notes.",
+    "s2_l4": "<strong>Notifications:</strong> to let you know when a note is about to expire, if you use content expiration.",
+    "s3_t": "Backups",
+    "s3_p": "If you export a backup from Settings, that file leaves the app only when you choose where to save it or who to share it with — Vestigio never sends it anywhere on its own.",
+    "s4_t": "Minors",
+    "s4_p": "Vestigio is not directed at children and does not collect information from any user, whatever their age, because it does not collect information at all: everything stays on the device.",
+    "s5_t": "Contact",
+    "s5_p": "If you have any questions about this policy, write to us.",
+    "contact": "Contact"
+  }
+};
+
+function setLang(lang) {
+  if (!copy[lang]) lang = 'es';
+  document.documentElement.lang = lang;
+  document.title = copy[lang].title;
+  document.querySelectorAll('[data-t]').forEach(el => {
+    const v = copy[lang][el.getAttribute('data-t')];
+    if (v !== undefined) el.innerHTML = v;
+  });
+  document.getElementById('btn-es').classList.toggle('active', lang === 'es');
+  document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+  const q = lang === 'en' ? '?lang=en' : '';
+  document.getElementById('nav-blog-link').href = '/blog/index.html' + q;
+  document.getElementById('support-link').href = 'support.html' + q;
+  document.getElementById('privacy-link').href = 'privacy.html' + q;
+  try { localStorage.setItem('lang', lang); } catch (e) {}
+}
+
+// Idioma inicial: ?lang= en la URL > elección guardada > idioma del navegador
+(function () {
+  const urlLang = new URLSearchParams(window.location.search).get('lang');
+  let saved = null;
+  try { saved = localStorage.getItem('lang'); } catch (e) {}
+  const browser = (navigator.language || 'es').toLowerCase().startsWith('es') ? 'es' : 'en';
+  setLang(urlLang === 'en' || urlLang === 'es' ? urlLang : (saved || browser));
+})();
+</script>
 </body>
 </html>
