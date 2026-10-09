@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vestigio — Blog — BitterMate</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Mono:wght@300;400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#0d0d0b;--bg2:#141410;
+  --cream:#f0ece2;--cream-muted:#a8a290;
+  --sage:#7a9e7e;--sage-light:#9dbfa1;--sage-dim:#3d5c40;
+  --line:rgba(240,236,226,0.08);--line-med:rgba(240,236,226,0.15);
+}
+html{scroll-behavior:smooth}
+body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--cream);overflow-x:hidden}
+
+nav{display:flex;align-items:center;justify-content:space-between;padding:1.25rem 3rem;border-bottom:1px solid var(--line);background:rgba(13,13,11,0.92);position:sticky;top:0;z-index:50}
+.nav-logo{font-family:'Playfair Display',serif;font-size:1.2rem;color:var(--cream);text-decoration:none}
+.nav-logo span{color:var(--sage)}
+.nav-right{display:flex;align-items:center;gap:1.5rem}
+.nav-back{font-family:'DM Mono',monospace;font-size:0.6rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--sage-dim);text-decoration:none;transition:color 0.2s}
+.nav-back:hover{color:var(--sage)}
+.lang-toggle{display:flex;border:1px solid var(--line-med);overflow:hidden}
+.lang-btn{font-family:'DM Mono',monospace;font-size:0.6rem;letter-spacing:0.1em;padding:0.35rem 0.65rem;text-decoration:none;color:var(--cream-muted);transition:background 0.2s,color 0.2s;display:block}
+.lang-btn.active{background:var(--sage-dim);color:var(--sage-light)}
+
+article{max-width:640px;margin:0 auto;padding:5rem 3rem 2rem}
+.post-meta{font-family:'DM Mono',monospace;font-size:0.62rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--sage-dim);margin-bottom:1.5rem;display:flex;align-items:center;gap:0.75rem}
+.post-meta::before{content:'';width:1.25rem;height:1px;background:var(--sage-dim);display:inline-block}
+h1{font-family:'Playfair Display',serif;font-size:clamp(2.5rem,7vw,4rem);font-weight:700;line-height:0.98;letter-spacing:-0.02em;color:var(--cream);margin-bottom:2.5rem}
+
+.launch-visual{display:flex;align-items:flex-end;gap:2rem;margin-bottom:2.75rem}
+.launch-visual-icon{flex-shrink:0}
+.launch-icon{display:block;width:104px;height:104px;border-radius:23px;box-shadow:0 10px 28px rgba(0,0,0,0.45)}
+.launch-visual-cover{display:flex;flex-direction:column;align-items:flex-start}
+.launch-cover{display:block;width:196px;height:auto;border-radius:3px;box-shadow:0 16px 36px rgba(0,0,0,0.55)}
+.launch-caption{font-family:'DM Mono',monospace;font-size:0.64rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--sage-dim);margin-top:0.85rem}
+
+.post-body{font-size:0.95rem;color:var(--cream-muted);line-height:1.9;font-weight:300}
+.post-body p{margin-bottom:1.4rem}
+.post-body strong{color:var(--cream);font-weight:500}
+.post-body ul{margin:0 0 1.4rem 0;padding-left:1.3rem;display:flex;flex-direction:column;gap:0.6rem}
+.post-body li{list-style:none;position:relative}
+.post-body li::before{content:'—';position:absolute;left:-1.3rem;color:var(--sage-dim)}
+.signoff{font-family:'DM Mono',monospace;font-size:0.7rem;letter-spacing:0.08em;color:var(--sage-dim);margin-top:2rem}
+
+.post-footer{max-width:640px;margin:2rem auto 0;padding:2rem 3rem 4rem;border-top:1px solid var(--line)}
+.back-to-blog{font-family:'DM Mono',monospace;font-size:0.62rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--sage-dim);text-decoration:none;transition:color 0.2s}
+.back-to-blog:hover{color:var(--sage)}
+
+footer{padding:1.75rem 3rem;border-top:1px solid var(--line);display:flex;justify-content:space-between;align-items:center;background:var(--bg)}
+footer p{font-family:'DM Mono',monospace;font-size:0.62rem;letter-spacing:0.09em;color:rgba(168,162,144,0.35)}
+.footer-contact{font-family:'DM Mono',monospace;font-size:0.62rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--sage-dim);background:none;border:1px solid var(--sage-dim);padding:0.4rem 1rem;cursor:pointer;transition:color 0.2s,border-color 0.2s}
+.footer-contact:hover{color:var(--sage);border-color:var(--sage)}
+
+@media(max-width:600px){
+  nav{padding:1rem 1.5rem}
+  article{padding:3rem 1.5rem 1.5rem}
+  .post-footer{padding:1.5rem}
+  footer{padding:1.5rem;flex-wrap:wrap;gap:1rem}
+  .launch-visual{gap:1.25rem}
+  .launch-icon{width:80px;height:80px;border-radius:18px}
+  .launch-cover{width:150px}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="/index.html" class="nav-logo">Bitter<span>Mate</span></a>
+  <div class="nav-right">
+    <a href="/blog/index.html" class="nav-back">← Blog</a>
+    <div class="lang-toggle">
+      <a href="vestigio-1-0-es.html" class="lang-btn">ES</a>
+      <a href="vestigio-1-0-en.html" class="lang-btn active">EN</a>
+    </div>
+  </div>
+</nav>
+
+<article>
+  <div class="post-meta">October 2026 · by Leonardo</div>
+  <h1>Vestigio</h1>
+
+  <div class="launch-visual">
+    <div class="launch-visual-icon">
+      <img src="vestigio-icon.png" alt="Vestigio app icon" class="launch-icon">
+    </div>
+  </div>
+
+  <div class="post-body">
+    <p>I'm always coming across things on the street that I want to remember: a sign, a façade, a shop I want to visit, a detail I don't want to lose. I almost always end up with a photo lost in my camera roll among hundreds of others.</p>
+
+    <p>That's why I made <strong>Vestigio</strong>.</p>
+
+    <p>Vestigio is an app for saving what you find on the street: you take a photo, the app remembers where you were, and it stays anchored on the map.</p>
+
+    <p>Trace, footprint, place.</p>
+
+    <p>Vestigio also includes:</p>
+
+    <ul>
+      <li><strong>Geolocation</strong>, so every photo and note is tied to the place where you made it.</li>
+      <li><strong>A proximity radar</strong>, to alert you when you pass near something you wanted to remember.</li>
+      <li><strong>Expiration</strong>, for things that only matter for a while.</li>
+      <li><strong>Four canvases</strong> to view your notes: Map, Board, Mural, and Calendar.</li>
+      <li><strong>Universal capture</strong>, using the iOS share sheet to save to Vestigio whatever you find in any other app.</li>
+      <li><strong>Material design</strong>, so your notes feel like objects rather than rows in a list.</li>
+      <li><strong>Media organization</strong>, for photos and other resources attached to each note.</li>
+      <li><strong>Local-first privacy</strong>: your data lives on your device.</li>
+    </ul>
+
+    <p>It's a 1.0 and there's still room to improve. But it already does what I wanted: what catches my eye on the street doesn't get lost.</p>
+
+    <p class="signoff">— L.D.</p>
+  </div>
+</article>
+
+<div class="post-footer">
+  <a href="/blog/index.html" class="back-to-blog">← Back to blog</a>
+</div>
+
+<footer>
+  <p>© 2026 BitterMate</p>
+  <button class="footer-contact" onclick="sendMail()">Contact</button>
+</footer>
+
+<script>
+function sendMail() {
+  window.location.href = 'mailto:dardos_despoblado_8r@icloud.com?subject=' + encodeURIComponent('Suggestions');
+}
+</script>
+</body>
+</html>
