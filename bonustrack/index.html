@@ -101,7 +101,7 @@ footer p{font-family:'DM Mono',monospace;font-size:0.62rem;letter-spacing:0.09em
 
 .feat-group{padding:2rem 1.75rem;border-right:1px solid var(--line);border-bottom:1px solid var(--line)}
 .feat-group:nth-child(3n){border-right:none}
-.feat-group:nth-last-child(-n+3){border-bottom:none}
+.feat-group:nth-last-child(-n+2){border-bottom:none}
 .feat-group--highlight{background:var(--bg2)}
 
 .feat-group-title{font-family:'DM Mono',monospace;font-size:0.62rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--cream);margin-bottom:1.25rem;display:flex;align-items:center;gap:0.5rem}
@@ -240,36 +240,41 @@ footer p{font-family:'DM Mono',monospace;font-size:0.62rem;letter-spacing:0.09em
           <li data-t="f108">Contadores de reproducción e historial</li>
           <li data-t="f109">Control Center / Now Playing con artwork</li>
           <li data-t="f110">Sleep timer, por tiempo o al terminar la canción actual</li>
-          <li data-t="f111">Cola de reproducción con cuenta de canciones, "Agregar a la cola" desde cualquier vista</li>
+          <li data-t="f111">Cola de reproducción con cuenta de canciones y duración total, "Agregar a la cola" desde cualquier vista</li>
           <li data-t="f112">Cambiar de canción deslizando el dedo por el miniplayer</li>
+          <li data-t="f113">Detención suave: al pausar, la música baja de volumen gradualmente</li>
+          <li data-t="f114">Widgets: acceso directo en la pantalla bloqueada y widgets chico y mediano con la tapa de la canción actual y controles de reproducción</li>
         </ul>
       </div>
 
       <div class="feat-group">
         <div class="feat-group-title"><span class="feat-emoji">📚</span><span data-t="fg2">Biblioteca</span></div>
         <ul class="feat-list">
-          <li data-t="f201">Importación de archivos de audio desde el sistema de archivos, con copia local</li>
+          <li data-t="f201">Importación de archivos de audio desde el sistema de archivos, con copia local y cuenta de canciones</li>
           <li data-t="f202">Metadatos: título, artista, álbum, género, año, número de pista, portada</li>
           <li data-t="f203">Edición de metadatos por canción (buscar portada en internet o usar la de otra canción del mismo artista)</li>
           <li data-t="f204">Valoración por estrellas</li>
           <li data-t="f205">Búsqueda, filtrado y ordenamiento configurable</li>
           <li data-t="f206">Vistas: Lista, Portadas, Álbumes, Artistas, Géneros</li>
           <li data-t="f207">Barra alfabética de navegación en Álbumes y Artistas</li>
-          <li data-t="f208">Selección múltiple con acciones en lote (agregar a cola, agregar a lista, eliminar con confirmación)</li>
+          <li data-t="f208">Selección múltiple con acciones en lote (agregar a cola, agregar a lista, exportar archivos, eliminar con confirmación)</li>
           <li data-t="f209">Eliminación y exportación de archivos</li>
           <li data-t="f211">Herramientas de administración: detectar y combinar duplicados, refrescar metadata/portadas, backup y restore</li>
           <li data-t="f212">Importar canciones con una valoración predeterminada</li>
+          <li data-t="f213">Mantené apretado el artista o la canción en Now Playing para verlo en Biblioteca</li>
         </ul>
       </div>
 
       <div class="feat-group">
         <div class="feat-group-title"><span class="feat-emoji">📋</span><span data-t="fg3">Playlists</span></div>
         <ul class="feat-list">
-          <li data-t="f301">Playlists manuales con nombre, color e ícono personalizables (con selector aleatorio)</li>
+          <li data-t="f301">Playlists manuales con nombre, color (cualquiera) e ícono personalizables, incluso con emoji (con selector aleatorio)</li>
           <li data-t="f302">Reordenamiento por drag &amp; drop</li>
           <li data-t="f303">Importación y exportación en formato M3U</li>
           <li data-t="f304">Playlists inteligentes con reglas combinables: artista, álbum, género, año, play count, valoración, skip count, fecha de agregado, y más</li>
           <li data-t="f305">Lógica AND/OR entre reglas, límite de cantidad y criterio de orden</li>
+          <li data-t="f308">Filtro para encontrar canciones que no pertenecen a ninguna lista, ideal para revisar música sin clasificar</li>
+          <li data-t="f309">Preferencia para que el color de la lista siga el del tema: acento, inverso, blanco o negro</li>
           <li data-t="f306">Vista alternativa en mosaicos</li>
           <li data-t="f307">Ordenar listas por título, artista, álbum, calificación o manualmente</li>
         </ul>
@@ -281,30 +286,41 @@ footer p{font-family:'DM Mono',monospace;font-size:0.62rem;letter-spacing:0.09em
           <li data-t="f401">Más de 20 temas de color, organizados en colecciones (Vibrante, Pastel, Básico, Estrambótico)</li>
           <li data-t="f402">Todos los temas con contraste accesible (mínimo 4.5:1)</li>
           <li data-t="f403">Color de acento personalizable; modo adaptativo (tema distinto según claro/oscuro del sistema)</li>
-          <li data-t="f404">Crear, editar y renombrar temas propios</li>
+          <li data-t="f404">Crear, editar, duplicar y renombrar temas propios, con sugerencia de colores complementarios y generador de paletas</li>
           <li data-t="f405">Miniplayer, barras de herramientas y Now Playing con colores del tema (toggles independientes)</li>
-          <li data-t="f406">Estilo del miniplayer: Compacto, Expandido o Nano, con 7 estilos de línea divisoria y 4 modos de color</li>
-          <li data-t="f407">Now Playing: estilo Estándar o XL (tapa a pantalla completa)</li>
+          <li data-t="f406">Estilo del miniplayer: Compacto, Expandido o Nano, con 7 estilos de línea divisoria y 4 modos de color; mantené apretado para cambiar de estilo</li>
+          <li data-t="f407">Now Playing: estilo Estándar o XL (tapa a pantalla completa, con opción de ver solo la tapa sin controles, ideal como wallpaper vivo), con botón para alternar entre estilos</li>
           <li data-t="f408">Personalización de qué controles se muestran en Now Playing</li>
           <li data-t="f409">Múltiples tipografías para toda la interfaz</li>
           <li data-t="f410">Íconos de app alternativos; escudos de usuario personalizables</li>
           <li data-t="f411">Mostrar/ocultar cantidad de reproducciones y cantidad de canciones en Biblioteca</li>
+          <li data-t="f412">Vista previa en vivo en la configuración del Miniplayer y de Now Playing</li>
+          <li data-t="f413">Personalización de la barra de progreso: estilos para la barra, los contadores de tiempo, el indicador y el punto de "escuchado"</li>
         </ul>
       </div>
 
       <div class="feat-group">
         <div class="feat-group-title"><span class="feat-emoji">📊</span><span data-t="fg5">Estadísticas y logros</span></div>
         <ul class="feat-list">
-          <li data-t="f501">Estadísticas completas de la biblioteca</li>
-          <li data-t="f502">Sistema de logros con progreso visible: reproducciones, horas escuchadas, tamaño de biblioteca, álbumes completos, canciones valoradas, y más</li>
+          <li data-t="f501">Estadísticas completas de la biblioteca: racha de días escuchando (actual y récord), distribución de calificaciones, comparación semana actual vs. anterior y gráficos</li>
+          <li data-t="f502">Sistema de logros con progreso visible: reproducciones, horas escuchadas, tamaño de biblioteca, álbumes completos, canciones valoradas, rachas, géneros explorados, horarios (Noctámbulo / Madrugador) y más, con tres niveles</li>
         </ul>
       </div>
 
       <div class="feat-group">
-        <div class="feat-group-title"><span class="feat-emoji">📱</span><span data-t="fg7">iPad (nuevo en 1.2)</span></div>
+        <div class="feat-group-title"><span class="feat-emoji">📱</span><span data-t="fg7">iPad</span></div>
         <ul class="feat-list">
           <li data-t="f702">Now playing oculto o visible en vertical (configurable) y siempre visible en horizontal</li>
           <li data-t="f703">Soporte para todos los tamaños de iPad, de Mini a Pro</li>
+          <li data-t="f704">Riel vertical de playlists para cambiar de lista sin volver al selector (se puede deshabilitar en Apariencia)</li>
+          <li data-t="f705">Vista en columnas: elegí artista, álbum y accedé a las canciones</li>
+        </ul>
+      </div>
+
+      <div class="feat-group">
+        <div class="feat-group-title"><span class="feat-emoji">✨</span><span data-t="fg8">Otros</span></div>
+        <ul class="feat-list">
+          <li data-t="f801">Soporte inicial para iPhone Duo</li>
         </ul>
       </div>
 
@@ -348,7 +364,7 @@ const copy = {
     'footer-support':'Soporte',
     'feat-label':'Bonus Track · Features',
     'feat-title':'Todo lo que incluye',
-    'fg1':'Reproducción','fg2':'Biblioteca','fg3':'Playlists','fg4':'Apariencia','fg5':'Estadísticas y logros','fg6':'Sin cosas raras','fg7':'iPad (nuevo en 1.2)',
+    'fg1':'Reproducción','fg2':'Biblioteca','fg3':'Playlists','fg4':'Apariencia','fg5':'Estadísticas y logros','fg6':'Sin cosas raras','fg7':'iPad','fg8':'Otros',
     'f101':'Modos de repetición: off / una canción / todo',
     'f102':'Shuffle libre o en modo baraja',
     'f103':'Reproducción gapless, ideal para álbumes sin pausas',
@@ -359,39 +375,46 @@ const copy = {
     'f108':'Contadores de reproducción e historial',
     'f109':'Control Center / Now Playing con artwork',
     'f110':'Sleep timer, por tiempo o al terminar la canción actual',
-    'f111':'Cola de reproducción con cuenta de canciones, "Agregar a la cola" desde cualquier vista',
+    'f111':'Cola de reproducción con cuenta de canciones y duración total, "Agregar a la cola" desde cualquier vista',
     'f112':'Cambiar de canción deslizando el dedo por el miniplayer',
-    'f201':'Importación de archivos de audio desde el sistema de archivos, con copia local',
+    'f113':'Detención suave: al pausar, la música baja de volumen gradualmente',
+    'f114':'Widgets: acceso directo en la pantalla bloqueada y widgets chico y mediano con la tapa de la canción actual y controles de reproducción',
+    'f201':'Importación de archivos de audio desde el sistema de archivos, con copia local y cuenta de canciones',
     'f202':'Metadatos: título, artista, álbum, género, año, número de pista, portada',
     'f203':'Edición de metadatos por canción (buscar portada en internet o usar la de otra canción del mismo artista)',
     'f204':'Valoración por estrellas',
     'f205':'Búsqueda, filtrado y ordenamiento configurable',
     'f206':'Vistas: Lista, Portadas, Álbumes, Artistas, Géneros',
     'f207':'Barra alfabética de navegación en Álbumes y Artistas',
-    'f208':'Selección múltiple con acciones en lote (agregar a cola, agregar a lista, eliminar con confirmación)',
+    'f208':'Selección múltiple con acciones en lote (agregar a cola, agregar a lista, exportar archivos, eliminar con confirmación)',
     'f209':'Eliminación y exportación de archivos',
     'f211':'Herramientas de administración: detectar y combinar duplicados, refrescar metadata/portadas, backup y restore',
     'f212':'Importar canciones con una valoración predeterminada',
-    'f301':'Playlists manuales con nombre, color e ícono personalizables (con selector aleatorio)',
+    'f213':'Mantené apretado el artista o la canción en Now Playing para verlo en Biblioteca',
+    'f301':'Playlists manuales con nombre, color (cualquiera) e ícono personalizables, incluso con emoji (con selector aleatorio)',
     'f302':'Reordenamiento por drag &amp; drop',
     'f303':'Importación y exportación en formato M3U',
     'f304':'Playlists inteligentes con reglas combinables: artista, álbum, género, año, play count, valoración, skip count, fecha de agregado, y más',
     'f305':'Lógica AND/OR entre reglas, límite de cantidad y criterio de orden',
+    'f308':'Filtro para encontrar canciones que no pertenecen a ninguna lista, ideal para revisar música sin clasificar',
+    'f309':'Preferencia para que el color de la lista siga el del tema: acento, inverso, blanco o negro',
     'f306':'Vista alternativa en mosaicos',
     'f307':'Ordenar listas por título, artista, álbum, calificación o manualmente',
     'f401':'Más de 20 temas de color, organizados en colecciones (Vibrante, Pastel, Básico, Estrambótico)',
     'f402':'Todos los temas con contraste accesible (mínimo 4.5:1)',
     'f403':'Color de acento personalizable; modo adaptativo (tema distinto según claro/oscuro del sistema)',
-    'f404':'Crear, editar y renombrar temas propios',
+    'f404':'Crear, editar, duplicar y renombrar temas propios, con sugerencia de colores complementarios y generador de paletas',
     'f405':'Miniplayer, barras de herramientas y Now Playing con colores del tema (toggles independientes)',
-    'f406':'Estilo del miniplayer: Compacto, Expandido o Nano, con 7 estilos de línea divisoria y 4 modos de color',
-    'f407':'Now Playing: estilo Estándar o XL (tapa a pantalla completa)',
+    'f406':'Estilo del miniplayer: Compacto, Expandido o Nano, con 7 estilos de línea divisoria y 4 modos de color; mantené apretado para cambiar de estilo',
+    'f407':'Now Playing: estilo Estándar o XL (tapa a pantalla completa, con opción de ver solo la tapa sin controles, ideal como wallpaper vivo), con botón para alternar entre estilos',
     'f408':'Personalización de qué controles se muestran en Now Playing',
     'f409':'Múltiples tipografías para toda la interfaz',
     'f410':'Íconos de app alternativos; escudos de usuario personalizables',
     'f411':'Mostrar/ocultar cantidad de reproducciones y cantidad de canciones en Biblioteca',
-    'f501':'Estadísticas completas de la biblioteca',
-    'f502':'Sistema de logros con progreso visible: reproducciones, horas escuchadas, tamaño de biblioteca, álbumes completos, canciones valoradas, y más',
+    'f412':'Vista previa en vivo en la configuración del Miniplayer y de Now Playing',
+    'f413':'Personalización de la barra de progreso: estilos para la barra, los contadores de tiempo, el indicador y el punto de "escuchado"',
+    'f501':'Estadísticas completas de la biblioteca: racha de días escuchando (actual y récord), distribución de calificaciones, comparación semana actual vs. anterior y gráficos',
+    'f502':'Sistema de logros con progreso visible: reproducciones, horas escuchadas, tamaño de biblioteca, álbumes completos, canciones valoradas, rachas, géneros explorados, horarios (Noctámbulo / Madrugador) y más, con tres niveles',
     'f601':'Sin suscripciones ni compras dentro de la app',
     'f602':'Sin publicidad',
     'f603':'Sin notificaciones que interrumpan',
@@ -399,6 +422,9 @@ const copy = {
     'f605':'Todo funciona de forma local en tu dispositivo',
     'f702':'Now playing oculto o visible en vertical (configurable) y siempre visible en horizontal',
     'f703':'Soporte para todos los tamaños de iPad, de Mini a Pro',
+    'f704':'Riel vertical de playlists para cambiar de lista sin volver al selector (se puede deshabilitar en Apariencia)',
+    'f705':'Vista en columnas: elegí artista, álbum y accedé a las canciones',
+    'f801':'Soporte inicial para iPhone Duo',
   },
   en:{
     'hero-sub':'Your personal music library. Import your MP3s, build smart playlists, edit metadata and find cover art — all from your pocket.',
@@ -412,7 +438,7 @@ const copy = {
     'footer-support':'Support',
     'feat-label':'Bonus Track · Features',
     'feat-title':'Everything that&#39;s included',
-    'fg1':'Playback','fg2':'Library','fg3':'Playlists','fg4':'Appearance','fg5':'Stats & Achievements','fg6':'No weird stuff','fg7':'iPad (new in 1.2)',
+    'fg1':'Playback','fg2':'Library','fg3':'Playlists','fg4':'Appearance','fg5':'Stats & Achievements','fg6':'No weird stuff','fg7':'iPad','fg8':'Other',
     'f101':'Repeat modes: off / one song / all',
     'f102':'Free shuffle or deck-style shuffle',
     'f103':'Gapless playback, ideal for albums with no pauses',
@@ -423,39 +449,46 @@ const copy = {
     'f108':'Play counters and history',
     'f109':'Control Center / Now Playing with artwork',
     'f110':'Sleep timer, by time or at the end of the current song',
-    'f111':'Playback queue with a song count, "Add to queue" from any view',
+    'f111':'Playback queue with song count and total duration, "Add to queue" from any view',
     'f112':'Change songs by swiping across the miniplayer',
-    'f201':'Import audio files from the file system, with a local copy',
+    'f113':'Gentle stop: when pausing, the music fades out smoothly',
+    'f114':'Widgets: Lock Screen shortcut, plus small and medium widgets with the current song cover and playback controls',
+    'f201':'Import audio files from the file system, with a local copy and a song count',
     'f202':'Metadata: title, artist, album, genre, year, track number, artwork',
     'f203':'Per-song metadata editing (search for artwork online or reuse it from another song by the same artist)',
     'f204':'Star ratings',
     'f205':'Search, filtering and configurable sorting',
     'f206':'Views: List, Covers, Albums, Artists, Genres',
     'f207':'Alphabet index bar in Albums and Artists',
-    'f208':'Multi-select with batch actions (add to queue, add to playlist, delete with confirmation)',
+    'f208':'Multi-select with batch actions (add to queue, add to playlist, export files, delete with confirmation)',
     'f209':'Delete and export files',
     'f211':'Admin tools: detect and merge duplicates, refresh metadata/artwork, backup and restore',
     'f212':'Import songs with a default rating',
-    'f301':'Manual playlists with a custom name, color and icon (with a random picker)',
+    'f213':'Press and hold the artist or song in Now Playing to show it in Library',
+    'f301':'Manual playlists with a custom name, any color and icon, emoji included (with a random picker)',
     'f302':'Drag &amp; drop track reordering',
     'f303':'Import and export in M3U format',
     'f304':'Smart playlists with combinable rules: artist, album, genre, year, play count, rating, skip count, date added, and more',
     'f305':'AND/OR logic between rules, item limit and sort criteria',
+    'f308':'Filter for songs that don\'t belong to any playlist, great for reviewing unsorted music',
+    'f309':'Preference so the playlist color follows the theme: accent, its inverse, white or black',
     'f306':'Alternative tile view',
     'f307':'Sort playlists by title, artist, album, rating, or manually',
     'f401':'20+ color themes, organized into collections (Vibrant, Pastel, Basic, Offbeat)',
     'f402':'All themes meet a minimum 4.5:1 contrast ratio',
     'f403':'Customizable accent color; adaptive mode (different theme for light/dark system appearance)',
-    'f404':'Create, edit and rename your own themes',
+    'f404':'Create, edit, duplicate and rename your own themes, with complementary color suggestions and a palette generator',
     'f405':'Miniplayer, toolbars and Now Playing with theme colors (independent toggles)',
-    'f406':'Miniplayer style: Compact, Expanded or Nano, with 7 divider-line styles and 4 color modes',
-    'f407':'Now Playing: Standard or XL style (full-screen cover)',
+    'f406':'Miniplayer style: Compact, Expanded or Nano, with 7 divider-line styles and 4 color modes; press and hold to switch styles',
+    'f407':'Now Playing: Standard or XL style (full-screen cover, with an option to show only the artwork and no controls, ideal as a live wallpaper), with a button to switch between styles',
     'f408':'Customize which controls are visible in Now Playing',
     'f409':'Multiple typefaces across the interface',
     'f410':'Alternate app icons; customizable user badges',
     'f411':'Show/hide play count and song count in Library',
-    'f501':'Full library statistics',
-    'f502':'Achievement system with visible progress: plays, listening hours, library size, full albums, rated songs, and more',
+    'f412':'Live preview in the Miniplayer and Now Playing settings',
+    'f413':'Progress bar customization: styles for the bar, time counters, indicator and the "played" point',
+    'f501':'Full library statistics: listening streak (current and record), rating distribution, this week vs. last week comparison and charts',
+    'f502':'Achievement system with visible progress: plays, listening hours, library size, full albums, rated songs, streaks, genres explored, time of day (Night Owl / Early Bird) and more, with three tiers',
     'f601':'No subscriptions or in-app purchases',
     'f602':'No ads',
     'f603':'No interrupting notifications',
@@ -463,6 +496,9 @@ const copy = {
     'f605':'Everything works locally on your device',
     'f702':'Now Playing hidden or shown in portrait (configurable), and always visible in landscape',
     'f703':'Support for every iPad size, from Mini to Pro',
+    'f704':'Vertical playlist rail to switch lists without going back to the picker (can be disabled in Appearance)',
+    'f705':'Column view: pick an artist, then an album, and get to the songs',
+    'f801':'Initial support for iPhone Duo',
   }
 };
 
