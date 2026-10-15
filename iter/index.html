@@ -1,0 +1,219 @@
+<!doctype html>
+<html lang="es" data-lang="es"
+  data-title-es="Iter — iPhone & iPad · BitterMate" data-title-en="Iter — iPhone & iPad · BitterMate"
+  data-desc-es="Iter: un cliente distinto para tus Recordatorios de Apple. Columnas a tu medida, tareas que se repiten desde que las completás, eventos y una libreta con Apple Pencil."
+  data-desc-en="Iter: a different take on your Apple Reminders. Custom columns, tasks that repeat from the day you finish them, calendar events and a notebook for Apple Pencil.">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Iter — iPhone &amp; iPad · BitterMate</title>
+<meta name="description" content="Iter: un cliente distinto para tus Recordatorios de Apple. Columnas a tu medida, tareas que se repiten desde que las completás, eventos y una libreta con Apple Pencil.">
+<meta name="theme-color" content="#28160c">
+<link rel="icon" href="icon.png">
+<link rel="apple-touch-icon" href="icon.png">
+<meta property="og:title" content="Iter — iPhone & iPad">
+<meta property="og:description" content="Tus pendientes, a tu ritmo.">
+<meta property="og:image" content="https://bittermate.app/iter/icon.png">
+<link rel="stylesheet" href="iter.css">
+<script src="iter.js"></script>
+</head>
+<body>
+
+<nav class="top">
+  <a href="https://bittermate.app" class="nav-logo">Bitter<span>Mate</span></a>
+  <div class="nav-right">
+    <a class="nav-link" data-href="/blog/index.html" href="/blog/index.html">Blog</a>
+    <div class="langs" role="group" aria-label="Idioma / Language">
+      <button type="button" data-set="es" aria-pressed="true">ES</button>
+      <button type="button" data-set="en" aria-pressed="false">EN</button>
+    </div>
+  </div>
+</nav>
+
+<div class="wrap">
+  <header class="brand">
+    <img class="icon" src="icon.png" width="148" height="148" alt="Iter">
+    <h1 class="name">Iter</h1>
+    <p class="sub">iPhone &amp; iPad</p>
+  </header>
+
+  <section class="panel hero">
+    <p class="tag"><span lang="es">Tus pendientes, a tu ritmo.</span><span lang="en">Your to-dos, at your pace.</span></p>
+    <p class="lead">
+      <span lang="es">Un cliente distinto para tus Recordatorios y tu Calendario de Apple: un tablero de columnas que armás a tu manera, con el aspecto de una libreta de cuero y papel.</span>
+      <span lang="en">A different take on your Apple Reminders and Calendar: a board of columns you build your own way, dressed up like a leather-and-paper notebook.</span>
+    </p>
+    <div class="store">
+      <!-- Cuando salga en la App Store: pegá el link en APP_STORE_URL, en el script de más abajo. -->
+      <a class="btn" id="storeBtn" aria-disabled="true" role="link" tabindex="-1">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12"/><path d="m7 11 5 5 5-5"/><path d="M5 20h14"/></svg>
+        <span class="t">
+          <small><span lang="es">Descargar en</span><span lang="en">Download on the</span></small>
+          App Store
+        </span>
+      </a>
+      <div class="soon"><span lang="es">Próximamente</span><span lang="en">Coming soon</span></div>
+    </div>
+  </section>
+
+  <section class="features" aria-label="Funciones">
+    <article class="panel">
+      <h2><span lang="es">Tu tablero, a tu medida</span><span lang="en">Your board, your way</span></h2>
+      <p><span lang="es">Columnas por lista, por rango de fechas o con filtros inteligentes, y reordenables. Tareas y eventos conviven en el mismo lugar.</span><span lang="en">Columns by list, by date range or with smart filters, and reorderable. Tasks and events live side by side.</span></p>
+    </article>
+    <article class="panel">
+      <h2><span lang="es">Se repiten desde que las hacés</span><span lang="en">Repeat from when you do them</span></h2>
+      <p><span lang="es">Regar las plantas cada 3 días: Iter calcula la próxima vez desde que completaste la tarea, no desde una fecha fija. Y ves hace cuánto la hiciste.</span><span lang="en">Water the plants every 3 days: Iter schedules the next time from when you completed the task, not from a fixed date. And you see how long ago you did it.</span></p>
+    </article>
+    <article class="panel">
+      <h2><span lang="es">Posponer en un toque</span><span lang="en">Postpone in one tap</span></h2>
+      <p><span lang="es">Mañana, el lunes, +2 días, a la tarde, a la madrugada… atajos pensados para mover una tarea sin pensar.</span><span lang="en">Tomorrow, Monday, +2 days, this afternoon, early morning… shortcuts to move a task without thinking.</span></p>
+    </article>
+    <article class="panel">
+      <h2><span lang="es">Modo XL</span><span lang="en">XL Mode</span></h2>
+      <p><span lang="es">Elegí hasta tres tareas y verlas en grande, para concentrarte en lo que toca hoy.</span><span lang="en">Pick up to three tasks and see them big, to focus on what's up today.</span></p>
+    </article>
+    <article class="panel">
+      <h2><span lang="es">Una libreta a mano</span><span lang="en">A notebook at hand</span></h2>
+      <p><span lang="es">Texto enriquecido, viñetas y dibujo con Apple Pencil, sobre el papel que prefieras.</span><span lang="en">Rich text, bullet lists and Apple Pencil drawing, on the paper you prefer.</span></p>
+    </article>
+    <article class="panel">
+      <h2><span lang="es">Privado y sincronizado</span><span lang="en">Private and in sync</span></h2>
+      <p><span lang="es">Tus datos siguen en iCloud, como siempre. Sin cuentas, sin publicidad y sin rastreo.</span><span lang="en">Your data stays in iCloud, as always. No accounts, no ads, no tracking.</span></p>
+    </article>
+  </section>
+
+  <section class="panel gallery">
+    <h2>iPad</h2>
+    <div class="thumbs ipad" id="t-ipad"></div>
+  </section>
+
+  <section class="panel gallery">
+    <h2>iPhone</h2>
+    <div class="thumbs iphone" id="t-iphone"></div>
+  </section>
+
+  <footer class="foot">
+    <div class="links">
+      <a data-href="support.html" href="support.html"><span lang="es">Soporte</span><span lang="en">Support</span></a>
+      <a data-href="privacy.html" href="privacy.html"><span lang="es">Privacidad</span><span lang="en">Privacy</span></a>
+      <button type="button" class="mail" data-mail="Comentarios sobre Iter|Iter feedback"><span lang="es">Contacto</span><span lang="en">Contact</span></button>
+    </div>
+    <div class="brand-line">© <span id="yr"></span> BitterMate</div>
+  </footer>
+</div>
+
+<div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Galería">
+  <button class="ctl prev" id="lbPrev" type="button" aria-label="Anterior"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m15 5-7 7 7 7"/></svg></button>
+  <figure><img id="lbImg" alt=""><figcaption id="lbCap"></figcaption></figure>
+  <button class="ctl next" id="lbNext" type="button" aria-label="Siguiente"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m9 5 7 7-7 7"/></svg></button>
+  <button class="ctl close" id="lbClose" type="button" aria-label="Cerrar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M6 6l12 12M18 6 6 18"/></svg></button>
+</div>
+
+<script>
+(function () {
+  /* Capturas en esta misma carpeta:  iPad-1-es.png … iPad-10-es.png / iPad-1-en.png …
+                                      iPhone-1-es.png … iPhone-7-es.png / iPhone-1-en.png … */
+  var COUNTS = { ipad: 10, iphone: 7 };
+  var NAMES = { ipad: "iPad", iphone: "iPhone" };
+  var APP_STORE_URL = ""; // ← pegá acá el link de la App Store cuando esté publicada
+
+  var T = {
+    es: { shot: "Captura", of: "de", close: "Cerrar", prev: "Anterior", next: "Siguiente", gallery: "Galería" },
+    en: { shot: "Screenshot", of: "of", close: "Close", prev: "Previous", next: "Next", gallery: "Gallery" }
+  };
+
+  function lang() { return window.Iter.lang(); }
+  var state = { kind: null, n: 0, ok: { ipad: {}, iphone: {} } };
+
+  function build(kind) {
+    var box = document.getElementById("t-" + kind);
+    box.innerHTML = "";
+    state.ok[kind] = {};
+    for (var n = 1; n <= COUNTS[kind]; n++) {
+      (function (n) {
+        var src = NAMES[kind] + "-" + n + "-" + lang() + ".png";
+        var b = document.createElement("button");
+        b.type = "button"; b.className = "thumb";
+        b.setAttribute("aria-label", T[lang()].shot + " " + n + " " + T[lang()].of + " " + COUNTS[kind] + " — " + NAMES[kind]);
+        var shot = document.createElement("span"); shot.className = "shot";
+        var img = document.createElement("img");
+        img.alt = ""; img.decoding = "async"; img.loading = "lazy";
+        img.onload = function () { state.ok[kind][n] = src; };
+        img.onerror = function () { b.classList.add("missing"); };
+        img.src = src;
+        shot.appendChild(img); b.appendChild(shot); box.appendChild(b);
+        b.addEventListener("click", function () { open(kind, n); });
+      })(n);
+    }
+  }
+
+  /* Visor */
+  var lb = document.getElementById("lb"), lbImg = document.getElementById("lbImg"), lbCap = document.getElementById("lbCap");
+  var lastFocus = null;
+  function nums() { return Object.keys(state.ok[state.kind]).map(Number).sort(function (a, b) { return a - b; }); }
+  function show(n) {
+    var all = nums(); if (!all.length) return;
+    var pos = all.indexOf(n); if (pos < 0) pos = 0;
+    state.n = all[pos];
+    lbImg.src = state.ok[state.kind][state.n];
+    lbImg.alt = T[lang()].shot + " " + state.n;
+    lbCap.textContent = (pos + 1) + " / " + all.length;
+    [all[(pos + 1) % all.length], all[(pos - 1 + all.length) % all.length]].forEach(function (j) {
+      var p = new Image(); p.src = state.ok[state.kind][j];
+    });
+  }
+  function step(d) { var all = nums(), pos = all.indexOf(state.n); show(all[(pos + d + all.length) % all.length]); }
+  function labels() {
+    var t = T[lang()];
+    document.getElementById("lbPrev").setAttribute("aria-label", t.prev);
+    document.getElementById("lbNext").setAttribute("aria-label", t.next);
+    document.getElementById("lbClose").setAttribute("aria-label", t.close);
+    lb.setAttribute("aria-label", t.gallery);
+  }
+  function open(kind, n) {
+    if (!state.ok[kind][n]) return;
+    state.kind = kind; lastFocus = document.activeElement;
+    lb.classList.add("open"); document.body.classList.add("noscroll");
+    labels(); show(n); document.getElementById("lbClose").focus();
+  }
+  function close() {
+    lb.classList.remove("open"); document.body.classList.remove("noscroll"); lbImg.removeAttribute("src");
+    if (lastFocus && lastFocus.focus) lastFocus.focus();
+  }
+  document.getElementById("lbPrev").onclick = function (e) { e.stopPropagation(); step(-1); };
+  document.getElementById("lbNext").onclick = function (e) { e.stopPropagation(); step(1); };
+  document.getElementById("lbClose").onclick = close;
+  lb.addEventListener("click", function (e) { if (e.target === lb || e.target.tagName === "FIGURE") close(); });
+  document.addEventListener("keydown", function (e) {
+    if (!lb.classList.contains("open")) return;
+    if (e.key === "Escape") close();
+    else if (e.key === "ArrowLeft") step(-1);
+    else if (e.key === "ArrowRight") step(1);
+    else if (e.key === "Tab") {
+      var f = lb.querySelectorAll("button"), first = f[0], last = f[f.length - 1];
+      if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+      else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+    }
+  });
+  var sx = null;
+  lb.addEventListener("pointerdown", function (e) { sx = e.clientX; });
+  lb.addEventListener("pointerup", function (e) {
+    if (sx === null) return; var dx = e.clientX - sx; sx = null;
+    if (Math.abs(dx) > 50) step(dx < 0 ? 1 : -1);
+  });
+
+  /* Botón de la App Store */
+  var btn = document.getElementById("storeBtn");
+  if (APP_STORE_URL) {
+    btn.href = APP_STORE_URL; btn.target = "_blank"; btn.rel = "noopener";
+    btn.removeAttribute("aria-disabled"); btn.removeAttribute("role"); btn.removeAttribute("tabindex");
+    document.documentElement.classList.add("live");
+  }
+  btn.addEventListener("click", function (e) { if (!APP_STORE_URL) e.preventDefault(); });
+
+  window.Iter.onLang(function () { if (lb.classList.contains("open")) close(); build("ipad"); build("iphone"); });
+})();
+</script>
+</body>
+</html>
