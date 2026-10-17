@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Iter: Una app de tareas, calendario y notas pensada para iPad — BitterMate</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Mono:wght@300;400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--bg:#0d0d0b;--bg2:#141410;--cream:#f0ece2;--cream-muted:#a8a290;--sage:#7a9e7e;--sage-light:#9dbfa1;--sage-dim:#3d5c40;--line:rgba(240,236,226,0.08);--line-med:rgba(240,236,226,0.15)}
+html{scroll-behavior:smooth}
+body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--cream);overflow-x:hidden}
+nav{display:flex;align-items:center;justify-content:space-between;padding:1.25rem 3rem;border-bottom:1px solid var(--line);background:rgba(13,13,11,0.92);position:sticky;top:0;z-index:50}
+.nav-logo{font-family:'Playfair Display',serif;font-size:1.2rem;color:var(--cream);text-decoration:none} .nav-logo span{color:var(--sage)}
+.nav-right{display:flex;align-items:center;gap:1.5rem}
+.nav-back{font-family:'DM Mono',monospace;font-size:0.6rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--sage-dim);text-decoration:none}
+.lang-toggle{display:flex;border:1px solid var(--line-med);overflow:hidden}
+.lang-btn{font-family:'DM Mono',monospace;font-size:0.6rem;letter-spacing:0.1em;padding:0.35rem 0.65rem;text-decoration:none;color:var(--cream-muted);display:block}
+.lang-btn.active{background:var(--sage-dim);color:var(--sage-light)}
+article{max-width:640px;margin:0 auto;padding:5rem 3rem 2rem}
+.post-meta{font-family:'DM Mono',monospace;font-size:0.62rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--sage-dim);margin-bottom:1.5rem;display:flex;align-items:center;gap:0.75rem}
+.post-meta::before{content:'';width:1.25rem;height:1px;background:var(--sage-dim);display:inline-block}
+h1{font-family:'Playfair Display',serif;font-size:clamp(2.5rem,7vw,4rem);font-weight:700;line-height:0.98;letter-spacing:-0.02em;color:var(--cream);margin-bottom:2.5rem}
+.launch-visual{display:flex;align-items:flex-end;gap:2rem;margin-bottom:2.75rem}
+.launch-icon{display:block;width:104px;height:104px;border-radius:23px;box-shadow:0 10px 28px rgba(0,0,0,0.45)}
+.post-body{font-size:0.95rem;color:var(--cream-muted);line-height:1.9;font-weight:300}
+.post-body p{margin-bottom:1.4rem}.post-screenshot{display:block;width:100%;max-width:100%;height:auto;margin:2rem auto;border-radius:4px;box-shadow:0 12px 30px rgba(0,0,0,0.3)}
+.post-screenshot-link{display:block;width:100%;margin:0 auto;text-decoration:none;cursor:zoom-in} .post-body strong{color:var(--cream);font-weight:500}
+.app-cta{display:inline-block;margin:0.25rem 0 1.5rem;padding:0.85rem 1.1rem;border:1px solid var(--sage-dim);color:var(--sage-light);text-decoration:none;font-family:'DM Mono',monospace;font-size:0.7rem;letter-spacing:0.05em}
+.app-cta:hover{border-color:var(--sage);color:var(--cream)}
+.signoff{font-family:'DM Mono',monospace;font-size:0.7rem;letter-spacing:0.08em;color:var(--sage-dim);margin-top:2rem}
+.post-footer{max-width:640px;margin:2rem auto 0;padding:2rem 3rem 4rem;border-top:1px solid var(--line)}
+.back-to-blog{font-family:'DM Mono',monospace;font-size:0.62rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--sage-dim);text-decoration:none}
+footer{padding:1.75rem 3rem;border-top:1px solid var(--line);display:flex;justify-content:space-between;align-items:center;background:var(--bg)}
+footer p{font-family:'DM Mono',monospace;font-size:0.62rem;letter-spacing:0.09em;color:rgba(168,162,144,0.35)}
+.footer-contact{font-family:'DM Mono',monospace;font-size:0.62rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--sage-dim);background:none;border:1px solid var(--sage-dim);padding:0.4rem 1rem;cursor:pointer}
+@media(max-width:600px){nav{padding:1rem 1.5rem}article{padding:3rem 1.5rem 1.5rem}.post-footer{padding:1.5rem}footer{padding:1.5rem;flex-wrap:wrap;gap:1rem}.launch-icon{width:80px;height:80px;border-radius:18px}}
+</style>
+</head>
+<body>
+<nav>
+  <a href="/index.html" class="nav-logo">Bitter<span>Mate</span></a>
+  <div class="nav-right">
+    <a href="/blog/index.html" class="nav-back">← Blog</a>
+    <div class="lang-toggle">
+      <a href="iter-1-0-es.html" class="lang-btn active">ES</a>
+      <a href="iter-1-0-en.html" class="lang-btn">EN</a>
+    </div>
+  </div>
+</nav>
+<article>
+  <div class="post-meta">Octubre 2026 · por Leonardo</div>
+  <h1>Iter: Una app de tareas, calendario y notas pensada para iPad</h1>
+  <div class="launch-visual"><img src="iter-icon.png" alt="Ícono de la app Iter" class="launch-icon"></div>
+  <div class="post-body">
+    <p>Siempre quise usar mi iPad como un organizador de tareas. Pero no como cualquier app de to-do, sino como algo más cercano al papel. Un espacio que reuniera las tareas que tengo en Recordatorios y los eventos del calendario, y que además me permitiera hacer anotaciones libres o dibujos, como un anotador sobre la mesa.</p>\n\n    <p>Durante la última década probé decenas de aplicaciones buscando algo parecido. Lo más cercano que encontré fue aprovechar las funciones multitasking de iPadOS para abrir dos o más apps al mismo tiempo. La experiencia nunca terminaba de sentirse como un todo, y había que lidiar y mantener múltiples apps.</p>\n\n    <p>Así que, una vez más este año, decidí encarar el proyecto por mi cuenta.</p>\n\n    <p>Hoy presento <strong>Iter</strong>, mi app de tareas, calendario y notas, con soporte para Apple Pencil. Todo en un mismo lugar, pensada para iPad y disponible también en iPhone.</p>\n\n    <a class="post-screenshot-link" href="iPad-1-en.png" target="_blank" rel="noopener"><img class="post-screenshot" src="iPad-1-en.png" alt="Iter en iPad: vista de la aplicación" loading="lazy"></a>
+    <p>Iter organiza las tareas en columnas configurables, que te permiten construir un tablero a medida según tus necesidades. El calendario integra tareas y eventos, mientras que la libreta ofrece un espacio para esas ideas y garabatos que te saltan a la mente cuando estás haciendo otra cosa y no sabés dónde poner.</p>
+    <a class="post-screenshot-link" href="iPad-3-en.png" target="_blank" rel="noopener"><img class="post-screenshot" src="iPad-3-en.png" alt="Iter en iPad: otra vista de la aplicación" loading="lazy"></a>\n\n    <p>La libreta de dibujo libre sincroniza con iCloud, mientras que el resto de las cosas sincronizan por su propia cuenta: las tareas son las mismas que tenés en Recordatorios y los eventos son los de Calendario.</p>\n\n    <p>La idea es combinar la estructura de un organizador con la libertad de un anotador de papel, sin tener que saltar de una app a otra.</p>\n\n    <p>También, como siempre, mi idea es ofrecer opciones de personalización. Iter ofrece un diseño con distintas texturas de cuero y diferentes colores. Las columnas, el calendario y el anotador ofrecen cada uno su propio tipo de papel, que podés cambiar. (A mí personalmente me encanta el papel legal amarillo que usaban en <em>Better Call Saul</em> en las escenas de abogados.)</p>\n\n    <p>Explorala en la App Store y descargala ya mismo: es gratuita, como todas mis apps. No te pide dinero, no tiene suscripciones, no recolecta datos, no tiene avisos, no muestra cartelitos constantes, no da consejos de vida ni te recomienda dietas. Hace lo que tiene que hacer sin molestarte.</p>
+    <p><a class="app-cta" href="https://apps.apple.com/app/iter-task-manager/id6816984715" target="_blank" rel="noopener">Descargar Iter en la App Store ↗</a></p>
+    <p class="signoff">— L.D.</p>
+  </div>
+</article>
+<div class="post-footer"><a href="/blog/index.html" class="back-to-blog">← Volver al blog</a></div>
+<footer><p>© 2026 BitterMate</p><button class="footer-contact" onclick="sendMail()">Contacto</button></footer>
+<script>
+function sendMail() {
+  window.location.href = 'mailto:dardos_despoblado_8r@icloud.com?subject=' + encodeURIComponent('Sugerencias');
+}
+</script>
+</body>
+</html>
