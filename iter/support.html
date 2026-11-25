@@ -1,148 +1,60 @@
 <!doctype html>
-<html lang="es" data-lang="es"
-  data-title-es="Iter — Soporte · BitterMate" data-title-en="Iter — Support · BitterMate"
-  data-desc-es="Guía rápida y soporte de Iter." data-desc-en="Quick guide and support for Iter.">
+<html lang="es">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Iter — Soporte · BitterMate</title>
-<meta name="description" content="Guía rápida y soporte de Iter.">
-<meta name="theme-color" content="#28160c">
-<link rel="icon" href="icon.png">
-<link rel="stylesheet" href="iter.css">
-<script src="iter.js"></script>
+<link rel="icon" href="/favicon-32x32.png">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&family=DM+Mono:wght@400&display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#0a0807;color:#f3e6d3;font-family:'DM Sans',sans-serif;-webkit-font-smoothing:antialiased}
+a:focus-visible{outline:2px solid #e6cf9a;outline-offset:3px}
+.nav{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:12px 24px;max-width:1200px;margin:0 auto;padding:16px 32px;box-sizing:border-box;min-height:72px}
+.logo{display:flex;align-items:center;gap:12px;color:#f3e6d3;text-decoration:none;font-family:'Playfair Display',serif;font-weight:600;font-size:20px;min-height:44px}
+.logo img{border-radius:8px}
+.nl{display:flex;flex-wrap:wrap;align-items:center;gap:4px 8px;font-size:15px}
+.nl a{color:#d9c3a0;text-decoration:none;padding:12px 12px}
+.lg{color:#d9c3a0;padding:12px 4px;font-family:'DM Mono',monospace;font-size:13px}
+.lg a{padding:0;color:#d9c3a0;text-decoration:none}.lg a.on{color:#f3e6d3;font-weight:700}
+main{max-width:760px;margin:0 auto;padding:56px 32px 40px;box-sizing:border-box}
+.lab{font-family:'DM Mono',monospace;font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:#e6cf9a;margin-bottom:16px}
+h1{margin:0 0 12px;font-family:'Playfair Display',serif;font-weight:600;font-size:clamp(36px,6vw,60px);line-height:1.05;letter-spacing:-.02em;color:#f3e6d3}
+.upd{font-family:'DM Mono',monospace;font-size:13px;color:#a8957a;margin:0 0 40px}
+.intro{font-size:18px;line-height:1.6;color:#d9c3a0;margin:0 0 40px;max-width:60ch}
+.st{display:flex;flex-direction:column;gap:20px;margin-top:8px}
+.card{background:#14100d;border:1px solid rgba(243,230,211,.12);border-radius:18px;padding:28px 30px}
+.card h2{margin:0 0 12px;font-family:'Playfair Display',serif;font-weight:600;font-size:24px;line-height:1.2;color:#f3e6d3}
+.card p{margin:0;font-size:16px;line-height:1.75;color:#d9c3a0}
+.card p+p{margin-top:12px}
+.card strong{color:#f3e6d3;font-weight:600}
+.card a{color:#e0a45a;text-underline-offset:3px}
+.card ul{margin:0;padding-left:20px;color:#d9c3a0;font-size:16px;line-height:1.75}
+.card li{margin-bottom:8px}
+footer{max-width:760px;margin:0 auto;padding:24px 32px 64px;box-sizing:border-box;border-top:1px solid rgba(243,230,211,.12);display:flex;flex-wrap:wrap;gap:0 8px;align-items:center;justify-content:space-between;font-size:15px}
+footer .l{display:flex;flex-wrap:wrap;gap:0 8px}
+footer a{color:#d9c3a0;padding:12px 8px;text-decoration:none}
+footer a:hover,.nl a:hover{color:#f3e6d3}
+footer small{color:#a8957a;padding:12px 8px;font-size:13px}
+@media(max-width:560px){.nav,main,footer{padding-left:20px;padding-right:20px}.card{padding:22px 20px}}
+</style>
 </head>
 <body>
-
-<nav class="top">
-  <a href="https://bittermate.app" class="nav-logo">Bitter<span>Mate</span></a>
-  <div class="nav-right">
-    <a class="nav-link" data-href="/blog/index.html" href="/blog/index.html">Blog</a>
-    <div class="langs" role="group" aria-label="Idioma / Language">
-      <button type="button" data-set="es" aria-pressed="true">ES</button>
-      <button type="button" data-set="en" aria-pressed="false">EN</button>
-    </div>
-  </div>
-</nav>
-
-<main class="wrap narrow">
-  <div class="page-label">BitterMate · Iter</div>
-  <h1 class="page"><span lang="es">Soporte</span><span lang="en">Support</span></h1>
-  <p class="intro">
-    <span lang="es">Guía rápida para empezar a usar Iter. Si después de leerla sigue habiendo algo que no funciona, o tenés una sugerencia, escribinos con el botón de contacto al pie.</span>
-    <span lang="en">A quick guide to get started with Iter. If something still isn't working after reading it, or you have a suggestion, write to us using the contact button at the bottom.</span>
-  </p>
-
-  <div class="stack">
-
-    <section class="panel">
-      <h2><span lang="es">Primeros pasos y permisos</span><span lang="en">Getting started and permissions</span></h2>
-      <div lang="es">
-        <p>Iter no tiene cuentas: usa tus Recordatorios y tu Calendario de Apple. La primera vez que la abrís te pide acceso a los dos; tocá "Permitir acceso total".</p>
-      <p>Si lo rechazaste, activalo en Ajustes de iOS → Privacidad y seguridad → Recordatorios (y Calendarios) → Iter → Acceso total. Sin ese permiso la app queda vacía.</p>
-      </div>
-      <div lang="en">
-        <p>Iter has no accounts: it uses your Apple Reminders and Calendar. The first time you open it, it asks for access to both; tap "Allow Full Access".</p>
-      <p>If you declined, turn it on in iOS Settings → Privacy &amp; Security → Reminders (and Calendars) → Iter → Full Access. Without that permission the app stays empty.</p>
-      </div>
-      </section>
-
-    <section class="panel">
-      <h2><span lang="es">Probar con datos de ejemplo</span><span lang="en">Try it with sample data</span></h2>
-      <div lang="es">
-        <p>Para ver cómo funciona sin tocar nada tuyo, abrí Ajustes → Datos y elegí cargar los datos de demostración, en español o en inglés. Se crean listas y un calendario de ejemplo con nombres claros. Cuando termines, quitalos desde la misma pantalla: no se modifica nada fuera de esas listas y ese calendario.</p>
-      </div>
-      <div lang="en">
-        <p>To see how it works without touching anything of yours, open Settings → Data and choose to load the demo data, in Spanish or English. Sample lists and a calendar are created with clear names. When you're done, remove them from the same screen: nothing outside those lists and that calendar is modified.</p>
-      </div>
-      </section>
-
-    <section class="panel">
-      <h2><span lang="es">Tu tablero de columnas</span><span lang="en">Your board of columns</span></h2>
-      <div lang="es">
-        <p>Cada columna muestra una lista de Recordatorios, un rango de fechas (hoy, próximos días, esta semana…) o un filtro inteligente. Tocá el encabezado de una columna para editarla: elegí qué muestra, el ícono y el estilo. El título sigue a lo que elegís hasta que lo escribís vos. Podés reordenar las columnas a tu gusto.</p>
-      </div>
-      <div lang="en">
-        <p>Each column shows a Reminders list, a date range (today, next few days, this week…) or a smart filter. Tap a column's header to edit it: choose what it shows, its icon and style. The title follows what you pick until you type your own. You can reorder columns however you like.</p>
-      </div>
-      </section>
-
-    <section class="panel">
-      <h2><span lang="es">Tareas que se repiten desde que las hacés</span><span lang="en">Tasks that repeat from when you do them</span></h2>
-      <div lang="es">
-        <p>En el detalle de una tarea podés elegir una repetición por intervalo ("Cada 3 días", "Cada 2 meses"…). A diferencia de una repetición con fecha fija, la próxima vez se calcula desde el momento en que la completaste. Iter te muestra hace cuánto la hiciste y ordena primero las que más se atrasaron.</p>
-      </div>
-      <div lang="en">
-        <p>In a task's detail you can choose an interval repeat ("Every 3 days", "Every 2 months"…). Unlike a fixed-date repeat, the next time is calculated from when you completed it. Iter shows how long ago you did it and lists the most overdue first.</p>
-      </div>
-      </section>
-
-    <section class="panel">
-      <h2><span lang="es">Posponer y atajos de fecha</span><span lang="en">Postponing and date shortcuts</span></h2>
-      <div lang="es">
-        <p>En el detalle de la tarea, la barra "Posponer" te deja moverla con un toque: mañana, el lunes, +2 días, la semana próxima… Los momentos del día (mañana, tarde, noche, madrugada) tienen una hora que podés ajustar en Ajustes. También podés completar una tarea desde el menú de mantener apretado.</p>
-      </div>
-      <div lang="en">
-        <p>In a task's detail, the "Postpone" bar lets you move it with one tap: tomorrow, Monday, +2 days, next week… The times of day (morning, afternoon, evening, early morning) have an hour you can adjust in Settings. You can also complete a task from the long-press menu.</p>
-      </div>
-      </section>
-
-    <section class="panel">
-      <h2><span lang="es">Modo XL</span><span lang="en">XL Mode</span></h2>
-      <div lang="es">
-        <p>Abrí el Modo XL, elegí hasta tres tareas y verlas en grande para concentrarte. La elección es del día: mañana te vuelve a preguntar cuáles querés ver.</p>
-      </div>
-      <div lang="en">
-        <p>Open XL Mode, pick up to three tasks and see them big to focus. The selection is per day: tomorrow it asks again which ones you want to see.</p>
-      </div>
-      </section>
-
-    <section class="panel">
-      <h2><span lang="es">Libreta</span><span lang="en">Notebook</span></h2>
-      <div lang="es">
-        <p>La libreta es un bloc de notas con texto enriquecido, viñetas y dibujo a mano con Apple Pencil. Podés cambiar el tipo de papel en Ajustes y exportar tus notas. Se sincroniza entre tus dispositivos a través de iCloud.</p>
-      </div>
-      <div lang="en">
-        <p>The notebook is a notepad with rich text, bullet lists and hand drawing with Apple Pencil. You can change the paper type in Settings and export your notes. It syncs across your devices through iCloud.</p>
-      </div>
-      </section>
-
-    <section class="panel">
-      <h2><span lang="es">Si algo no aparece o no sincroniza</span><span lang="en">If something is missing or won't sync</span></h2>
-      <ul lang="es">
-        <li>Revisá que Iter tenga acceso total a Recordatorios y Calendarios (ver arriba).</li>
+<div id="v-es" lang="es"><div class="nav"><a class="logo" href="/index.html"><img src="/img/iter-icon.webp" alt="" width="36" height="36">Iter</a><nav class="nl"><a href="/blog/index.html">Blog</a><span class="lg"><a href="?lang=es" data-lang="es" class="on">ES</a> / <a href="?lang=en" data-lang="en">EN</a></span></nav></div><main><div class="lab">BitterMate · Iter</div><h1>Soporte</h1><p class="intro">Guía rápida para empezar a usar Iter. Si después de leerla sigue habiendo algo que no funciona, o tenés una sugerencia, escribinos con el botón de contacto al pie.</p><div class="st"><section class="card"><h2>Primeros pasos y permisos</h2><p>Iter no tiene cuentas: usa tus Recordatorios y tu Calendario de Apple. La primera vez que la abrís te pide acceso a los dos; tocá "Permitir acceso total".</p>
+      <p>Si lo rechazaste, activalo en Ajustes de iOS → Privacidad y seguridad → Recordatorios (y Calendarios) → Iter → Acceso total. Sin ese permiso la app queda vacía.</p></section><section class="card"><h2>Probar con datos de ejemplo</h2><p>Para ver cómo funciona sin tocar nada tuyo, abrí Ajustes → Datos y elegí cargar los datos de demostración, en español o en inglés. Se crean listas y un calendario de ejemplo con nombres claros. Cuando termines, quitalos desde la misma pantalla: no se modifica nada fuera de esas listas y ese calendario.</p></section><section class="card"><h2>Tu tablero de columnas</h2><p>Cada columna muestra una lista de Recordatorios, un rango de fechas (hoy, próximos días, esta semana…) o un filtro inteligente. Tocá el encabezado de una columna para editarla: elegí qué muestra, el ícono y el estilo. El título sigue a lo que elegís hasta que lo escribís vos. Podés reordenar las columnas a tu gusto.</p></section><section class="card"><h2>Tareas que se repiten desde que las hacés</h2><p>En el detalle de una tarea podés elegir una repetición por intervalo ("Cada 3 días", "Cada 2 meses"…). A diferencia de una repetición con fecha fija, la próxima vez se calcula desde el momento en que la completaste. Iter te muestra hace cuánto la hiciste y ordena primero las que más se atrasaron.</p></section><section class="card"><h2>Posponer y atajos de fecha</h2><p>En el detalle de la tarea, la barra "Posponer" te deja moverla con un toque: mañana, el lunes, +2 días, la semana próxima… Los momentos del día (mañana, tarde, noche, madrugada) tienen una hora que podés ajustar en Ajustes. También podés completar una tarea desde el menú de mantener apretado.</p></section><section class="card"><h2>Modo XL</h2><p>Abrí el Modo XL, elegí hasta tres tareas y verlas en grande para concentrarte. La elección es del día: mañana te vuelve a preguntar cuáles querés ver.</p></section><section class="card"><h2>Libreta</h2><p>La libreta es un bloc de notas con texto enriquecido, viñetas y dibujo a mano con Apple Pencil. Podés cambiar el tipo de papel en Ajustes y exportar tus notas. Se sincroniza entre tus dispositivos a través de iCloud.</p></section><section class="card"><h2>Si algo no aparece o no sincroniza</h2><ul><li>Revisá que Iter tenga acceso total a Recordatorios y Calendarios (ver arriba).</li>
         <li>Confirmá que estás con la sesión de iCloud iniciada y que Recordatorios e iCloud están activados para Iter en Ajustes de iOS → tu nombre → iCloud.</li>
         <li>Si una lista no aparece, abrila en la app Recordatorios de Apple: Iter muestra las mismas listas que ahí tengas.</li>
-        <li>Probá cerrar Iter por completo y volver a abrirla.</li>
-      </ul>
-      <ul lang="en">
-        <li>Check that Iter has full access to Reminders and Calendars (see above).</li>
+        <li>Probá cerrar Iter por completo y volver a abrirla.</li></ul></section><section class="card"><h2>Privacidad</h2><p>Iter no recopila datos personales, no usa publicidad ni telemetría y no tiene cuentas. Más detalles en la <a href="privacy.html">política de privacidad</a>.</p></section></div></main><footer><div class="l"><a href="index.html">← Volver a Iter</a><a href="privacy.html">Privacidad</a><a href="mailto:memorias-gris.7x@icloud.com?subject=Soporte%20Iter">Contacto</a></div><small>© 2026 BitterMate</small></footer></div>
+<div id="v-en" lang="en" hidden><div class="nav"><a class="logo" href="/index.html?lang=en"><img src="/img/iter-icon.webp" alt="" width="36" height="36">Iter</a><nav class="nl"><a href="/blog/index.html?lang=en">Blog</a><span class="lg"><a href="?lang=es" data-lang="es">ES</a> / <a href="?lang=en" data-lang="en" class="on">EN</a></span></nav></div><main><div class="lab">BitterMate · Iter</div><h1>Support</h1><p class="intro">A quick guide to get started with Iter. If something still isn't working after reading it, or you have a suggestion, write to us using the contact button at the bottom.</p><div class="st"><section class="card"><h2>Getting started and permissions</h2><p>Iter has no accounts: it uses your Apple Reminders and Calendar. The first time you open it, it asks for access to both; tap "Allow Full Access".</p>
+      <p>If you declined, turn it on in iOS Settings → Privacy &amp; Security → Reminders (and Calendars) → Iter → Full Access. Without that permission the app stays empty.</p></section><section class="card"><h2>Try it with sample data</h2><p>To see how it works without touching anything of yours, open Settings → Data and choose to load the demo data, in Spanish or English. Sample lists and a calendar are created with clear names. When you're done, remove them from the same screen: nothing outside those lists and that calendar is modified.</p></section><section class="card"><h2>Your board of columns</h2><p>Each column shows a Reminders list, a date range (today, next few days, this week…) or a smart filter. Tap a column's header to edit it: choose what it shows, its icon and style. The title follows what you pick until you type your own. You can reorder columns however you like.</p></section><section class="card"><h2>Tasks that repeat from when you do them</h2><p>In a task's detail you can choose an interval repeat ("Every 3 days", "Every 2 months"…). Unlike a fixed-date repeat, the next time is calculated from when you completed it. Iter shows how long ago you did it and lists the most overdue first.</p></section><section class="card"><h2>Postponing and date shortcuts</h2><p>In a task's detail, the "Postpone" bar lets you move it with one tap: tomorrow, Monday, +2 days, next week… The times of day (morning, afternoon, evening, early morning) have an hour you can adjust in Settings. You can also complete a task from the long-press menu.</p></section><section class="card"><h2>XL Mode</h2><p>Open XL Mode, pick up to three tasks and see them big to focus. The selection is per day: tomorrow it asks again which ones you want to see.</p></section><section class="card"><h2>Notebook</h2><p>The notebook is a notepad with rich text, bullet lists and hand drawing with Apple Pencil. You can change the paper type in Settings and export your notes. It syncs across your devices through iCloud.</p></section><section class="card"><h2>If something is missing or won't sync</h2><ul><li>Check that Iter has full access to Reminders and Calendars (see above).</li>
         <li>Make sure you're signed in to iCloud and that Reminders and iCloud are turned on for Iter in iOS Settings → your name → iCloud.</li>
         <li>If a list doesn't show up, open it in Apple's Reminders app: Iter shows the same lists you have there.</li>
-        <li>Try fully closing Iter and opening it again.</li>
-      </ul>
-    </section>
-
-    <section class="panel">
-      <h2><span lang="es">Privacidad</span><span lang="en">Privacy</span></h2>
-      <div lang="es">
-        <p>Iter no recopila datos personales, no usa publicidad ni telemetría y no tiene cuentas. Más detalles en la <a data-href="privacy.html" href="privacy.html">política de privacidad</a>.</p>
-      </div>
-      <div lang="en">
-        <p>Iter does not collect personal data, uses no ads or telemetry and has no accounts. More details in the <a data-href="privacy.html" href="privacy.html">privacy policy</a>.</p>
-      </div>
-      </section>
-
-  </div>
-
-  <footer class="foot">
-    <div class="links">
-      <a data-href="index.html" href="index.html"><span lang="es">← Volver a Iter</span><span lang="en">← Back to Iter</span></a>
-      <a data-href="privacy.html" href="privacy.html"><span lang="es">Privacidad</span><span lang="en">Privacy</span></a>
-      <button type="button" class="mail" data-mail="Soporte Iter|Iter support"><span lang="es">Contacto</span><span lang="en">Contact</span></button>
-    </div>
-    <div class="brand-line">© <span id="yr"></span> BitterMate</div>
-  </footer>
-</main>
+        <li>Try fully closing Iter and opening it again.</li></ul></section><section class="card"><h2>Privacy</h2><p>Iter does not collect personal data, uses no ads or telemetry and has no accounts. More details in the <a href="privacy.html?lang=en">privacy policy</a>.</p></section></div></main><footer><div class="l"><a href="index.html?lang=en">← Back to Iter</a><a href="privacy.html?lang=en">Privacy</a><a href="mailto:memorias-gris.7x@icloud.com?subject=Iter%20support">Contact</a></div><small>© 2026 BitterMate</small></footer></div>
+<script>(function(){var es=document.getElementById('v-es'),en=document.getElementById('v-en'),T={"es": "Iter — Soporte · BitterMate", "en": "Iter — Support · BitterMate"};
+function set(l){l=l==='en'?'en':'es';es.hidden=l!=='es';en.hidden=l!=='en';document.documentElement.lang=l;document.title=T[l];try{localStorage.setItem('lang',l)}catch(e){}}
+var p=new URLSearchParams(location.search).get('lang'),s=null;try{s=localStorage.getItem('lang')}catch(e){}
+set(p||s||((navigator.language||'es').slice(0,2)));
+document.addEventListener('click',function(e){var a=e.target.closest&&e.target.closest('a[data-lang]');if(a){e.preventDefault();set(a.getAttribute('data-lang'));window.scrollTo(0,0)}});
+})();</script>
 </body>
 </html>
